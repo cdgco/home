@@ -1,0 +1,21 @@
+body {
+    background-color: #313131;
+    color: #eceff1;
+    -webkit-filter: brightness(80%);
+}
+.bg-danger,
+.bg-success {
+    padding: 0 5px;
+}
+input,
+select,
+textarea {
+    color: #000;
+}
+a {
+    color: #EF1F2F;
+    text-decoration: none;
+}
+hr {
+    border-top: 1px solid #6e6e6e;
+}
