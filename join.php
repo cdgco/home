@@ -72,23 +72,15 @@ if(isset($_POST['submit'])){
 			$to = $_POST['email'];
 			$subject = "CDG Home Account Activation";
 			$body = "<p>Hello! <br><br>Welcome to CDG Home! Your signup has been received.<br></p>
-			<p>Please click the following link to activate your account: <br><br><a href='".DIR."home/activate.php?x=$id&y=$activasion'>".DIR."home/activate.php?x=$id&y=$activasion</a><br><br>If you did not signup for this account, please disregard this email, or contact us at support@cdgtech.one.</p>
-			<p>Best Regards, <br> CDG Home Team<br><br>Powered by CDG Verifier</p>";
+			<p>Please click the following link to activate your account: <br><br><a href='".DIR."activate.php?x=$id&y=$activasion'>".DIR."activate.php?x=$id&y=$activasion</a><br><br>If you did not signup for this account, please disregard this email, or contact us at support@domain.com.</p>
+			<p><br><br>Powered by CDG Home</p>";
 
-			$mail = new Mail();
-            $mail->isSMTP();                                      // Set mailer to use SMTP
-            $mail->Host = 'smtp.domain.com';  // Specify main and backup SMTP servers
-            $mail->SMTPAuth = true;                               // Enable SMTP authentication
-            $mail->Username = 'hello@domain.com';                 // SMTP username  
-            $mail->Password = 'Password';                           // SMTP password
-            $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-            $mail->Port = 587;            
-			$mail->setFrom('hello@domain.com', 'CDG Home Team');
+			$mail->setFrom('hello@domain.com', 'CDG Home');
+			$mail = new Mail();           
 			$mail->addAddress($to);
 			$mail->subject($subject);
 			$mail->body($body);
-            $mail->addReplyTo('support@domain.com', 'CDG Support');
-            $mail->isHTML(true);
+                        $mail->isHTML(true);
 			$mail->send();
 
 			//redirect to index page
@@ -105,7 +97,7 @@ if(isset($_POST['submit'])){
 }
 
 //define page title
-$title = 'Demo';
+$title = 'CDG Home - Signup';
 
 //include header template
 require('layout/header.php');
@@ -119,7 +111,7 @@ require('layout/header.php');
 	    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
 			<form role="form" method="post" action="" autocomplete="off">
 				<h2>Please Sign Up</h2>
-				<p>Back <a href='./'>Home</a> | Already a member? <a href='./login.php'>Login</a></p>
+				<p>Back <a href="index.php">Home</a> | Already a member? <a href="login.php">Login</a></p>
 				<hr>
 
 				<?php

@@ -39,22 +39,13 @@ if(isset($_POST['submit'])){
 			$subject = "CDG Home Password Reset";
 			$body = "<p>Someone requested that the password on your account be reset.</p>
 			<p>If this was a mistake, just ignore this email and nothing will happen.</p>
-			<p>To reset your password, visit the following address: <a href='".DIR."/home/resetPassword.php?key=$token'>".DIR."/home/resetPassword.php?key=$token</a></p>";
-
+			<p>To reset your password, visit the following address: <a href='".DIR."resetPassword.php?key=$token'>".DIR."resetPassword.php?key=$token</a></p>";
 
 			$mail = new Mail();
-            $mail->isSMTP();                                      // Set mailer to use SMTP
-            $mail->Host = 'smtp.domain.com';  // Specify main and backup SMTP servers
-            $mail->SMTPAuth = true;                               // Enable SMTP authentication
-            $mail->Username = 'hello@domain.com';                 // SMTP username
-            $mail->Password = 'Password';                           // SMTP password
-            $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-            $mail->Port = 587;            
-			$mail->setFrom('hello@domain.com', 'CDG Home Team');
+			$mail->setFrom('hello@domain.com', 'CDG Home');
 			$mail->addAddress($to);
 			$mail->subject($subject);
 			$mail->body($body);
-            $mail->addReplyTo('support@domain.com', 'CDG Support');
 			$mail->send();
 
 			//redirect to index page
@@ -71,7 +62,7 @@ if(isset($_POST['submit'])){
 }
 
 //define page title
-$title = 'Reset Account';
+$title = 'CDG Home - Reset Account';
 
 //include header template
 require('layout/header.php');

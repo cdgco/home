@@ -23,7 +23,7 @@ if(isset($_POST['submit'])){
 }//end if submit
 
 //define page title
-$title = 'Login';
+$title = 'CDG Home - Login';
 
 //include header template
 require('layout/header.php'); 
@@ -37,7 +37,7 @@ require('layout/header.php');
 	    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
 			<form role="form" method="post" action="" autocomplete="off">
 				<h2>Please Login</h2>
-				<p>Back <a href='./'>Home</a> | Need to <a href='./join.php'>Sign Up?</a></p>
+				<p>Back <a href="index.php">Home</a> | Need to <a href="join.php">Sign Up?</a></p>
 				<hr>
 
 				<?php

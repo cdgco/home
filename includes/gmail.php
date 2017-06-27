@@ -1,5 +1,5 @@
 <?php
 
-header("Location: https://accounts.google.com/o/oauth2/v2/auth?scope=https://www.googleapis.com/auth/gmail.readonly&redirect_uri=http://domain.com/gcallback.php&response_type=token&client_id=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.apps.googleusercontent.com");
+header("Location: https://accounts.google.com/o/oauth2/v2/auth?scope=https://www.googleapis.com/auth/gmail.readonly&redirect_uri=http://domain.com/auth.php&response_type=token&client_id=INSERT-GOOGLE-CLIENT-ID");
 
 ?>

@@ -4,7 +4,7 @@
 if(!$user->is_logged_in()){ header('Location: login.php'); } 
 
 //define page title
-$title = 'Members Page';
+$title = 'CDG Home - Settings';
 
 //include header template
 require('layout/header.php'); 
@@ -17,8 +17,8 @@ $res=mysql_query("SELECT style FROM members WHERE memberID=".$_SESSION['memberID
 $userRow=mysql_fetch_row($res);
 $resultstyle = $userRow[0];
 
-if ($resultstyle == "l") { echo 'style/main'; } 
-else { echo 'style/night'; }
+if ($resultstyle == "l") { echo 'css/main1'; } 
+else { echo 'css/night1'; }
 
 ?>.css">
 <style>
@@ -43,8 +43,8 @@ input[type=submit] {
     cursor: pointer;
 }
 </style>
-<script src="dist/sweetalert.min.js"></script>
-<link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
+<script src="js/sweetalert.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/sweetalert.css">
 <?php 
 $swal = $_GET['s'];
 if ($swal == "s") {echo '<script>swal("Success!", "Setting Updated Successfully!", "success")</script>'; }
@@ -57,7 +57,7 @@ if ($swal == "e") {echo '<script>swal("Oops...", "Try Again or Contact Support. 
 	    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
 			
 				<h2>Account Settings - <?php echo $_SESSION['username']; ?></h2>
-				<p>Back <a href='./'>Home</a> | <a href='logout.php'>Logout</a></p>
+				<p>Back <a href='index.php'>Home</a> | <a href='logout.php'>Logout</a></p>
 				<hr>
 <h3>Custom Stock Ticker: 
 <?php 
@@ -73,7 +73,7 @@ else { echo "Enabled"; }
 ?>
 </h3><hr>
 <h4>Create Custom Ticker:</h4>
-<form action="includes/change/ticker.php" name="stocks3" method="post">
+<form action="ticker.php" name="stocks3" method="post">
 <input type="text" pattern="^[a-zA-Z,]*$" title="Letters & Commas Only!" maxlength="500" name="stocks" style="width:570px" placeholder="Enter valid comma-seperated symbols to create new ticker. Ex:&nbsp;aapl,fb,vti,unh,ulta,amzn,googl" value="<?php 
 
 require('includes/dbconnect.php');
@@ -103,7 +103,7 @@ else { echo "Dark Theme"; }
 ?>
 </h3><hr>
 <h4>Change Default Style:</h4>
-<form action="includes/change/style.php" method="post">
+<form action="style.php" method="post">
 <input type="radio" name="style" value="l"> Light Theme</input>
 <input type="radio" name="style" value="d"> Dark Theme</input>
 <br><br><input type="Submit" value="Change"></input>
@@ -121,7 +121,7 @@ print_r($userRow[0]);
 ?>
 </h3><hr>
 <h4>Change Clock Format:</h4>
-<form action="includes/change/clock.php" method="post">
+<form action="clock.php" method="post">
 <input type="radio" name="newclock" value="12|12 Hour"> 12 Hour</input>
 <input type="radio" name="newclock" value="24|24 Hour"> 24 Hour</input>
 <br><br><input type="Submit" value="Change"></input>
@@ -139,7 +139,7 @@ print_r($userRow[0]);
 ?>
 </h3><hr>
 <h4>Set News Source:</h4>
-<form action="includes/change/source.php" method="post">
+<form action="source.php" method="post">
 <select name="newsource">
 <optgroup label="CNN">
   <option value="http://rss.cnn.com/rss/cnn_topstories.rss|CNN Top Stories">Top Stories</option>
@@ -188,7 +188,7 @@ print_r($userRow[0]);
 
 </h3><hr>
 <h4>Change Playlist URI:</h4>
-<form action="includes/change/spotify.php" method="post">
+<form action="spotify.php" method="post">
 <input type="text" value="<?php 
 
 require('includes/dbconnect.php');
@@ -223,7 +223,7 @@ elseif ($temp1 == "c") { echo "Celsius"; }
 ?>
 </h3><hr>
 <h4>Change Temperature Format:</h4>
-<form action="includes/change/temp.php" method="post">
+<form action="temp.php" method="post">
 <input type="radio" name="temp" value="f"> Fahrenheit</input>
 <input type="radio" name="temp" value="c"> Celsius</input>
 <br><br><input type="Submit" value="Change"></input>
@@ -258,9 +258,9 @@ $userRow=mysql_fetch_row($res);
 print_r(',&nbsp;'.$userRow[0]);
 ?><hr>
 <h4>Change Weather Location:</h3> 
-<form action="includes/change/location.php" method="post">
+<form action="location.php" method="post">
 <input type="radio" name="customlocation" value="N"> Current Location</input>
-<input type="radio" name="customlocation" onclick="window.location='includes/select/weather.php';"> Custom Location</input>
+<input type="radio" name="customlocation" onclick="window.location='selectweather.php';"> Custom Location</input>
 <br><br><input type="submit" />
 </form><hr>
 <h3>Gmail Integration: <?php 
@@ -298,8 +298,7 @@ print_r($userRow[0]);
 ?>
 </h3><hr>
 <h4>Change Account Email:</h4>
-<form action="includes/change/email.php" method="post">
-<form action="includes/change/email.php" method="post">
+<form action="email.php" method="post">
 <input type="text" name="changeemail"></input><br><br>
 <input type="Submit" value="Change"></input>
 </form>

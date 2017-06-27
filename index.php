@@ -8,7 +8,7 @@
     <meta http-equiv="Content-Language" content="en">
     <meta name="viewport" content="width=1200px, initial-scale=1.0">
 <base target="_parent">
-    <title>CDG - Home</title>
+    <title>CDG Home</title>
 <script>
 if(self==top) {
 if (screen.width > 1550 && screen.width <= 1650) {
@@ -298,7 +298,7 @@ function getStateAbbr(name) {
 $.get("https://ipinfo.io", function (response) {   
 var settings = {
   "crossDomain": true,
-  "url": "https://api.wunderground.com/api/9ac2f23f9f4869f3/conditions/q/<?php require('includes/grab/weather.php'); ?>.json",
+  "url": "https://api.wunderground.com/api/INSERT-WU-API-KEY/conditions/q/<?php require('includes/grab/weather.php'); ?>.json",
   "method": "GET",
 }
 $.ajax(settings).done(function (response) {
