@@ -1,6 +1,6 @@
 <?php
 
-require('includes/config.php');
+require('includes/vars.php');
 
 $link = mysql_connect(DBHOST, DBUSER, DBPASS);
 

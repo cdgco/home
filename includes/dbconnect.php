@@ -1,9 +1,6 @@
-<?php 
+<?php
 
-define('DBHOST','');
-define('DBUSER','');
-define('DBPASS','');
-define('DBNAME','');
+require('config.php');
 
 $link = mysql_connect(DBHOST, DBUSER, DBPASS);
 

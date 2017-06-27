@@ -1,4 +1,4 @@
-<?php require('includes/config.php'); 
+<?php require('includes/vars.php'); 
 
 //if logged in redirect to members page
 if( $user->is_logged_in() ){ header('Location: index.php'); } 

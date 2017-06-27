@@ -1,4 +1,4 @@
-<?php require( 'includes/config.php'); ?>
+<?php require( 'includes/vars.php'); ?>
 <!DOCTYPE html>
 <html>
 
@@ -298,7 +298,7 @@ function getStateAbbr(name) {
 $.get("https://ipinfo.io", function (response) {   
 var settings = {
   "crossDomain": true,
-  "url": "https://api.wunderground.com/api/INSERT-WU-API-KEY/conditions/q/<?php require('includes/grab/weather.php'); ?>.json",
+  "url": "https://api.wunderground.com/api/<?php echo WUAPIKEY; ?>/conditions/q/<?php require('includes/grab/weather.php'); ?>.json",
   "method": "GET",
 }
 $.ajax(settings).done(function (response) {

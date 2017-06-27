@@ -1,4 +1,4 @@
-<?php require('includes/config.php'); 
+<?php require('includes/vars.php'); 
 
 //if not logged in redirect to login page
 if(!$user->is_logged_in()){ header('Location: login.php'); } 
@@ -38,7 +38,7 @@ else { echo 'css/night1'; }
 <input type="submit" value="Verify"/>
 </form></center>
 <script src="https://apis.google.com/js/platform.js" async defer></script>
-<meta name="google-signin-client_id" content="INSERT-GOOGLE-CLIENT-ID">
+<meta name="google-signin-client_id" content="<?php echo GCLIENTID; ?>">
 <div class="g-signin2" style=""data-onsuccess="onSignIn"></div>
 <script>
 function onSignIn(googleUser) {

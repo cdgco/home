@@ -1,4 +1,4 @@
-<?php require('includes/config.php');
+<?php require('includes/vars.php');
 
 //if logged in redirect to members page
 if( $user->is_logged_in() ){ header('Location: index.php'); }
@@ -36,15 +36,11 @@ if(isset($_POST['submit'])){
 
 			//send email
 			$to = $row['email'];
-			$subject = "CDG Home Password Reset";
-			$body = "<p>Someone requested that the password on your account be reset.</p>
-			<p>If this was a mistake, just ignore this email and nothing will happen.</p>
-			<p>To reset your password, visit the following address: <a href='".DIR."resetPassword.php?key=$token'>".DIR."resetPassword.php?key=$token</a></p>";
-
+			$body = $resetcontent;
 			$mail = new Mail();
-			$mail->setFrom('hello@domain.com', 'CDG Home');
+			$mail->setFrom(RESETFROMADDRESS, RESETFROMNAME);
 			$mail->addAddress($to);
-			$mail->subject($subject);
+			$mail->subject(RESETSUBJECT);
 			$mail->body($body);
 			$mail->send();
 

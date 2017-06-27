@@ -8,7 +8,7 @@ class Mail extends PhpMailer
 //    public $Host     = 'smtp.domain.com';
 //    public $Mailer   = 'smtp';
 //    public $SMTPAuth = true;
-//    public $Username = '@domain.com';
+//    public $Username = 'hello@domain.com';
 //    public $Password = 'Password';
 //    public $SMTPSecure = 'tls';
 
