@@ -8,5 +8,5 @@ Custom Home Page Alpha
 4. Add all changeable variables to config.php
 5. Combine dbconnect.php & config.php
 6. Setup custom backgrounds in settings
-7. Change scaling system from screen width to windows width
+7. Change scaling system from screen width to window width
 8. Add new features to blank tiles
