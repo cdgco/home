@@ -85,9 +85,36 @@ html {
 }
 </style>
 -->
+<style>
+
+body {
+<?php
+
+if(!$user->is_logged_in()){} 
+
+else {
+
+require('includes/dbconnect.php');
+
+$res=mysql_query("SELECT bg FROM members WHERE memberID=".$_SESSION['memberID']);
+$userRow=mysql_fetch_row($res);
+$bgresult = $userRow[0];
+
+if ($bgresult == y) { 
+
+$res=mysql_query("SELECT bgurl FROM members WHERE memberID=".$_SESSION['memberID']);
+$userRow=mysql_fetch_row($res);
+$bgurl1 = $userRow[0];
+
+echo 'background-image: url("' . $bgurl1 .'");';
+
+}
+else { echo '';}} ?>
+background-size: cover;
+}
+</style>
     <link rel="stylesheet" href="css/normalize.min.css">
     <link id="style1" rel="stylesheet" href="css/<?php require( 'includes/grab/light3.php'); ?>.css">
-    <link rel="stylesheet" href="css/toggle.css">
 
 
 </head>

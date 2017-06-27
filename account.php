@@ -59,6 +59,27 @@ if ($swal == "e") {echo '<script>swal("Oops...", "Try Again or Contact Support. 
 				<h2>Account Settings - <?php echo $_SESSION['username']; ?></h2>
 				<p>Back <a href='index.php'>Home</a> | <a href='logout.php'>Logout</a></p>
 				<hr>
+<h3>Custom Background: 
+<?php 
+
+require('includes/dbconnect.php');
+
+$res=mysql_query("SELECT bg FROM members WHERE memberID=".$_SESSION['memberID']);
+$userRow=mysql_fetch_row($res);
+$bgstat = $userRow[0];
+
+if ($bgstat == "y") { echo "Enabled"; }
+elseif ($bgstat == "n") { echo "Disabled"; }
+?>
+</h3><hr>
+<h4>Custom Background:</h4>
+<form action="bgoff.php" method="post">
+<input type="radio" name="bg" onclick="window.location='bg.php';"> Set Custom Background</input>
+<input type="radio" name="bg"> Disable</input>
+<br><br><input type="Submit" value="Change"></input>
+</form>
+<hr>
+
 <h3>Custom Stock Ticker: 
 <?php 
 
