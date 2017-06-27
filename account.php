@@ -282,7 +282,7 @@ $res=mysql_query("SELECT tstat FROM members WHERE memberID=".$_SESSION['memberID
 $userRow=mysql_fetch_row($res);
 $tstat = $userRow[0];
 
-if ($gstat == "no") { echo '<form action="includes/gmail.php"><input id="red" style="background-color: #e74c3c;" type="submit" value="Login with Google" /></form>'; }
+if ($gstat == "no") { echo '<form action="includes/gmail.php"><input id="red" style="color:#ffffff; font-weight:bold; background-color:#4285F4;" type="submit" value="Login with Google" /></form>'; }
 if ($gstat == "yes") { echo '<form action="disconnect.php"><input id="red" style="background-color: #e74c3c;" type="submit" value="Disconnect" /></form>'; }
 ?>
 <hr>

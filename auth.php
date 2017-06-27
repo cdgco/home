@@ -1,55 +1,133 @@
-<?php require('includes/vars.php'); 
-
-//if not logged in redirect to login page
-if(!$user->is_logged_in()){ header('Location: login.php'); } 
-
-//define page title
-$title = 'CDG Home - Gmail Integration';
-
-//include header template
-require('layout/header.php'); 
-?>
-<link rel="stylesheet" href="<?php 
-
-require('includes/dbconnect.php');
-
-$res=mysql_query("SELECT style FROM members WHERE memberID=".$_SESSION['memberID']);
-$userRow=mysql_fetch_row($res);
-$resultstyle = $userRow[0];
-
-if ($resultstyle == "l") { echo 'css/main1'; } 
-else { echo 'css/night1'; }
-
-?>.css">
-<div class="container">
-
-	<div class="row">
-
-	    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-			
-				<h2>Gmail Integration - <?php echo $_SESSION['username']; ?></h2>
-				<p>Back to <a href='account.php'>Settings</a> | <a href='logout.php'>Logout</a></p>
-				<hr>
-
-<center><h4 id="name1"></h4>
-<h4 id="email"></h4> 
-<form action="auth2.php" method="post">
-<input name="token" type="text" style="display:none;" id="hiddeninput"></input><br>
-<input type="submit" value="Verify"/>
-</form></center>
-<script src="https://apis.google.com/js/platform.js" async defer></script>
-<meta name="google-signin-client_id" content="<?php echo GCLIENTID; ?>">
-<div class="g-signin2" style=""data-onsuccess="onSignIn"></div>
-<script>
-function onSignIn(googleUser) {
-  var profile = googleUser.getBasicProfile();
-  document.getElementById('name1').innerHTML = profile.getName();
-  document.getElementById('email').innerHTML = profile.getEmail(); // This is null if the 'email' scope is not present.
+<style>
+.loader{
+	margin:200px auto;
 }
-</script>
+h1{
+	font-family: 'Actor', sans-serif;
+	color:#000;
+	font-size:16px;
+	letter-spacing:1px;
+	font-weight:200;
+	text-align:center;
+}
+.loader span{
+	width:16px;
+	height:16px;
+	border-radius:50%;
+	display:inline-block;
+	position:absolute;
+	left:50%;
+	margin-left:-10px;
+	-webkit-animation:3s infinite linear;
+	-moz-animation:3s infinite linear;
+	-o-animation:3s infinite linear;
+	
+}
+
+
+.loader span:nth-child(2){
+	background:#E84C3D;
+	-webkit-animation:kiri 1.2s infinite linear;
+	-moz-animation:kiri 1.2s infinite linear;
+	-o-animation:kiri 1.2s infinite linear;
+	
+}
+.loader span:nth-child(3){
+	background:#F1C40F;
+	z-index:100;
+}
+.loader span:nth-child(4){
+	background:#2FCC71;
+	-webkit-animation:kanan 1.2s infinite linear;
+	-moz-animation:kanan 1.2s infinite linear;
+	-o-animation:kanan 1.2s infinite linear;
+}
+
+
+@-webkit-keyframes kanan {
+    0% {-webkit-transform:translateX(20px);
+    }
+   
+	50%{-webkit-transform:translateX(-20px);
+	}
+	
+	100%{-webkit-transform:translateX(20px);
+	z-index:200;
+	}
+}
+@-moz-keyframes kanan {
+    0% {-moz-transform:translateX(20px);
+    }
+   
+	50%{-moz-transform:translateX(-20px);
+	}
+	
+	100%{-moz-transform:translateX(20px);
+	z-index:200;
+	}
+}
+@-o-keyframes kanan {
+    0% {-o-transform:translateX(20px);
+    }
+   
+	50%{-o-transform:translateX(-20px);
+	}
+	
+	100%{-o-transform:translateX(20px);
+	z-index:200;
+	}
+}
+
+
+
+
+@-webkit-keyframes kiri {
+     0% {-webkit-transform:translateX(-20px);
+	z-index:200;
+    }
+	50%{-webkit-transform:translateX(20px);
+	}
+	100%{-webkit-transform:translateX(-20px);
+	}
+}
+
+@-moz-keyframes kiri {
+     0% {-moz-transform:translateX(-20px);
+	z-index:200;
+    }
+	50%{-moz-transform:translateX(20px);
+	}
+	100%{-moz-transform:translateX(-20px);
+	}
+}
+@-o-keyframes kiri {
+     0% {-o-transform:translateX(-20px);
+	z-index:200;
+    }
+	50%{-o-transform:translateX(20px);
+	}
+	100%{-o-transform:translateX(-20px);
+	}
+}
+</style>
+<div class="loader">
+    <h1>LOADING</h1>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+<form action="auth2.php" name="tokenform" method="post">
+<input name="token" type="text" style="display:none;" id="hiddeninput"></input><br>
+</form>
+
 <script>
 var hash1 = location.hash.substring(1).replace('&token_type=Bearer&expires_in','');
 var hash2 = hash1.replace('access_token=','');
 document.getElementById('hiddeninput').value = hash2;
+
+window.onload = function(){
+  document.forms['tokenform'].submit()
+
+}
 </script>
 </html>
