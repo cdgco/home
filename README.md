@@ -2,8 +2,11 @@
 Custom Home Page Alpha
 
 # To-Do
-1. Setup AJAX Background Content Refresh (Home & Settings)
-2. Convert PHP Session System to Cookies for longer logins
-3. Setup custom backgrounds in settings
-4. Change scaling system from screen width to window width
-5. Add new features to blank tiles
+<s>1. Change Initial Google Authorization Flow</s>
+2. Setup AJAX Background Content Refresh (Home & Settings)
+3. Convert PHP Session System to Cookies for longer logins
+<s>4. Add all changeable variables to config.php</s>
+<s>5. Combine dbconnect.php & config.php</s>
+6. Setup custom backgrounds in settings
+7. Change scaling system from screen width to window width
+8. Add new features to blank tiles
