@@ -40,8 +40,8 @@ else { echo 'css/night1'; }
     <option value="">Select City</option>
 </select><br><br>
 <input type="submit" value="Change"/></form>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
-<script src="//geodata.solutions/includes/statecity.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+<script src="js/statecity.js"></script>
 
 		</div>
 	</div>

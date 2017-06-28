@@ -23,7 +23,7 @@ function ajaxCall() {
 }
 
 function locationInfo() {
-    var rootUrl = "http://geodata.solutions/api/api.php";
+    var rootUrl = "https://geodata.solutions/api/api.php";
     //set default values
     var username = 'demo';
     var ordering = 'name';
