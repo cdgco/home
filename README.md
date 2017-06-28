@@ -9,6 +9,7 @@ Custom Home / New Tab Page featuring:<br><br>
 • Day & Night Modes<br>
 • Custom Background Images<br>
 • Extensive Settings With Changeable Units, Formats & Options<br>
+• Beautiful Scaleable UI<br>
 
 # Requirements
 • Web Server with PHP 5.5.X or above.<br>
