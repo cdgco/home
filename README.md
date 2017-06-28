@@ -2,11 +2,11 @@
 Custom Home Page Alpha
 
 # Requirements
-• Web Server with PHP 5.5.X or above.
-• MySQL Database with MySQL Event Scheduler enabled.
-• Weather Underground API Key.
-• Google Recaptcha Invisible V2 API Key.
-• Google Cloud Gmail Client ID.
+• Web Server with PHP 5.5.X or above.<br>
+• MySQL Database with MySQL Event Scheduler enabled.<br>
+• Weather Underground API Key.<br>
+• Google Recaptcha Invisible V2 API Key.<br>
+• Google Cloud Gmail Client ID.<br>
 
 # Install Guide
 1. Clone or download the CDG Home repository to a php capable server.
