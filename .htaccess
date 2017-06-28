@@ -1,12 +1,12 @@
 RewriteEngine On
 
-#Uncomment If Using SSL
+################################################################################################################
+## Uncomment If Using SSL - Note: For Full HTTPS, MacroAxis Pro is required and all forms must be re-written. ##
+################################################################################################################
 
-#RewriteCond %{HTTPS} off
-#RewriteCond %{REQUEST_URI} !^/s
-#RewriteCond %{REQUEST_URI} !^/index.php$
-#RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+#RewriteCond %{HTTPS} =off
+#RewriteRule ^(login|join|join2)\.php$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
-#RewriteCond %{HTTPS} on
-#RewriteCond %{REQUEST_URI} ^/s
-#RewriteRule (.*) http://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+#RewriteCond %{HTTPS} =on
+#RewriteCond %{REQUEST_URI} !^/(login|join|join2)\.php$
+#RewriteRule .* http://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
