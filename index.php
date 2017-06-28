@@ -11,22 +11,22 @@
     <title>CDG Home</title>
 <script>
 if(self==top) {
-if (screen.width > 1550 && screen.width <= 1650) {
+if (window.outerWidth > 1550 && window.outerWidth <= 1650) {
     window.location = "s/90.php";
   }
-if (screen.width > 1350 && screen.width <= 1550) {
+if (window.outerWidth > 1350 && window.outerWidth <= 1550) {
     window.location = "s/80.php";
   }
-if (screen.width > 1250 && screen.width <= 1350) {
+if (window.outerWidth > 1250 && window.outerWidth <= 1350) {
     window.location = "s/75.php";
   }
-if (screen.width > 1140 && screen.width <= 1250) {
+if (window.outerWidth > 1140 && window.outerWidth <= 1250) {
     window.location = "s/67.php";
   }
-if (screen.width > 1000 && screen.width <= 1140) {
+if (window.outerWidth > 1000 && window.outerWidth <= 1140) {
     window.location = "s/60.php";
   }
-if (screen.width <= 1000) {
+if (window.outerWidth <= 1000) {
     window.location = "mobile";
   }}
 </script>
@@ -165,7 +165,7 @@ else { echo '<div class="tooltip"><a href="includes/quickauth.php"><img alt="Log
       </span>      
     </span></center>
   </a>
-  <a class="tile tile-lg tile-sqr tile-purple ripple-effect" href="https://mail.google.com/mail/u/0/#inbox">
+  <a class="tile tile-lg tile-sqr tile-purple ripple-effect" id="emaila" href="https://mail.google.com/mail/u/0/#inbox">
     <span class="content-wrapper">
       <span class="tile-content"><center><?php require( 'includes/grab/email.php'); ?></span>
       </span>      
@@ -382,6 +382,17 @@ var a = document.getElementById("style1");
 a.x = 'css/<?php require('includes/grab/light2.php'); ?>' == a.x ? 'css/<?php require('includes/grab/light3.php'); ?>' : 'css/<?php require('includes/grab/light2.php'); ?>'; 
 a.href = a.x + '.css';
 }
+$(function() {
+setTimeout("  $('body').load(window.location.href,'body');", <?php
+require('includes/dbconnect.php');
+
+$res=mysql_query("SELECT refresh FROM members WHERE memberID=".$_SESSION['memberID']);
+$userRow=mysql_fetch_row($res);
+$refresh = $userRow[0];
+
+echo $refresh;
+?>);
+});
 </script>
 <script src="js/index.js"></script>
 </body>

@@ -79,6 +79,31 @@ elseif ($bgstat == "n") { echo "Disabled"; }
 <br><br><input type="Submit" value="Change"></input>
 </form>
 <hr>
+<h3>Page Refresh Rate: 
+<?php 
+
+require('includes/dbconnect.php');
+
+$res=mysql_query("SELECT refreshname FROM members WHERE memberID=".$_SESSION['memberID']);
+$userRow=mysql_fetch_row($res);
+
+print_r($userRow[0]);
+?>
+</h3><hr>
+<h4>Set Refresh Rate:</h4>
+<form action="refresh.php" method="post">
+<select name="rtime">
+  <option value="60000|1 Minute">1 Minute</option>
+  <option value="300000|5 Minutes">5 Minutes</option>
+  <option value="600000|10 Minutes">10 Minutes</option>
+  <option value="900000|15 Minutes">15 Minutes</option>
+  <option value="1800000|30 Minutes">30 Minutes</option>
+  <option value="3600000|1 Hour">1 Hour</option>
+</select>
+<br><br>
+<input type="Submit" value="Save"></input>
+</form>
+<hr>
 
 <h3>Custom Stock Ticker: 
 <?php 
