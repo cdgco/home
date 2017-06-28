@@ -1,6 +1,7 @@
 # CDG Home
-
-## Custom Home / New Tab Page featuring:
+![Day Mode](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)<br><br>
+![Night Mode](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+## Custom Home / New Tab Page Featuring:
 • Stock Ticker<br>
 • Clock & Date<br>
 • Current Weather & Location<br>
