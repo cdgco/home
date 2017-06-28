@@ -6,7 +6,6 @@
      <meta charset="UTF-8">
     <meta name="google" content="notranslate">
     <meta http-equiv="Content-Language" content="en">
-    <meta name="viewport" content="width=1200px, initial-scale=1.0">
 <base target="_parent">
     <title>CDG Home</title>
 <script>
@@ -71,6 +70,7 @@ if (window.outerWidth <= 1000) {
         jQuery(function($) {
             $("#rss-feeds").rss("<?php require( 'includes/grab/rss.php'); ?>", {
                 entryTemplate: '<a style="text-decoration: none; color:white;" href="{url}">{title}</a><br><br><br><br>',
+                ssl: true,
                 limit: '20'
             })
         })
@@ -381,6 +381,8 @@ var a = document.getElementById("style1");
 a.x = 'css/<?php require('includes/grab/light2.php'); ?>' == a.x ? 'css/<?php require('includes/grab/light3.php'); ?>' : 'css/<?php require('includes/grab/light2.php'); ?>'; 
 a.href = a.x + '.css';
 }
+
+
 $(function() {
 setTimeout("  $('body').load(window.location.href,'body');", <?php
 
@@ -389,8 +391,13 @@ if(!$user->is_logged_in()){ echo "300000"; } else {require('includes/dbconnect.p
 $res=mysql_query("SELECT refresh FROM members WHERE memberID = '$memid'");
 $userRow=mysql_fetch_row($res);
 $refresh = $userRow[0];
+
 echo $refresh;
-};?>);
+
+};
+
+
+?>);
 });
 </script>
 <script src="js/index.js"></script>

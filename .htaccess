@@ -1,0 +1,12 @@
+RewriteEngine On
+
+#Uncomment If Using SSL
+
+#RewriteCond %{HTTPS} off
+#RewriteCond %{REQUEST_URI} !^/s
+#RewriteCond %{REQUEST_URI} !^/index.php$
+#RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+#RewriteCond %{HTTPS} on
+#RewriteCond %{REQUEST_URI} ^/s
+#RewriteRule (.*) http://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
