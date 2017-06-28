@@ -1,14 +1,14 @@
 # CDG Home
-Custom Home / New Tab Page featuring:
-• Stock Ticker
-• Clock & Date
-• Current Weather & Location
-• Gmail Inbox Integration
-• Spotify Integration / Controller
-• Live Customizable News
-• Day & Night Modes
-• Custom Background Images
-• Extensive Settings With Changeable Units, Formats & Options
+Custom Home / New Tab Page featuring:<br><br>
+• Stock Ticker<br>
+• Clock & Date<br>
+• Current Weather & Location<br>
+• Gmail Inbox Integration<br>
+• Spotify Integration / Controller<br>
+• Live Customizable News<br>
+• Day & Night Modes<br>
+• Custom Background Images<br>
+• Extensive Settings With Changeable Units, Formats & Options<br>
 
 # Requirements
 • Web Server with PHP 5.5.X or above.<br>
