@@ -383,14 +383,14 @@ a.href = a.x + '.css';
 }
 $(function() {
 setTimeout("  $('body').load(window.location.href,'body');", <?php
-require('includes/dbconnect.php');
+
+if(!$user->is_logged_in()){ echo "300000"; } else {require('includes/dbconnect.php');
 
 $res=mysql_query("SELECT refresh FROM members WHERE memberID = '$memid'");
 $userRow=mysql_fetch_row($res);
 $refresh = $userRow[0];
-
 echo $refresh;
-?>);
+};?>);
 });
 </script>
 <script src="js/index.js"></script>
