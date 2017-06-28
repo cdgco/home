@@ -4,7 +4,7 @@ Custom Home Page Alpha
 # To-Do
 <s>1. Change Initial Google Authorization Flow</s><br>
 <s>2. Setup AJAX Background Content Refresh (Home & Settings)</s><br>
-3. Convert PHP Session System to Cookies for longer logins<br>
+<s>3. Convert PHP Session System to Cookies for longer logins</s><br>
 <s>4. Add all changeable variables to config.php</s><br>
 <s>5. Combine dbconnect.php & config.php</s><br>
 <s>6. Setup custom backgrounds in setting</s><br>
