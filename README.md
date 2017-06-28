@@ -1,5 +1,14 @@
 # CDG Home
-Custom Home Page Alpha
+Custom Home / New Tab Page featuring:
+• Stock Ticker
+• Clock & Date
+• Current Weather & Location
+• Gmail Inbox Integration
+• Spotify Integration / Controller
+• Live Customizable News
+• Day & Night Modes
+• Custom Background Images
+• Extensive Settings With Changeable Units, Formats & Options
 
 # Requirements
 • Web Server with PHP 5.5.X or above.<br>
@@ -13,6 +22,8 @@ Custom Home Page Alpha
 2. Create a MySQL database and run the home.sql file to create table.
 3. Configure the /classes/phpmailer/mail.php with your phpmailer, smtp, or pop3 settings.
 4. Configure the /includes/config.php file with your timezone, MySQL database, absolute application address, email address, and password reset email details.
+
+Note: Timezone must be set correctly in config.php for gmail to function.
 
 # How-To: Setup Gmail API
 
@@ -30,7 +41,7 @@ Custom Home Page Alpha
 
 1. Go to https://www.google.com/recaptcha/admin
 2. Select Invisible reCAPTCHA, add your domain, accept terms and register.
-3. Copy <u><b>Site Key</b></u> to the config.php file.
+3. Copy <b>SITE KEY</b> to the config.php file.
 
 # How-To: Setup Weather Underground API
 
