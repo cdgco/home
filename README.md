@@ -20,9 +20,9 @@ Custom Home Page Alpha
 2. Create a new project and enable the Gmail API in the API Manager Library
 3. On the Gmail API Page, create credentials for: Gmail API -> Web Browser -> User Data
 4. Name your credentials and set the Javascript origin to your domain.
-5. Add two Javascript callbacks: 
-    a. http://[YOUR-DOMAIN.COM/INSTALLATION-PATH]/auth.php
-    b. http://[YOUR-DOMAIN.COM/INSTALLATION-PATH]/qauth.php
+5. Add two Javascript callbacks: <br>
+&nbsp;&nbsp;&nbsp;    a. http://[YOUR-DOMAIN.COM/INSTALLATION-PATH]/auth.php<br>
+&nbsp;&nbsp;&nbsp;   b. http://[YOUR-DOMAIN.COM/INSTALLATION-PATH]/qauth.php<br>
 6. Create OAuth Consent Screen
 7. Copy ClientID to the config.php file.
 
