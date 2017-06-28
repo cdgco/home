@@ -14,6 +14,20 @@ Custom Home Page Alpha
 3. Configure the /classes/phpmailer/mail.php with your phpmailer, smtp, or pop3 settings.
 4. Configure the /includes/config.php file with your timezone, MySQL database, absolute application address, email address, and password reset email details.
 
+# How-To: Setup Gmail API
+
+1. Go to https://console.cloud.google.com/apis/
+2. Create a new project and enable the Gmail API in the API Manager Library
+3. On the Gmail API Page, create credentials for: Gmail API -> Web Browser -> User Data
+4. Name your credentials and set the Javascript origin to your domain.
+5. Add two Javascript callbacks: 
+    a. http://[YOUR-DOMAIN.COM/INSTALLATION-PATH]/auth.php
+    b. http://[YOUR-DOMAIN.COM/INSTALLATION-PATH]/qauth.php
+6. Create OAuth Consent Screen
+7. Copy ClientID to the config.php file.
+
+
+
 # To-Do
 <s>1. Change Initial Google Authorization Flow</s><br>
 <s>2. Setup AJAX Background Content Refresh (Home & Settings)</s><br>
