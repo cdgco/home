@@ -29,7 +29,7 @@ $title = 'CDG Home - Login';
 //include header template
 require('layout/header.php'); 
 ?>
-<link rel="stylesheet" href="style/main.css">
+<link rel="stylesheet" href="css/main.css">
 	
 <div class="container">
 

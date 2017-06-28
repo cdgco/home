@@ -15,7 +15,7 @@ require('layout/header.php');
          document.getElementById("signup-form").submit();
        }
      </script>
-<link rel="stylesheet" href="style/main.css">
+<link rel="stylesheet" href="css/main.css">
 
 <div class="container">
 
