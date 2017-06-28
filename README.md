@@ -1,6 +1,7 @@
 # CDG Home
-![Day Mode](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)<br><br>
-![Night Mode](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+![Day](https://raw.githubusercontent.com/cdgco/home/master/img/day.png)<br><br>
+![Custom](https://raw.githubusercontent.com/cdgco/home/master/img/custom.png)<br><br>
+![Night](https://raw.githubusercontent.com/cdgco/home/master/img/night.png)
 ## Custom Home / New Tab Page Featuring:
 • Stock Ticker<br>
 • Clock & Date<br>
