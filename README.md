@@ -1,5 +1,6 @@
-# CDG Home
-Custom Home / New Tab Page featuring:<br><br>
+## CDG Home
+
+# Custom Home / New Tab Page featuring:
 • Stock Ticker<br>
 • Clock & Date<br>
 • Current Weather & Location<br>
