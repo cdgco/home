@@ -6,7 +6,7 @@ if (!$user->is_logged_in()) { echo "night"; }
 	{
 	require ('includes/dbconnect.php');
 
-	$res = mysql_query("SELECT style FROM members WHERE memberID=" . $_SESSION['memberID']);
+	$res = mysql_query("SELECT style FROM members WHERE memberID = '$memid'");
 	$userRow = mysql_fetch_row($res);
 	$resulttemp = $userRow[0];
 

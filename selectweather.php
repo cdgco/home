@@ -13,7 +13,7 @@ require('layout/header.php');
 
 require('includes/dbconnect.php');
 
-$res=mysql_query("SELECT style FROM members WHERE memberID=".$_SESSION['memberID']);
+$res=mysql_query("SELECT style FROM members WHERE memberID='$memid'");
 $userRow=mysql_fetch_row($res);
 $resultstyle = $userRow[0];
 
@@ -27,7 +27,7 @@ else { echo 'css/night1'; }
 
 	    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
 			
-				<h2>Weather Settings - <?php echo $_SESSION['username']; ?></h2>
+				<h2>Weather Settings - <?php echo $uname; ?></h2>
 				<p>Back to <a href='account.php'>Settings</a> | <a href='logout.php'>Logout</a></p>
 				<hr>
 <h3>Change Weather Location: </h3>

@@ -1,6 +1,7 @@
 <?php
 
 require('config.php');
+require('grab/cookies.php');
 
 $link = mysql_connect(DBHOST, DBUSER, DBPASS);
 

@@ -8,7 +8,7 @@ if (!$user->is_logged_in())
 	{
 	require ('includes/dbconnect.php');
 
-	$res = mysql_query("SELECT spotify FROM members WHERE memberID=" . $_SESSION['memberID']);
+	$res = mysql_query("SELECT spotify FROM members WHERE memberID = '$memid'");
 	$userRow = mysql_fetch_row($res);
 	$spotplay = $userRow[0];
 	echo $spotplay;

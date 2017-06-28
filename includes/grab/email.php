@@ -5,7 +5,7 @@ if (!$user->is_logged_in()) { echo '<br /><br /><img src="img/gmail.png" height=
 	{
 	require ('includes/dbconnect.php');
 
-	$res = mysql_query("SELECT tstat FROM members WHERE memberID=" . $_SESSION['memberID']);
+	$res = mysql_query("SELECT tstat FROM members WHERE memberID = '$memid'");
 	$userRow = mysql_fetch_row($res);
 	$resultstat = $userRow[0];
 	if ($resultstat == "y"){ echo '<br /><br /><br /><span class="title" id="unreademails" style="font-size:80px;"></span>'; }
@@ -22,7 +22,7 @@ if (!$user->is_logged_in()) { echo '<span class="title">Email</span>'; }
 	{
 	require ('includes/dbconnect.php');
 
-	$res = mysql_query("SELECT tstat FROM members WHERE memberID=" . $_SESSION['memberID']);
+	$res = mysql_query("SELECT tstat FROM members WHERE memberID = '$memid'");
 	$userRow = mysql_fetch_row($res);
 	$resultstat = $userRow[0];
 

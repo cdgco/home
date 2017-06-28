@@ -96,13 +96,13 @@ else {
 
 require('includes/dbconnect.php');
 
-$res=mysql_query("SELECT bg FROM members WHERE memberID=".$_SESSION['memberID']);
+$res=mysql_query("SELECT bg FROM members WHERE memberID = '$memid'");
 $userRow=mysql_fetch_row($res);
 $bgresult = $userRow[0];
 
 if ($bgresult == y) { 
 
-$res=mysql_query("SELECT bgurl FROM members WHERE memberID=".$_SESSION['memberID']);
+$res=mysql_query("SELECT bgurl FROM members WHERE memberID = '$memid'");
 $userRow=mysql_fetch_row($res);
 $bgurl1 = $userRow[0];
 
@@ -143,13 +143,13 @@ else {
 
 require('includes/dbconnect.php');
 
-$res=mysql_query("SELECT gmail FROM members WHERE memberID=".$_SESSION['memberID']);
+$res=mysql_query("SELECT gmail FROM members WHERE memberID = '$memid'");
 $userRow=mysql_fetch_row($res);
 $gmresult = $userRow[0];
 
 if ($gmresult == yes) { 
 
-$res=mysql_query("SELECT tstat FROM members WHERE memberID=".$_SESSION['memberID']);
+$res=mysql_query("SELECT tstat FROM members WHERE memberID = '$memid'");
 $userRow=mysql_fetch_row($res);
 $tsresult = $userRow[0];
 
@@ -335,7 +335,7 @@ if(!$user->is_logged_in()){ echo "f"; } else {
 require('includes/dbconnect.php');
 
 
-$res=mysql_query("SELECT temp FROM members WHERE memberID=".$_SESSION['memberID']);
+$res=mysql_query("SELECT temp FROM members WHERE memberID = '$memid'");
 $userRow=mysql_fetch_row($res);
 $resulttemp = $userRow[0];
 
@@ -350,15 +350,6 @@ $("#address").html(response.city);
 
 }
 
-<?php
-require('includes/dbconnect.php');
-
-$res=mysql_query("SELECT token FROM members WHERE memberID=".$_SESSION['memberID']);
-$userRow=mysql_fetch_row($res);
-$gtoken = $userRow[0];
-
-$_SESSION['gmtoken'] = $gtoken;
-?>
 var data = null;
 
 var xhr = new XMLHttpRequest();
@@ -373,7 +364,15 @@ document.getElementById("unreademails").innerHTML = jsonResponse["threadsUnread"
 });
 
 xhr.open("GET", "https://www.googleapis.com/gmail/v1/users/me/labels/INBOX");
-xhr.setRequestHeader("authorization", "Bearer <?php print_r($_SESSION['gmtoken']); ?>");
+xhr.setRequestHeader("authorization", "Bearer <?php
+require('includes/dbconnect.php');
+
+$res=mysql_query("SELECT token FROM members WHERE memberID = '$memid'");
+$userRow=mysql_fetch_row($res);
+$gtoken = $userRow[0];
+
+echo $gtoken;
+?>");
 xhr.send(data);
 
 function toggle() { 
@@ -386,7 +385,7 @@ $(function() {
 setTimeout("  $('body').load(window.location.href,'body');", <?php
 require('includes/dbconnect.php');
 
-$res=mysql_query("SELECT refresh FROM members WHERE memberID=".$_SESSION['memberID']);
+$res=mysql_query("SELECT refresh FROM members WHERE memberID = '$memid'");
 $userRow=mysql_fetch_row($res);
 $refresh = $userRow[0];
 

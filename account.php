@@ -13,7 +13,7 @@ require('layout/header.php');
 
 require('includes/dbconnect.php');
 
-$res=mysql_query("SELECT style FROM members WHERE memberID=".$_SESSION['memberID']);
+$res=mysql_query("SELECT style FROM members WHERE memberID = '$memid'");
 $userRow=mysql_fetch_row($res);
 $resultstyle = $userRow[0];
 
@@ -56,7 +56,7 @@ if ($swal == "e") {echo '<script>swal("Oops...", "Try Again or Contact Support. 
 
 	    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
 			
-				<h2>Account Settings - <?php echo $_SESSION['username']; ?></h2>
+				<h2>Account Settings - <?php echo $uname; ?></h2>
 				<p>Back <a href='index.php'>Home</a> | <a href='logout.php'>Logout</a></p>
 				<hr>
 <h3>Custom Background: 
@@ -64,7 +64,7 @@ if ($swal == "e") {echo '<script>swal("Oops...", "Try Again or Contact Support. 
 
 require('includes/dbconnect.php');
 
-$res=mysql_query("SELECT bg FROM members WHERE memberID=".$_SESSION['memberID']);
+$res=mysql_query("SELECT bg FROM members WHERE memberID = '$memid'");
 $userRow=mysql_fetch_row($res);
 $bgstat = $userRow[0];
 
@@ -84,7 +84,7 @@ elseif ($bgstat == "n") { echo "Disabled"; }
 
 require('includes/dbconnect.php');
 
-$res=mysql_query("SELECT refreshname FROM members WHERE memberID=".$_SESSION['memberID']);
+$res=mysql_query("SELECT refreshname FROM members WHERE memberID = '$memid'");
 $userRow=mysql_fetch_row($res);
 
 print_r($userRow[0]);
@@ -110,7 +110,7 @@ print_r($userRow[0]);
 
 require('includes/dbconnect.php');
 
-$res=mysql_query("SELECT stocks FROM members WHERE memberID=".$_SESSION['memberID']);
+$res=mysql_query("SELECT stocks FROM members WHERE memberID = '$memid'");
 $userRow=mysql_fetch_row($res);
 $stock1 = $userRow[0];
 
@@ -124,7 +124,7 @@ else { echo "Enabled"; }
 
 require('includes/dbconnect.php');
 
-$res=mysql_query("SELECT stocks FROM members WHERE memberID=".$_SESSION['memberID']);
+$res=mysql_query("SELECT stocks FROM members WHERE memberID = '$memid'");
 $userRow=mysql_fetch_row($res);
 $stock2 = $userRow[0];
 
@@ -139,7 +139,7 @@ else { print_r($stock2); }
 
 require('includes/dbconnect.php');
 
-$res=mysql_query("SELECT style FROM members WHERE memberID=".$_SESSION['memberID']);
+$res=mysql_query("SELECT style FROM members WHERE memberID = '$memid'");
 $userRow=mysql_fetch_row($res);
 $style1 = $userRow[0];
 
@@ -160,7 +160,7 @@ else { echo "Dark Theme"; }
 
 require('includes/dbconnect.php');
 
-$res=mysql_query("SELECT clockname FROM members WHERE memberID=".$_SESSION['memberID']);
+$res=mysql_query("SELECT clockname FROM members WHERE memberID = '$memid'");
 $userRow=mysql_fetch_row($res);
 
 print_r($userRow[0]);
@@ -178,7 +178,7 @@ print_r($userRow[0]);
 
 require('includes/dbconnect.php');
 
-$res=mysql_query("SELECT sourcename FROM members WHERE memberID=".$_SESSION['memberID']);
+$res=mysql_query("SELECT sourcename FROM members WHERE memberID = '$memid'");
 $userRow=mysql_fetch_row($res);
 
 print_r($userRow[0]);
@@ -239,7 +239,7 @@ print_r($userRow[0]);
 
 require('includes/dbconnect.php');
 
-$res=mysql_query("SELECT spotify FROM members WHERE memberID=".$_SESSION['memberID']);
+$res=mysql_query("SELECT spotify FROM members WHERE memberID = '$memid'");
 $userRow=mysql_fetch_row($res);
 
 print_r($userRow[0]);
@@ -247,7 +247,7 @@ print_r($userRow[0]);
 
 require('includes/dbconnect.php');
 
-$res=mysql_query("SELECT spotname FROM members WHERE memberID=".$_SESSION['memberID']);
+$res=mysql_query("SELECT spotname FROM members WHERE memberID = '$memid'");
 $userRow=mysql_fetch_row($res);
 
 print_r($userRow[0]);
@@ -260,7 +260,7 @@ print_r($userRow[0]);
 
 require('includes/dbconnect.php');
 
-$res=mysql_query("SELECT temp FROM members WHERE memberID=".$_SESSION['memberID']);
+$res=mysql_query("SELECT temp FROM members WHERE memberID = '$memid'");
 $userRow=mysql_fetch_row($res);
 $temp1 = $userRow[0];
 
@@ -280,7 +280,7 @@ elseif ($temp1 == "c") { echo "Celsius"; }
 
 require('includes/dbconnect.php');
 
-$res=mysql_query("SELECT CustomLocation FROM members WHERE memberID=".$_SESSION['memberID']);
+$res=mysql_query("SELECT CustomLocation FROM members WHERE memberID = '$memid'");
 $userRow=mysql_fetch_row($res);
 $result1 = $userRow[0];
 
@@ -293,12 +293,12 @@ else {echo "Enabled";}
 
 require('includes/dbconnect.php');
 
-$res=mysql_query("SELECT city FROM members WHERE memberID=".$_SESSION['memberID']);
+$res=mysql_query("SELECT city FROM members WHERE memberID = '$memid'");
 $userRow=mysql_fetch_row($res);
 
 print_r($userRow[0]);
 
-$res=mysql_query("SELECT state FROM members WHERE memberID=".$_SESSION['memberID']);
+$res=mysql_query("SELECT state FROM members WHERE memberID = '$memid'");
 $userRow=mysql_fetch_row($res);
 
 print_r(',&nbsp;'.$userRow[0]);
@@ -313,7 +313,7 @@ print_r(',&nbsp;'.$userRow[0]);
 
 require('includes/dbconnect.php');
 
-$res=mysql_query("SELECT gmail FROM members WHERE memberID=".$_SESSION['memberID']);
+$res=mysql_query("SELECT gmail FROM members WHERE memberID = '$memid'");
 $userRow=mysql_fetch_row($res);
 $gstat = $userRow[0];
 
@@ -324,7 +324,7 @@ if ($gstat == "yes") { echo "Enabled"; }
 
 require('includes/dbconnect.php');
 
-$res=mysql_query("SELECT tstat FROM members WHERE memberID=".$_SESSION['memberID']);
+$res=mysql_query("SELECT tstat FROM members WHERE memberID = '$memid'");
 $userRow=mysql_fetch_row($res);
 $tstat = $userRow[0];
 
@@ -337,7 +337,7 @@ if ($gstat == "yes") { echo '<form action="disconnect.php"><input id="red" style
 
 require('includes/dbconnect.php');
 
-$res=mysql_query("SELECT email FROM members WHERE memberID=".$_SESSION['memberID']);
+$res=mysql_query("SELECT email FROM members WHERE memberID = '$memid'");
 $userRow=mysql_fetch_row($res);
 
 print_r($userRow[0]);

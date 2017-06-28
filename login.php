@@ -12,7 +12,8 @@ if(isset($_POST['submit'])){
 	$password = $_POST['password'];
 	
 	if($user->login($username,$password)){ 
-		$_SESSION['username'] = $username;
+        $cuname = base64_encode ( $username );
+        setcookie('username', $cuname, time() + (86400 * 30), "/");
 		header('Location: index.php');
 		exit;
 	

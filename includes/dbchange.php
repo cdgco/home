@@ -1,6 +1,7 @@
 <?php
 
 require('includes/vars.php');
+require('includes/grab/cookies.php');
 
 $link = mysql_connect(DBHOST, DBUSER, DBPASS);
 
@@ -13,7 +14,5 @@ $db_selected = mysql_select_db(DBNAME, $link);
 if (!$link) {
     dir('There was a problem when trying to connect to the database. Please contact Tech Support. Error: ' . mysql_error());
 }
-
-$memid = $_SESSION['memberID'];
 
 ?>

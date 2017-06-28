@@ -25,19 +25,27 @@ class User extends Password
     {
         $row = $this->get_user_hash($username);
         if ($this->password_verify($password, $row['password']) == 1) {
-            $_SESSION['loggedin'] = true;
-            $_SESSION['username'] = $row['username'];
-            $_SESSION['memberID'] = $row['memberID'];
+            $cookie1 = base64_encode ( 'true' );
+            $cookie2 = base64_encode ( $row['username'] );
+            $cookie3 = base64_encode ( $row['memberID'] );
+            setcookie('loggedin', $cookie1, time() + (86400 * 30), "/");
+            setcookie('username', $cookie2, time() + (86400 * 30), "/");
+            setcookie('memberID', $cookie3, time() + (86400 * 30), "/");
             return true;
         }
     }
     public function logout()
     {
-        session_destroy();
+        unset($_COOKIE['memberID']);
+        setcookie('memberID', null, -1, '/');
+        unset($_COOKIE['username']);
+        setcookie('username', null, -1, '/');
+        unset($_COOKIE['loggedin']);
+        setcookie('loggedin', null, -1, '/');
     }
     public function is_logged_in()
     {
-        if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+        if (isset($_COOKIE['loggedin']) && base64_decode($_COOKIE['loggedin']) == true) {
             return true;
         }
     }
