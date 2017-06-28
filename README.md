@@ -28,7 +28,9 @@
 4. Configure the /includes/config-example.php file with your timezone, MySQL database, absolute application address, email address, and password reset email details.
 5. Rename config-example.php to config.php.
 
-Note: Timezone must be set correctly in config.php for gmail to function.
+Note 1: Timezone must be set correctly in config.php for gmail to function.
+Note 2: Currently, SSL may only be applied in the config programmed in .htacess because of SSL Post Variables.
+Note 3: SSL will make stock ticker fail as MacroAxis SSL requires a paid license.
 
 ## How-To: Setup Gmail API
 
@@ -63,4 +65,5 @@ Note: Timezone must be set correctly in config.php for gmail to function.
 <s>5. Combine dbconnect.php & config.php</s><br>
 <s>6. Setup custom backgrounds in setting</s><br>
 <s>7. Change scaling system from screen width to window width</s><br>
-8. Add new features to blank tiles<br>
+8. Extensive SSL Support
+9. Add new features to blank tiles<br>
