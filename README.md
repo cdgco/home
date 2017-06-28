@@ -28,9 +28,9 @@
 4. Configure the /includes/config-example.php file with your timezone, MySQL database, absolute application address, email address, and password reset email details.
 5. Rename config-example.php to config.php.
 
-Note 1: Timezone must be set correctly in config.php for gmail to function.
-Note 2: Currently, SSL may only be applied in the config programmed in .htacess because of SSL Post Variables.
-Note 3: SSL will make stock ticker fail as MacroAxis SSL requires a paid license.
+Note 1: Timezone must be set correctly in config.php for gmail to function.<br>
+Note 2: Currently, SSL may only be applied in the config programmed in .htacess because of SSL Post Variables.<br>
+Note 3: SSL will make stock ticker fail as MacroAxis SSL requires a paid license.<br>
 
 ## How-To: Setup Gmail API
 
