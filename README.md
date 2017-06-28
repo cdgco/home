@@ -5,7 +5,7 @@ Custom Home Page Alpha
 • Web Server with PHP 5.5.X or above.<br>
 • MySQL Database with MySQL Event Scheduler enabled.<br>
 • Weather Underground API Key.<br>
-• Google Recaptcha Invisible V2 API Key.<br>
+• Google reCAPTCHA Invisible API Key.<br>
 • Google Cloud Gmail Client ID.<br>
 
 # Install Guide
@@ -21,12 +21,23 @@ Custom Home Page Alpha
 3. On the Gmail API Page, create credentials for: Gmail API -> Web Browser -> User Data
 4. Name your credentials and set the Javascript origin to your domain.
 5. Add two Javascript callbacks: <br>
-&nbsp;&nbsp;&nbsp;    a. http://[YOUR-DOMAIN.COM/INSTALLATION-PATH]/auth.php<br>
-&nbsp;&nbsp;&nbsp;   b. http://[YOUR-DOMAIN.COM/INSTALLATION-PATH]/qauth.php<br>
+&nbsp;&nbsp;&nbsp;    a. http(s)://[YOUR-DOMAIN.COM/INSTALLATION-PATH]/auth.php<br>
+&nbsp;&nbsp;&nbsp;   b. http(s)://[YOUR-DOMAIN.COM/INSTALLATION-PATH]/qauth.php<br>
 6. Create OAuth Consent Screen
 7. Copy ClientID to the config.php file.
 
+# How-To: Setup reCAPTCHA API
 
+1. Go to https://www.google.com/recaptcha/admin
+2. Select Invisible reCAPTCHA, add your domain, accept terms and register.
+3. Copy <u><b>Site Key</b></u> to the config.php file.
+
+# How-To: Setup Weather Underground API
+
+1. Create an account at http://api.wunderground.com/api, verify email and login.
+2. Go to http://api.wunderground.com/weather/api/d/pricing.html and sign up for the Stratus Developer Plan.
+3. Fill out registration questionare.
+4. Copy API Key ID to config.php.
 
 # To-Do
 <s>1. Change Initial Google Authorization Flow</s><br>
@@ -37,3 +48,5 @@ Custom Home Page Alpha
 <s>6. Setup custom backgrounds in setting</s><br>
 <s>7. Change scaling system from screen width to window width</s><br>
 8. Add new features to blank tiles<br>
+
+
