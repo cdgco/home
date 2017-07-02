@@ -39,8 +39,8 @@ Note 3: SSL will make stock ticker fail as MacroAxis SSL requires a paid license
 3. On the Gmail API Page, create credentials for: Gmail API -> Web Browser -> User Data
 4. Name your credentials and set the Javascript origin to your domain.
 5. Add two Javascript callbacks: <br>
-&nbsp;&nbsp;&nbsp;    a. http(s)://[YOUR-DOMAIN.COM/INSTALLATION-PATH]/auth.php<br>
-&nbsp;&nbsp;&nbsp;   b. http(s)://[YOUR-DOMAIN.COM/INSTALLATION-PATH]/qauth.php<br>
+&nbsp;&nbsp;&nbsp;    a. http://[YOUR-DOMAIN.COM/INSTALLATION-PATH]/auth.php<br>
+&nbsp;&nbsp;&nbsp;   b. http://[YOUR-DOMAIN.COM/INSTALLATION-PATH]/qauth.php<br>
 6. Create OAuth Consent Screen
 7. Copy ClientID to the config.php file.
 
@@ -65,5 +65,5 @@ Note 3: SSL will make stock ticker fail as MacroAxis SSL requires a paid license
 <s>5. Combine dbconnect.php & config.php</s><br>
 <s>6. Setup custom backgrounds in setting</s><br>
 <s>7. Change scaling system from screen width to window width</s><br>
-8. Extensive SSL Support
+8. Extensive SSL Support<br>
 9. Add new features to blank tiles<br>
