@@ -65,5 +65,5 @@ Note 3: SSL will make stock ticker fail as MacroAxis SSL requires a paid license
 <s>5. Combine dbconnect.php & config.php</s><br>
 <s>6. Setup custom backgrounds in setting</s><br>
 <s>7. Change scaling system from screen width to window width</s><br>
-8. Extensive SSL Support<br>
+<s>8. Extensive SSL Support</s><br>
 9. Add new features to blank tiles<br>
