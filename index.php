@@ -1,6 +1,6 @@
 <?php 
 if (file_exists( 'includes/config.php' )) {} 
-else { header( 'Location: setup.html' );}
+else { header( 'Location: setup.php' );}
 
 require( 'includes/vars.php'); 
 ?>
