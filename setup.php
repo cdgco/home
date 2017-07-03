@@ -1,3 +1,4 @@
+<?php if (file_exists( 'includes/config.php' )) {header( 'Location: index.php' );} ?>
 <html>
 <head>
 <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
