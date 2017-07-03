@@ -101,16 +101,6 @@ require( 'includes/vars.php');
         })
 
     </script>
-    <!-- 
-<style>
-html {
-    zoom: 0.9; /* Old IE only */
-    -moz-transform: scale(0.9);
-    -webkit-transform: scale(0.9);
-    transform: scale(0.9);
-}
-</style>
--->
     <style>
         body {
             <?php if(!$user->is_logged_in()) {}
