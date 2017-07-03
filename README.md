@@ -1,6 +1,4 @@
-# CDG Home
-
-## Custom Home / New Tab Page Featuring:
+# CDG Home: Custom Home / New Tab Page Featuring:
 • Stock Ticker<br>
 • Clock & Date<br>
 • Current Weather & Location<br>
@@ -10,7 +8,7 @@
 • Day & Night Modes<br>
 • Custom Background Images<br>
 • Extensive Settings With Changeable Units, Formats & Options<br>
-• Beautiful Scaleable UI<br>
+• Beautiful Scaleable UI<br><br>
 
 ![Day](https://raw.githubusercontent.com/cdgco/home/master/img/day.png)<br><br>
 ![Custom](https://raw.githubusercontent.com/cdgco/home/master/img/custom.png)<br><br>
