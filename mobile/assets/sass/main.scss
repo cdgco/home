@@ -1,7 +1,4 @@
-@import 'libs/vars';
-@import 'libs/functions';
-@import 'libs/mixins';
-@import 'libs/skel';
+@import 'libs/libs';
 @import 'font-awesome.min.css';
 
 /*
@@ -37,24 +34,8 @@
 
 // Base.
 
-	@import 'base/page';
-	@import 'base/typography';
-
-// Component.
-
-	@import 'components/box';
-	@import 'components/button';
-	@import 'components/form';
-	@import 'components/icon';
-	@import 'components/image';
-	@import 'components/list';
-	@import 'components/section';
-	@import 'components/spotlight';
-	@import 'components/table';
-	@import 'components/wrapper';
+	@import 'libs/base';
 
 // Layout.
 
-	@import 'layout/header';
-	@import 'layout/main';
-	@import 'layout/footer';
+	@import 'libs/main';

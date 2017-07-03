@@ -1,0 +1,1441 @@
+@import 'libs';
+
+///
+/// Fractal by HTML5 UP
+/// html5up.net | @ajlkn
+/// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+///
+
+/* Wrapper */
+
+	.wrapper {
+		@include padding(4.5em, 0);
+		background-color: _palette(bg);
+		border-bottom: solid (_size(border-width) * 2) lighten(_palette(border), 3);
+
+		> .inner {
+			margin-left: auto;
+			margin-right: auto;
+			width: 50em;
+
+			&.alt {
+				> * {
+					border-top: solid (_size(border-width) * 2) lighten(_palette(border), 3);
+					margin-bottom: 0;
+					margin-top: 3em;
+					padding-top: 3em;
+
+					&:first-child {
+						border-top: 0;
+						margin-top: 0;
+						padding-top: 0;
+					}
+				}
+			}
+		}
+
+		&.style1 {
+			@include color(accent1);
+		}
+
+		&.style2 {
+			@include color(accent2);
+		}
+
+		&.style3 {
+			@include color(accent3);
+		}
+
+		// Medium.
+			@include breakpoint(medium) {
+				@include padding(4em, 4em);
+
+				> .inner {
+					width: 100%;
+				}
+			}
+
+		// Small.
+			@include breakpoint(small) {
+
+				// Landscape.
+					@include orientation(landscape) {
+						@include padding(3em, 3em);
+					}
+
+				// Portrait.
+					@include orientation(portrait) {
+						@include padding(3em, 1.5em);
+					}
+
+			}
+
+		// XSmall.
+			@include breakpoint(xsmall) {
+
+				// Landscape.
+					@include orientation(landscape) {
+						@include padding(2em, 1.5em);
+					}
+
+				// Portrait.
+					@include orientation(portrait) {
+						@include padding(2em, 1em);
+					}
+
+			}
+
+	}
+
+/* Table */
+
+	.table-wrapper {
+		-webkit-overflow-scrolling: touch;
+		overflow-x: auto;
+	}
+
+	table {
+		margin: 0 0 _size(element-margin) 0;
+		width: 100%;
+
+		tbody {
+			tr {
+				border-style: solid;
+				border-width: _size(border-width);
+				border-left: 0;
+				border-right: 0;
+			}
+		}
+
+		td {
+			padding: 0.75em 0.75em;
+		}
+
+		th {
+			font-size: 0.9em;
+			font-weight: _font(weight-bold);
+			padding: 0 0.75em 0.75em 0.75em;
+			text-align: left;
+		}
+
+		thead {
+			border-bottom-style: solid;
+			border-bottom-width: (_size(border-width) * 2);
+		}
+
+		tfoot {
+			border-top-style: solid;
+			border-top-width: (_size(border-width) * 2);
+		}
+
+		&.alt {
+			border-collapse: separate;
+
+			tbody {
+				tr {
+					td {
+						border-style: solid;
+						border-width: _size(border-width);
+						border-left-width: 0;
+						border-top-width: 0;
+
+						&:first-child {
+							border-left-width: _size(border-width);
+						}
+					}
+
+					&:first-child {
+						td {
+							border-top-width: _size(border-width);
+						}
+					}
+				}
+			}
+
+			thead {
+				border-bottom: 0;
+			}
+
+			tfoot {
+				border-top: 0;
+			}
+		}
+	}
+
+	@mixin color-table($p: null) {
+		table {
+
+			tbody {
+				tr {
+					border-color: _palette($p, border);
+
+					&:nth-child(2n + 1) {
+						background-color: _palette($p, border-bg);
+					}
+				}
+			}
+
+			th {
+				color: _palette($p, fg-bold);
+			}
+
+			thead {
+				border-bottom-color: _palette($p, border);
+			}
+
+			tfoot {
+				border-top-color: _palette($p, border);
+			}
+
+			&.alt {
+
+				tbody {
+					tr {
+						td {
+							border-color: _palette($p, border);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	@include color-table;
+
+/* Spotlight */
+
+	.spotlight {
+		@include vendor('display', 'flex');
+		@include vendor('align-items', 'center');
+		margin: 0 0 _size(element-margin) 0;
+
+		.image {
+			width: 30%;
+			border-radius: 100%;
+			margin: 0 (_size(element-margin) * 1.5) 0 0;
+			display: block;
+
+			img {
+				display: block;
+				border-radius: 100%;
+				width: 100%;
+			}
+		}
+
+		.content {
+			width: 70%;
+
+			> :last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		&:nth-child(2n) {
+			@include vendor('flex-direction', 'row-reverse');
+
+			.image {
+				margin: 0 0 0 (_size(element-margin) * 1.5);
+			}
+
+			.content {
+				text-align: right;
+			}
+		}
+
+		// Small.
+			@include breakpoint(small) {
+
+				// Landscape.
+					@include orientation(landscape) {
+						.image {
+							margin: 0 _size(element-margin) 0 0;
+						}
+
+						&:nth-child(2n) {
+							.image {
+								margin: 0 0 0 _size(element-margin);
+							}
+						}
+					}
+
+				// Portrait.
+					@include orientation(portrait) {
+						@include vendor('flex-direction', 'column !important');
+
+						.image {
+							width: 100%;
+							max-width: 60%;
+							margin: 0 0 _size(element-margin) 0 !important;
+						}
+
+						.content {
+							width: 100%;
+							text-align: center !important;
+						}
+					}
+
+			}
+
+	}
+
+/* Section/Article */
+
+	section, article {
+		&.special {
+			text-align: center;
+		}
+	}
+
+	header {
+		p {
+			position: relative;
+			margin: 0 0 (_size(element-margin) * 0.75) 0;
+
+			// Small.
+				@include breakpoint(small) {
+					br {
+						display: none;
+					}
+				}
+
+		}
+
+		h2 + p {
+			font-size: 1.25em;
+			margin-top: (_size(element-margin) * -0.25);
+			line-height: 1.5em;
+		}
+
+		h3 + p {
+			font-size: 1.1em;
+			margin-top: (_size(element-margin) * -0.125);
+			line-height: 1.5em;
+		}
+
+		h4 + p,
+		h5 + p,
+		h6 + p {
+			font-size: 0.9em;
+			margin-top: (_size(element-margin) * -0.3);
+			line-height: 1.5em;
+		}
+
+		&.major {
+			margin: 0 0 (_size(element-margin) * 1.25) 0;
+			text-align: center;
+
+			&:after {
+				content: '';
+				border-bottom: solid (_size(border-width) * 2) _palette(border);
+				display: block;
+				width: 4em;
+				margin: _size(element-margin) auto 0 auto;
+			}
+
+			// Small.
+				@include breakpoint(small) {
+					margin: 0 0 _size(element-margin) 0;
+
+					p {
+						font-size: 1em;
+					}
+				}
+
+		}
+	}
+
+/* List */
+
+	ol {
+		list-style: decimal;
+		margin: 0 0 _size(element-margin) 0;
+		padding-left: 1.25em;
+
+		li {
+			padding-left: 0.25em;
+		}
+	}
+
+	ul {
+		list-style: disc;
+		margin: 0 0 _size(element-margin) 0;
+		padding-left: 1em;
+
+		li {
+			padding-left: 0.5em;
+		}
+
+		&.alt {
+			list-style: none;
+			padding-left: 0;
+
+			li {
+				border-top-style: solid;
+				border-top-width: _size(border-width);
+				padding: 0.5em 0;
+
+				&:first-child {
+					border-top: 0;
+					padding-top: 0;
+				}
+			}
+		}
+
+		&.icons {
+			cursor: default;
+			list-style: none;
+			padding-left: 0;
+
+			li {
+				display: inline-block;
+				padding: 0 1.5em 0 0;
+
+				&:last-child {
+					padding-right: 0 !important;
+				}
+
+				.icon {
+					&:before {
+						font-size: 1.75rem;
+					}
+				}
+			}
+
+			&.major {
+				li {
+					padding: 0 2.5em 0 0;
+
+					.icon {
+						&:before {
+							font-size: 2.75rem;
+						}
+					}
+				}
+
+				// Small.
+					@include breakpoint(small) {
+						li {
+							padding: 0 1.25em 0 0;
+
+							.icon {
+								&:before {
+									font-size: 1.75rem;
+								}
+							}
+						}
+					}
+
+			}
+
+			&.labeled {
+				li {
+					margin: 1em 0;
+					padding: 0 2em 0 0;
+
+					.icon {
+						&:before {
+							vertical-align: middle;
+							font-size: 2.25rem;
+							margin-right: 0.5em;
+						}
+
+						.label {
+							display: inline-block;
+							vertical-align: middle;
+							color: _palette(fg);
+						}
+					}
+				}
+
+				// Small.
+					@include breakpoint(small) {
+
+						// Portrait.
+							@include orientation(portrait) {
+								text-align: left;
+								margin-right: auto;
+								margin-left: auto;
+								display: inline-block;
+								white-space: nowrap;
+
+								li {
+									display: block;
+									padding: 0;
+									margin: 1.5em 0 0 0;
+
+									.icon {
+										&:before {
+											width: 1.5em;
+											display: block;
+											float: left;
+											margin-right: 0;
+										}
+
+										&:after {
+											content: '';
+											display: block;
+											clear: both;
+										}
+									}
+
+									&:first-child {
+										margin-top: 0;
+									}
+								}
+							}
+
+					}
+
+			}
+		}
+
+		&.actions {
+			cursor: default;
+			list-style: none;
+			padding-left: 0;
+
+			li {
+				display: inline-block;
+				padding: 0 (_size(element-margin) * 0.5) 0 0;
+				vertical-align: middle;
+
+				&:last-child {
+					padding-right: 0;
+				}
+			}
+
+			&.small {
+				li {
+					padding: 0 (_size(element-margin) * 0.25) 0 0;
+				}
+			}
+
+			&.vertical {
+				li {
+					display: block;
+					padding: (_size(element-margin) * 0.5) 0 0 0;
+
+					&:first-child {
+						padding-top: 0;
+					}
+
+					> * {
+						margin-bottom: 0;
+					}
+				}
+
+				&.small {
+					li {
+						padding: (_size(element-margin) * 0.25) 0 0 0;
+
+						&:first-child {
+							padding-top: 0;
+						}
+					}
+				}
+			}
+
+			&.fit {
+				display: table;
+				margin-left: (_size(element-margin) * -0.5);
+				padding: 0;
+				table-layout: fixed;
+				width: calc(100% + #{(_size(element-margin) * 0.5)});
+
+				li {
+					display: table-cell;
+					padding: 0 0 0 (_size(element-margin) * 0.5);
+
+					> * {
+						margin-bottom: 0;
+					}
+				}
+
+				&.small {
+					margin-left: (_size(element-margin) * -0.25);
+					width: calc(100% + #{(_size(element-margin) * 0.25)});
+
+					li {
+						padding: 0 0 0 (_size(element-margin) * 0.25);
+					}
+				}
+			}
+
+			// XSmall.
+				@include breakpoint(xsmall) {
+
+					// Portrait.
+						@include orientation(portrait) {
+							margin: 0 0 _size(element-margin) 0;
+
+							li {
+								padding: (_size(element-margin) * 0.5) 0 0 0;
+								display: block;
+								text-align: center;
+								width: 100%;
+
+								&:first-child {
+									padding-top: 0;
+								}
+
+								> * {
+									width: 100%;
+									margin: 0 !important;
+
+									&.icon {
+										&:before {
+											margin-left: -2em;
+										}
+									}
+								}
+							}
+
+							&.small {
+								li {
+									padding: (_size(element-margin) * 0.25) 0 0 0;
+
+									&:first-child {
+										padding-top: 0;
+									}
+								}
+							}
+						}
+
+				}
+
+		}
+	}
+
+	dl {
+		margin: 0 0 _size(element-margin) 0;
+
+		dt {
+			display: block;
+			font-weight: _font(weight-bold);
+			margin: 0 0 (_size(element-margin) * 0.5) 0;
+		}
+
+		dd {
+			margin-left: _size(element-margin);
+		}
+	}
+
+	@mixin color-list($p: null) {
+		ul {
+			&.alt {
+				> li {
+					border-top-color: _palette($p, border);
+				}
+			}
+		}
+	}
+
+	@include color-list;
+
+/* Image */
+
+	.image {
+		border-radius: _size(border-radius);
+		border: 0;
+		display: inline-block;
+		position: relative;
+		overflow: hidden;
+
+		img {
+			border-radius: _size(border-radius);
+			display: block;
+		}
+
+		&.left,
+		&.right {
+			max-width: 40%;
+
+			img {
+				width: 100%;
+			}
+		}
+
+		&.left {
+			float: left;
+			margin: 0 1.5em 1em 0;
+			top: 0.25em;
+		}
+
+		&.right {
+			float: right;
+			margin: 0 0 1em 1.5em;
+			top: 0.25em;
+		}
+
+		&.fit {
+			display: block;
+			margin: 0 0 _size(element-margin) 0;
+			width: 100%;
+
+			img {
+				width: 100%;
+			}
+		}
+
+		&.main {
+			display: block;
+			margin: 0 0 (_size(element-margin) * 1.5) 0;
+			width: 100%;
+
+			img {
+				width: 100%;
+			}
+		}
+
+		&.phone {
+			box-shadow: none;
+			border-radius: 0;
+			margin: 0 0 (_size(element-margin) * 1.5) 0;
+			width: 13em;
+
+			img {
+				border-radius: 0;
+				display: block;
+				position: relative;
+				width: 100%;
+			}
+
+			.inner, &:before, &:after {
+				display: block;
+				border: solid (_size(border-width) * 2) _palette(accent1, border);
+			}
+
+			.inner {
+				position: relative;
+
+				&:before, &:after {
+					content: '';
+					position: absolute;
+					left: 50%;
+				}
+
+				&:before {
+					top: -1.375em;
+					margin-left: -1em;
+					width: 2em;
+					height: 0.25em;
+					border-radius: 0.5em;
+					background: _palette(accent1, border);
+				}
+
+				&:after {
+					bottom: -2.75em;
+					margin-left: -1em;
+					width: 2em;
+					height: 2em;
+					border-radius: 100%;
+					border: solid (_size(border-width) * 2) _palette(accent1, border);
+				}
+			}
+
+			&:before, &:after {
+				content: '';
+			}
+
+			&:before {
+				height: 2.5em;
+				border-radius: 1em 1em 0 0;
+				border-bottom: 0;
+			}
+
+			&:after {
+				height: 3.5em;
+				border-radius: 0 0 1em 1em;
+				border-top: 0;
+			}
+		}
+	}
+
+	@mixin color-image($p: null) {
+		.image {
+			box-shadow: 0 0 0 4px _palette($p, bg), 0 0 0 5px _palette($p, border);
+
+			&.phone {
+				box-shadow: none;
+
+				.inner, &:before, &:after {
+					border-color: _palette($p, border);
+				}
+
+				.inner {
+					&:before {
+						background: _palette($p, border);
+					}
+
+					&:after {
+						border-color: _palette($p, border);
+					}
+				}
+			}
+		}
+	}
+
+	@include color-image;
+
+/* Icon */
+
+	.icon {
+		@include icon;
+		border-bottom: none;
+		position: relative;
+
+		> .label {
+			display: none;
+		}
+	}
+
+	@mixin color-icon($p: null) {
+		.icon {
+			color: _palette($p, fg-light);
+		}
+	}
+
+	@include color-icon;
+
+/* Form */
+
+	form {
+		margin: 0 0 _size(element-margin) 0;
+	}
+
+	label {
+		display: block;
+		font-size: 0.9em;
+		font-weight: _font(weight-bold);
+		margin: 0 0 (_size(element-margin) * 0.5) 0;
+	}
+
+	input[type="text"],
+	input[type="password"],
+	input[type="email"],
+	select,
+	textarea {
+		@include vendor('appearance', 'none');
+		border-radius: _size(border-radius);
+		border: none;
+		border-style: solid;
+		border-width: _size(border-width);
+		color: inherit;
+		display: block;
+		outline: 0;
+		padding: 0 1em;
+		text-decoration: none;
+		width: 100%;
+
+		&:invalid {
+			box-shadow: none;
+		}
+	}
+
+	.select-wrapper {
+		@include icon;
+		display: block;
+		position: relative;
+
+		&:before {
+			content: '\f078';
+			display: block;
+			height: _size(element-height);
+			line-height: _size(element-height);
+			pointer-events: none;
+			position: absolute;
+			right: 0;
+			text-align: center;
+			top: 0;
+			width: _size(element-height);
+		}
+
+		select::-ms-expand {
+			display: none;
+		}
+	}
+
+	input[type="text"],
+	input[type="password"],
+	input[type="email"],
+	select {
+		height: _size(element-height);
+	}
+
+	textarea {
+		padding: 0.75em 1em;
+	}
+
+	input[type="checkbox"],
+	input[type="radio"], {
+		@include vendor('appearance', 'none');
+		display: block;
+		float: left;
+		margin-right: -2em;
+		opacity: 0;
+		width: 1em;
+		z-index: -1;
+
+		& + label {
+			@include icon;
+			cursor: pointer;
+			display: inline-block;
+			font-size: 1em;
+			font-weight: _font(weight);
+			padding-left: (_size(element-height) * 0.6) + 0.75em;
+			padding-right: 0.75em;
+			position: relative;
+
+			&:before {
+				border-radius: _size(border-radius);
+				border-style: solid;
+				border-width: _size(border-width);
+				content: '';
+				display: inline-block;
+				height: (_size(element-height) * 0.6);
+				left: 0;
+				line-height: (_size(element-height) * 0.575);
+				position: absolute;
+				text-align: center;
+				top: 0;
+				width: (_size(element-height) * 0.6);
+			}
+		}
+
+		&:checked + label {
+			&:before {
+				content: '\f00c';
+			}
+		}
+	}
+
+	input[type="checkbox"] {
+		& + label {
+			&:before {
+				border-radius: _size(border-radius);
+			}
+		}
+	}
+
+	input[type="radio"] {
+		& + label {
+			&:before {
+				border-radius: 100%;
+			}
+		}
+	}
+
+	::-webkit-input-placeholder {
+		opacity: 1.0;
+	}
+
+	:-moz-placeholder {
+		opacity: 1.0;
+	}
+
+	::-moz-placeholder {
+		opacity: 1.0;
+	}
+
+	:-ms-input-placeholder {
+		opacity: 1.0;
+	}
+
+	.formerize-placeholder {
+		opacity: 1.0;
+	}
+
+	@mixin color-form($p: null) {
+
+		label {
+			color: _palette($p, fg-bold);
+		}
+
+		input[type="text"],
+		input[type="password"],
+		input[type="email"],
+		select,
+		textarea {
+			color: inherit;
+			background-color: _palette($p, border-bg);
+			border-color: _palette($p, border);
+
+			&:focus {
+				@if _palette($p, invert) == true {
+					border-color: _palette($p, fg-bold);
+					box-shadow: 0 0 0 _size(border-width) _palette($p, fg-bold);
+				}
+				@else {
+					border-color: _palette(accent1, bg);
+					box-shadow: 0 0 0 _size(border-width) _palette(accent1, bg);
+				}
+			}
+		}
+
+		.select-wrapper:before {
+			color: _palette($p, border);
+		}
+
+		input[type="checkbox"],
+		input[type="radio"], {
+
+			& + label {
+				color: _palette($p, fg);
+
+				&:before {
+					background-color: _palette($p, border-bg);
+					border-color: _palette($p, border);
+				}
+			}
+
+			&:checked + label {
+				&:before {
+					@if _palette($p, invert) == true {
+						background-color: _palette($p, fg-bold);
+						border-color: _palette($p, fg-bold);
+						color: _palette($p, bg);
+					}
+					@else {
+						background-color: _palette(accent1, bg);
+						border-color: _palette(accent1, bg);
+						color: _palette(accent1, fg-bold);
+					}
+				}
+			}
+
+			&:focus + label {
+				&:before {
+					@if _palette($p, invert) == true {
+						border-color: _palette($p, fg-bold);
+						box-shadow: 0 0 0 _size(border-width) _palette($p, fg-bold);
+					}
+					@else {
+						border-color: _palette(accent1, bg);
+						box-shadow: 0 0 0 _size(border-width) _palette(accent1, bg);
+					}
+				}
+			}
+		}
+
+		::-webkit-input-placeholder {
+			color: _palette($p, fg-light) !important;
+		}
+
+		:-moz-placeholder {
+			color: _palette($p, fg-light) !important;
+		}
+
+		::-moz-placeholder {
+			color: _palette($p, fg-light) !important;
+		}
+
+		:-ms-input-placeholder {
+			color: _palette($p, fg-light) !important;
+		}
+
+		.formerize-placeholder {
+			color: _palette($p, fg-light) !important;
+		}
+	}
+
+	@include color-form;
+
+/* Button */
+
+	input[type="submit"],
+	input[type="reset"],
+	input[type="button"],
+	button,
+	.button {
+		@include vendor('appearance', 'none');
+		@include vendor('transition', 'background-color #{_duration(transition)} ease-in-out, color #{_duration(transition)} ease-in-out');
+		border-radius: _size(border-radius);
+		border: 0;
+		cursor: pointer;
+		display: inline-block;
+		font-weight: _font(weight-bold);
+		height: 2.85em;
+		line-height: 2.95em;
+		padding: 0 1.75em;
+		text-align: center;
+		text-decoration: none;
+		white-space: nowrap;
+
+		&.icon {
+			padding-left: 1.35em;
+
+			&:before {
+				margin-right: 0.5em;
+			}
+		}
+
+		&.fit {
+			display: block;
+			margin: 0 0 (_size(element-margin) * 0.5) 0;
+			width: 100%;
+		}
+
+		&.small {
+			font-size: 0.8em;
+		}
+
+		&.big {
+			font-size: 1.35em;
+		}
+
+		&.disabled,
+		&:disabled {
+			@include vendor('pointer-events', 'none');
+			cursor: default;
+			opacity: 0.25;
+		}
+
+		// XSmall.
+			@include breakpoint(xsmall) {
+
+				// Portrait.
+					@include orientation(portrait) {
+						padding: 0;
+					}
+
+			}
+
+	}
+
+	@mixin color-button($p: null) {
+		input[type="submit"],
+		input[type="reset"],
+		input[type="button"],
+		button,
+		.button {
+			background-color: transparent;
+			color: _palette($p, fg-bold) !important;
+			box-shadow: inset 0 0 0 (_size(border-width) * 2) _palette($p, border);
+
+			&:hover {
+				background-color: _palette($p, border-bg);
+			}
+
+			&:active {
+				background-color: _palette($p, border2-bg);
+			}
+
+			&.special {
+				box-shadow: none;
+
+				@if _palette($p, invert) == true {
+					background-color: _palette($p, fg-bold);
+					color: _palette($p, bg) !important;
+
+					&:hover {
+					}
+
+					&:active {
+					}
+				}
+				@else {
+					background-color: _palette(accent1, bg);
+					color: _palette(accent1, fg-bold) !important;
+
+					&:hover {
+						background-color: lighten(_palette(accent1, bg), 5);
+					}
+
+					&:active {
+						background-color: darken(_palette(accent1, bg), 5);
+					}
+				}
+			}
+		}
+	}
+
+	@include color-button;
+
+/* Box */
+
+	.box {
+		border-radius: _size(border-radius);
+		border: solid _size(border-width) _palette(border);
+		margin-bottom: _size(element-margin);
+		padding: 1.5em;
+
+		> :last-child,
+		> :last-child > :last-child,
+		> :last-child > :last-child > :last-child {
+			margin-bottom: 0;
+		}
+
+		&.alt {
+			border: 0;
+			border-radius: 0;
+			padding: 0;
+		}
+	}
+
+/* Basic */
+
+	// MSIE: Required for IEMobile.
+		@-ms-viewport {
+			width: device-width;
+		}
+
+	// MSIE: Prevents scrollbar from overlapping content.
+		body {
+			-ms-overflow-style: scrollbar;
+		}
+
+	// Ensures page width is always >=320px.
+		@include breakpoint(xxsmall) {
+			html, body {
+				min-width: 320px;
+			}
+		}
+
+	body {
+		background: _palette(bg);
+
+		// Prevents animation/transition "flicker" on page load.
+		// Automatically added/removed by js/main.js.
+			&.is-loading {
+				*, *:before, *:after {
+					@include vendor('animation', 'none !important');
+					@include vendor('transition', 'none !important');
+				}
+			}
+
+	}
+
+/* Type */
+
+	html, body {
+		background: _palette(bg-alt);
+	}
+
+	body {
+		color: _palette(fg);
+	}
+
+	html, input, select, textarea {
+		font-size: 16pt;
+
+		// XLarge.
+			@include breakpoint(xlarge) {
+				font-size: 13pt;
+			}
+
+		// Large.
+			@include breakpoint(large) {
+				font-size: 12pt;
+			}
+
+		// XXSmall.
+			@include breakpoint(xxsmall) {
+				font-size: 11pt;
+			}
+
+	}
+
+	body, input, select, textarea {
+		font-family: _font(family);
+		font-weight: _font(weight);
+		line-height: 1.5em;
+		letter-spacing: -0.015em;
+	}
+
+	a {
+		@include vendor('transition', ('color #{_duration(transition)} ease-in-out', 'border-bottom-color #{_duration(transition)} ease-in-out'));
+		text-decoration: none;
+		border-bottom: dotted 1px;
+
+		&:hover {
+			border-bottom-color: transparent !important;
+		}
+	}
+
+	strong, b {
+		font-weight: _font(weight-bold);
+	}
+
+	em, i {
+		font-style: italic;
+	}
+
+	p {
+		margin: 0 0 _size(element-margin) 0;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		font-weight: _font(weight);
+		line-height: 1em;
+		margin: 0 0 (_size(element-margin) * 0.5) 0;
+		letter-spacing: -0.0125em;
+
+		a {
+			color: inherit;
+			text-decoration: none;
+			border-bottom: none;
+		}
+
+		// Medium.
+			@include breakpoint(medium) {
+				br {
+					display: none;
+				}
+			}
+
+	}
+
+	h2 {
+		font-size: 1.75em;
+		line-height: 1.5em;
+	}
+
+	h3 {
+		font-size: 1.5em;
+		line-height: 1.5em;
+	}
+
+	h4 {
+		font-size: 1.1em;
+		line-height: 1.5em;
+	}
+
+	h5 {
+		font-size: 0.9em;
+		line-height: 1.5em;
+	}
+
+	h6 {
+		font-size: 0.7em;
+		line-height: 1.5em;
+	}
+
+	// Small.
+		@include breakpoint(small) {
+			h2 {
+				font-size: 1.25em;
+			}
+
+			h3 {
+				font-size: 1.2em;
+			}
+
+			h4 {
+				font-size: 1em;
+			}
+		}
+
+	sub {
+		font-size: 0.8em;
+		position: relative;
+		top: 0.5em;
+	}
+
+	sup {
+		font-size: 0.8em;
+		position: relative;
+		top: -0.5em;
+	}
+
+	blockquote {
+		border-left-style: solid;
+		border-left-width: (_size(border-width) * 4);
+		font-style: italic;
+		margin: 0 0 _size(element-margin) 0;
+		padding: (_size(element-margin) / 4) 0 (_size(element-margin) / 4) _size(element-margin);
+	}
+
+	code {
+		border-radius: _size(border-radius);
+		border-style: solid;
+		border-width: _size(border-width);
+		font-family: _font(family-fixed);
+		font-size: 0.9em;
+		margin: 0 0.25em;
+		padding: 0.25em 0.65em;
+	}
+
+	pre {
+		-webkit-overflow-scrolling: touch;
+		font-family: _font(family-fixed);
+		font-size: 0.9em;
+		margin: 0 0 _size(element-margin) 0;
+
+		code {
+			display: block;
+			line-height: 1.75em;
+			padding: 1em 1.5em;
+			overflow-x: auto;
+		}
+	}
+
+	hr {
+		border: 0;
+		border-bottom-style: solid;
+		border-bottom-width: _size(border-width);
+		margin: _size(element-margin) 0;
+
+		&.major {
+			margin: (_size(element-margin) * 1.5) 0;
+		}
+	}
+
+	.align-left {
+		text-align: left;
+	}
+
+	.align-center {
+		text-align: center;
+	}
+
+	.align-right {
+		text-align: right;
+	}
+
+	@mixin color-typography($p: null) {
+		@if $p != null {
+			background-color: _palette($p, bg);
+			color: _palette($p, fg);
+		}
+
+		input, select, textarea {
+			color: _palette($p, fg);
+		}
+
+		a {
+			color: inherit;
+			border-bottom-color: _palette($p, border2);
+
+			@if _palette($p, invert) == true {
+				color: _palette($p, fg-bold);
+			}
+			@else {
+				&:hover {
+					color: _palette(accent1, bg);
+				}
+			}
+		}
+
+		strong, b {
+			color: _palette($p, fg-bold);
+		}
+
+		h1, h2, h3, h4, h5, h6 {
+			color: _palette($p, fg-bold);
+		}
+
+		blockquote {
+			border-left-color: _palette($p, border);
+		}
+
+		code {
+			background: _palette($p, border-bg);
+			border-color: _palette($p, border);
+		}
+
+		hr {
+			border-bottom-color: _palette($p, border);
+		}
+	}
+
+	@include color-typography;
