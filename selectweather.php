@@ -31,7 +31,7 @@ else { echo 'css/night1'; }
 				<p>Back to <a href='account.php'>Settings</a> | <a href='logout.php'>Logout</a></p>
 				<hr>
 <h3>Change Weather Location: </h3>
-<form action="weather.php" method="post">
+<form action="<?php echo DIR ?>weather.php" method="post">
 <input type="hidden" name="country" id="countryId" value="US"/>
 <select name="state" class="states order-alpha" id="stateId">
     <option value="">Select State</option>

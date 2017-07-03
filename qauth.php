@@ -116,7 +116,7 @@ h1{
     <span></span>
     <span></span>
 </div>
-<form action="qauth2.php" name="tokenform" method="post">
+<form action="<?php echo DIR ?>qauth2.php" name="tokenform" method="post">
 <input name="token" type="text" style="display:none;" id="hiddeninput"></input><br>
 </form>
 

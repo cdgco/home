@@ -33,7 +33,7 @@ else { echo 'css/night1'; }
 <center><h3>Please Verify Location: <?php echo $_POST['city']; ?>, <span id="sid2"></span></h3> 
 
 
-<form action="weather2.php" method="post">
+<form action="<?php echo DIR ?>weather2.php" method="post">
 <input type="hidden" id="sid" name="state"/>
 <input type="hidden" id="cid" value="<?php echo $_POST['city']; ?>" name="city"/>
 <br>

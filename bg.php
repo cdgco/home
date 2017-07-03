@@ -32,7 +32,7 @@ else { echo 'css/night1'; }
 				<hr>
 <center>
 <h4>Background Image URL: </h4>
-<form action="bg2.php" method="post">
+<form action="<?php echo DIR ?>bg2.php" method="post">
 <input type="url" style="width: 500px;" title="URL's ending in .png, .jpg, or .jpeg only!" pattern="^https?://(?:[a-z0-9\-]+\.)+[a-z]{2,6}(?:/[^/#?]+)+\.(?:jpg|jpeg|png)$" name="bgurl"></input><br><br>
 <input type="Submit" value="Change"></input>
 </form>

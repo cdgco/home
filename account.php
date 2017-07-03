@@ -73,7 +73,7 @@ elseif ($bgstat == "n") { echo "Disabled"; }
 ?>
 </h3><hr>
 <h4>Custom Background:</h4>
-<form action="bgoff.php" method="post">
+<form action="<?php echo DIR ?>bgoff.php" method="post">
 <input type="radio" name="bg" onclick="window.location='bg.php';"> Set Custom Background</input>
 <input type="radio" name="bg"> Disable</input>
 <br><br><input type="Submit" value="Change"></input>
@@ -91,7 +91,7 @@ print_r($userRow[0]);
 ?>
 </h3><hr>
 <h4>Set Refresh Rate:</h4>
-<form action="refresh.php" method="post">
+<form action="<?php echo DIR ?>refresh.php" method="post">
 <select name="rtime">
   <option value="60000|1 Minute">1 Minute</option>
   <option value="300000|5 Minutes">5 Minutes</option>
@@ -119,7 +119,7 @@ else { echo "Enabled"; }
 ?>
 </h3><hr>
 <h4>Create Custom Ticker:</h4>
-<form action="ticker.php" name="stocks3" method="post">
+<form action="<?php echo DIR ?>ticker.php" name="stocks3" method="post">
 <input type="text" pattern="^[a-zA-Z,]*$" title="Letters & Commas Only!" maxlength="500" name="stocks" style="width:570px" placeholder="Enter valid comma-seperated symbols to create new ticker. Ex:&nbsp;aapl,fb,vti,unh,ulta,amzn,googl" value="<?php 
 
 require('includes/dbconnect.php');
@@ -149,7 +149,7 @@ else { echo "Dark Theme"; }
 ?>
 </h3><hr>
 <h4>Change Default Style:</h4>
-<form action="style.php" method="post">
+<form action="<?php echo DIR ?>style.php" method="post">
 <input type="radio" name="style" value="l"> Light Theme</input>
 <input type="radio" name="style" value="d"> Dark Theme</input>
 <br><br><input type="Submit" value="Change"></input>
@@ -167,7 +167,7 @@ print_r($userRow[0]);
 ?>
 </h3><hr>
 <h4>Change Clock Format:</h4>
-<form action="clock.php" method="post">
+<form action="<?php echo DIR ?>clock.php" method="post">
 <input type="radio" name="newclock" value="12|12 Hour"> 12 Hour</input>
 <input type="radio" name="newclock" value="24|24 Hour"> 24 Hour</input>
 <br><br><input type="Submit" value="Change"></input>
@@ -185,7 +185,7 @@ print_r($userRow[0]);
 ?>
 </h3><hr>
 <h4>Set News Source:</h4>
-<form action="source.php" method="post">
+<form action="<?php echo DIR ?>source.php" method="post">
 <select name="newsource">
 <optgroup label="CNN">
   <option value="http://rss.cnn.com/rss/cnn_topstories.rss|CNN Top Stories">Top Stories</option>
@@ -234,7 +234,7 @@ print_r($userRow[0]);
 
 </h3><hr>
 <h4>Change Playlist URI:</h4>
-<form action="spotify.php" method="post">
+<form action="<?php echo DIR ?>spotify.php" method="post">
 <input type="text" value="<?php 
 
 require('includes/dbconnect.php');
@@ -269,7 +269,7 @@ elseif ($temp1 == "c") { echo "Celsius"; }
 ?>
 </h3><hr>
 <h4>Change Temperature Format:</h4>
-<form action="temp.php" method="post">
+<form action="<?php echo DIR ?>temp.php" method="post">
 <input type="radio" name="temp" value="f"> Fahrenheit</input>
 <input type="radio" name="temp" value="c"> Celsius</input>
 <br><br><input type="Submit" value="Change"></input>
@@ -304,7 +304,7 @@ $userRow=mysql_fetch_row($res);
 print_r(',&nbsp;'.$userRow[0]);
 ?><hr>
 <h4>Change Weather Location:</h3> 
-<form action="location.php" method="post">
+<form action="<?php echo DIR ?>location.php" method="post">
 <input type="radio" name="customlocation" value="N"> Current Location</input>
 <input type="radio" name="customlocation" onclick="window.location='selectweather.php';"> Custom Location</input>
 <br><br><input type="submit" />
@@ -328,8 +328,8 @@ $res=mysql_query("SELECT tstat FROM members WHERE memberID = '$memid'");
 $userRow=mysql_fetch_row($res);
 $tstat = $userRow[0];
 
-if ($gstat == "no") { echo '<form action="includes/gmail.php"><input id="red" style="color:#ffffff; font-weight:bold; background-color:#4285F4;" type="submit" value="Login with Google" /></form>'; }
-if ($gstat == "yes") { echo '<form action="disconnect.php"><input id="red" style="background-color: #e74c3c;" type="submit" value="Disconnect" /></form>'; }
+if ($gstat == "no") { echo '<form action="' . DIR . 'includes/gmail.php"><input id="red" style="color:#ffffff; font-weight:bold; background-color:#4285F4;" type="submit" value="Login with Google" /></form>'; }
+if ($gstat == "yes") { echo '<form action="' . DIR . 'disconnect.php"><input id="red" style="background-color: #e74c3c;" type="submit" value="Disconnect" /></form>'; }
 ?>
 <hr>
 <h3>Account Email Address: 
@@ -344,7 +344,7 @@ print_r($userRow[0]);
 ?>
 </h3><hr>
 <h4>Change Account Email:</h4>
-<form action="email.php" method="post">
+<form action="<?php echo DIR ?>email.php" method="post">
 <input type="text" name="changeemail"></input><br><br>
 <input type="Submit" value="Change"></input>
 </form>
