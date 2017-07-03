@@ -1,7 +1,8 @@
-<?php require( 'includes/vars.php'); 
-
+<?php 
 if (file_exists( 'includes/config.php' )) {} 
 else { header( 'Location: setup.html' );}
+
+require( 'includes/vars.php'); 
 ?>
 <!DOCTYPE html>
 <html>
