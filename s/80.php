@@ -34,6 +34,32 @@
     }
 
 </style>
+</style>
+    <script>
+    function checkScale() {
+            if (window.outerWidth > 1650) {
+                window.location = "../index.php";
+            }
+            if (window.outerWidth > 1550 && window.outerWidth <= 1650) {
+                window.location = "90.php";
+            }
+            if (window.outerWidth > 1250 && window.outerWidth <= 1350) {
+                window.location = "75.php";
+            }
+            if (window.outerWidth > 1140 && window.outerWidth <= 1250) {
+                window.location = "67.php";
+            }
+            if (window.outerWidth > 1000 && window.outerWidth <= 1140) {
+                window.location = "60.php";
+            }
+            if (window.outerWidth <= 1000) {
+                window.location = "../mobile";
+            }
+        }
+    window.onload = checkScale;
+    window.onresize = checkScale;
+        
+    </script>
 <iframe src="../index.php" id="frame">
     Your browser doesn't support iframes
 </iframe>

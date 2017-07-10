@@ -14,6 +14,33 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="assets/css/main.css" />
+    <script>
+    function checkScale() {
+        if (self == top) {
+            if (window.outerWidth > 1650) {
+                window.location = "../index.php";
+            }
+            if (window.outerWidth > 1550 && window.outerWidth <= 1650) {
+                window.location = "../s/90.php";
+            }
+            if (window.outerWidth > 1350 && window.outerWidth <= 1550) {
+                window.location = "../s/80.php";
+            }
+            if (window.outerWidth > 1250 && window.outerWidth <= 1350) {
+                window.location = "../s/75.php";
+            }
+            if (window.outerWidth > 1140 && window.outerWidth <= 1250) {
+                window.location = "../s/67.php";
+            }
+            if (window.outerWidth > 1000 && window.outerWidth <= 1140) {
+                window.location = "../s/60.php";
+            }
+        }
+    }
+    window.onload = checkScale;
+    window.onresize = checkScale;
+        
+    </script>
 </head>
 
 <body id="top">

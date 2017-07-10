@@ -25,6 +25,7 @@ require( 'includes/vars.php');
 
     <title>CDG Home</title>
     <script>
+        function checkScale() {
         if (self == top) {
             if (window.outerWidth > 1550 && window.outerWidth <= 1650) {
                 window.location = "s/90.php";
@@ -45,7 +46,10 @@ require( 'includes/vars.php');
                 window.location = "mobile";
             }
         }
-
+    }
+        
+    window.onload = checkScale;
+    window.onresize = checkScale;
     </script>
     <style>
         .tooltip {
