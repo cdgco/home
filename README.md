@@ -23,7 +23,7 @@
 
 ## Install Guide
 1. Clone or download the CDG Home repository to a php capable server.
-2. Create a MySQL database and run the home.sql file to create table.
+2. Create a MySQL database and run the db.sql file to create table.
 3. Configure the /classes/phpmailer/mail.php with your phpmailer, smtp, or pop3 settings.
 4. Configure the /includes/config-example.php file with your timezone, MySQL database, absolute application address, email address, and password reset email details.
 5. Rename config-example.php to config.php.
