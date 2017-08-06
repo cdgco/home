@@ -1,0 +1,32 @@
+.tooltip {
+    position: absolute;
+    display: inline-block;
+    bottom: 14%;
+    left: 1.5%; 
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 10px;
+    /* Position the tooltip */
+    position: static;
+    z-index: 1;
+    bottom: 6%;
+    left: 1%; 
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+.hover {
+    -webkit-filter: brightness(100%); 
+    transition: all .3s linear;
+}
+.hover:hover {
+    -webkit-filter: brightness(80%);
+}
