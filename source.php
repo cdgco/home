@@ -8,5 +8,12 @@ $result = $_POST['newsource'];
 $sql = "UPDATE `members` SET `newsource` = '$source', `sourcename` = '$sourcename' WHERE `memberID` = '$memid'";
 
 
-require('includes/footer.php'); 
+if (!mysql_query($sql)) {
+    $merror = mysql_errno($link);
+    header("Location: accontent.php?s=e&e=$merror#news");
+    die();
+} else {
+    header("Location: accontent.php?s=s#news");
+    die();
+} 
 ?>

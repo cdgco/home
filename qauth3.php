@@ -10,7 +10,7 @@ $sql = "CREATE EVENT expiration_$eventname ON SCHEDULE AT CURRENT_TIMESTAMP + IN
 
 if (!mysql_query($sql)) {
 $merror = mysql_errno($link);
-    header("Location: account.php?s=e&e=$merror");
+    header("Location: acpref.php?s=e&e=$merror#gmail");
 die(); 
 }
 

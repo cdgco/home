@@ -22,7 +22,7 @@ require('layout/header.php');
 	<div class="row">
 
 	    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-			<form role="form" id="signup-form" method="post" action="<?php echo DIR ?>join2.php" autocomplete="off">
+			<form role="form" id="signup-form" method="post" action="join2.php" autocomplete="off">
 				<h2>Please Sign Up</h2>
 				<p>Back <a href="index.php">Home</a> | Already a member? <a href="login.php">Login</a></p>
 				<hr>

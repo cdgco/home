@@ -121,26 +121,19 @@
             -o-transform: translateX(-20px);
         }
     }
-
 </style>
 <div class="loader">
-    <h1>LOADING</h1>
-    <span></span>
-    <span></span>
-    <span></span>
-</div>
-<form action="<?php echo DIR ?>qauth2.php" name="tokenform" method="post">
-    <input name="token" type="text" style="display:none;" id="hiddeninput"/><br>
-</form>
-
+    <h1>LOADING</h1> <span></span> <span></span> <span></span> </div>
+<form action="qauth2.php" name="tokenform" method="post">
+    <input name="token" type="text" style="display:none;" id="hiddeninput"></input>
+    <br> </form>
 <script>
     var hash1 = location.hash.substring(1).replace('&token_type=Bearer&expires_in', '');
     var hash2 = hash1.replace('access_token=', '');
     document.getElementById('hiddeninput').value = hash2;
-
-    window.onload = function() {
+    window.onload = function () {
         document.forms['tokenform'].submit()
-
     }
-
 </script>
+
+</html>
