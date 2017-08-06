@@ -204,7 +204,7 @@ require( 'includes/vars.php');
                     <span class="tile-content">
                         <span class="tile-holder tile-holder-sm">
                             <span style="font-size:40px">
-                                <div style="text-align:center; white-space:pre-wrap;margin-left:-20px; margin-right:20px;display:inline;">
+                                <div style="text-align:center;">
                                     <marquee behavior="scroll" direction="up" scrollamount="6.5" height="230" width="500">
                                         <p id="rss-feeds"></p>
                                     </marquee>
