@@ -4,9 +4,9 @@ RewriteEngine On
 ## Uncomment If Using SSL - NOTE: For Full HTTPS, MacroAxis License is required and all forms must be re-written. ##
 ####################################################################################################################
 
-RewriteCond %{HTTPS} =off
-RewriteRule ^(acbg|accontent|aclocation|acpref|account|activate|auth|auth2|auth3|bg|bg2|bgoff|clock|dicsonnect|email|join|join2|location|login|logout|qauth|qauth2|qauth3|refresh|reset|resetPassword|selectweather|setup|source|spotify|style|temp|ticker|weather|weather2)\.php$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+#RewriteCond %{HTTPS} =off
+#RewriteRule ^(acbg|accontent|aclocation|acpref|account|activate|auth|auth2|auth3|bg|bg2|bgoff|clock|dicsonnect|email|join|join2|location|login|logout|qauth|qauth2|qauth3|refresh|reset|resetPassword|selectweather|setup|source|spotify|style|temp|ticker|weather|weather2)\.php$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
-RewriteCond %{HTTPS} =on
-RewriteCond %{REQUEST_URI} !^/(acbg|accontent|aclocation|acpref|account|activate|auth|auth2|auth3|bg|bg2|bgoff|clock|dicsonnect|email|join|join2|location|login|logout|qauth|qauth2|qauth3|refresh|reset|resetPassword|selectweather|setup|source|spotify|style|temp|ticker|weather|weather2)\.php$
-RewriteRule .* http://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+#RewriteCond %{HTTPS} =on
+#RewriteCond %{REQUEST_URI} !^/(acbg|accontent|aclocation|acpref|account|activate|auth|auth2|auth3|bg|bg2|bgoff|clock|dicsonnect|email|join|join2|location|login|logout|qauth|qauth2|qauth3|refresh|reset|resetPassword|selectweather|setup|source|spotify|style|temp|ticker|weather|weather2)\.php$
+#RewriteRule .* http://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
