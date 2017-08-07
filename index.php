@@ -4,6 +4,7 @@ else { header( 'Location: setup.php' );}
 
 require('includes/dbconnect.php');
 require( 'includes/vars.php'); 
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -37,7 +38,6 @@ require( 'includes/vars.php');
             if(!$user->is_logged_in()){} 
 
             else {
-                require('includes/dbconnect.php');
 
                 $res=mysql_query("SELECT bg FROM members WHERE memberID = '$memid'");
                 $userRow=mysql_fetch_row($res);
@@ -62,7 +62,7 @@ require( 'includes/vars.php');
         <script src="js/jquery.min.js"></script>
         <script src="js/jquery-1.6.4.min.js"></script>
         <script src="js/moment.min.js"></script>
-        <script src="js/jquery.rss.js"></script>
+        <script src="js/jquery.rss.min.js"></script>
         
         <script>
         if (self == top) {
@@ -358,9 +358,6 @@ require( 'includes/vars.php');
                   $("#weather").html(response.current_observation.temp_<?php 
                 if(!$user->is_logged_in()){ echo "f"; } else {
 
-                require('includes/dbconnect.php');
-
-
                 $res=mysql_query("SELECT temp FROM members WHERE memberID = '$memid'");
                 $userRow=mysql_fetch_row($res);
                 $resulttemp = $userRow[0];
@@ -388,7 +385,14 @@ require( 'includes/vars.php');
             if (jsonResponse["threadsUnread"] == null){
                 document.getElementById("gmaildiv").innerHTML = '<center><br><br><img src="img/gmail.png" height="120"></center><br><span class="tile-holder tile-holder-sm"><span class="title">Email</span></span>';
                 var d1 = document.getElementById('htinsert');
-                d1.insertAdjacentHTML('beforeend', '<div class="tooltip" style="z-index:99"><a href="includes/quickauth.php"><img alt="Login to Gmail" class="hover" style="display:inline;position: fixed;bottom: 4%;left: 2%; height:80px;" src="img/auth.png"/></a> <span class="tooltiptext">Login to Gmail</span></div>');
+                var loggedin='<?php  if(!$user->is_logged_in()){echo 'no';} else {echo 'yes';} ?>';
+
+                if (loggedin === "yes") {
+
+                    d1.insertAdjacentHTML('beforeend', '<div class="tooltip" style="z-index:99"><a href="includes/quickauth.php"><img alt="Login to Gmail" class="hover" style="display:inline;position: fixed;bottom: 4%;left: 2%; height:80px;" src="img/auth.png"/></a> <span class="tooltiptext">Login to Gmail</span></div>');
+
+                }
+                
             }
 
             else {
@@ -398,7 +402,6 @@ require( 'includes/vars.php');
 
         xhr.open("GET", "https://www.googleapis.com/gmail/v1/users/me/labels/INBOX");
         xhr.setRequestHeader("authorization", "Bearer <?php
-            require('includes/dbconnect.php');
 
             $res=mysql_query("SELECT token FROM members WHERE memberID = '$memid'");
             $userRow=mysql_fetch_row($res);
@@ -419,7 +422,7 @@ require( 'includes/vars.php');
         $(function() {
         setTimeout("  $('body').load(window.location.href,'body');", <?php
 
-            if(!$user->is_logged_in()){ echo "300000"; } else {require('includes/dbconnect.php');
+            if(!$user->is_logged_in()){ echo "300000"; } else {
 
             $res=mysql_query("SELECT refresh FROM members WHERE memberID = '$memid'");
             $userRow=mysql_fetch_row($res);

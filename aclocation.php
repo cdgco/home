@@ -13,7 +13,6 @@ require('includes/dbconnect.php');
         <title>CDG Home - Custom Location</title>
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-        <link href="css/datepicker3.css" rel="stylesheet">
         <link href="css/styles.css" rel="stylesheet">
         <!--Custom Font-->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -21,7 +20,7 @@ require('includes/dbconnect.php');
 	<script src="js/html5shiv.js"></script>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
-        <script src="js/sweetalert.min.js"></script>
+        <script async src="js/sweetalert.min.js"></script>
         <link rel="stylesheet" type="text/css" href="css/sweetalert.css"> </head>
 
     <body>
@@ -121,11 +120,6 @@ require('includes/dbconnect.php');
             <!--/.main-->
             <script src="js/jquery-1.11.1.min.js"></script>
             <script src="js/bootstrap.min.js"></script>
-            <script src="js/chart.min.js"></script>
-            <script src="js/chart-data.js"></script>
-            <script src="js/easypiechart.js"></script>
-            <script src="js/easypiechart-data.js"></script>
-            <script src="js/bootstrap-datepicker.js"></script>
             <script src="js/custom.js"></script>
             <script>
                 window.onload = function () {

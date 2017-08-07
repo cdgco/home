@@ -1,4 +1,4 @@
-<?php require('includes/dbchange.php'); 
+<?php require('includes/dbconnect.php'); 
 
 $city = $_POST['city'];
 $state = $_POST['state'];

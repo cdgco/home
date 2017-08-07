@@ -11,19 +11,15 @@ class Mail extends PhpMailer
 //    public $Username = 'hello@domain.com';
 //    public $Password = 'Password';
 //    public $SMTPSecure = 'tls';
-
     public $WordWrap = 75;
-
     public function subject($subject)
     {
         $this->Subject = $subject;
     }
-
     public function body($body)
     {
         $this->Body = $body;
     }
-
     public function send()
     {
         $this->AltBody = strip_tags(stripslashes($this->Body))."\n\n";
