@@ -1,0 +1,266 @@
+<html>
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script src="../js/jquery.min.js"></script>
+<link href='//fonts.googleapis.com/css?family=Maven+Pro:700,400' rel='stylesheet' type='text/css'>
+
+	  <script src="../js/underscore-min.js"></script>
+	  <script src= "../js/moment-2.2.1.js"></script>
+	  <script src="../js/clndr.js"></script>
+	  <script src="../js/site.js"></script>
+	
+<style>
+.mini-cal ol,ul{list-style:none;margin:0px;padding:0px;}
+.noselect {
+  -webkit-user-select: none;
+  /* Chrome/Safari */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE10+ */
+}
+.cal1 .clndr .clndr-controls {
+  position: relative;
+  color: #fff;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  padding: 20px 0 0 0;
+  text-align: center;
+  background: #e84e40;
+  min-height: 78px;
+}
+.cal1 .clndr .clndr-controls .month {
+	padding: 15px 0 0 0;
+	text-align: center;
+	color:#fff;
+	font-size: 24px;
+        font-weight:bold;
+}
+.cal1 .clndr .clndr-controls .clndr-control-button .clndr-next-button { 
+  position:absolute;
+  right: 0px;
+  top: -10px;
+  width: 15px;
+  height: 22px;
+  text-indent: -4000px;
+  background: url(../img/arrows.png) no-repeat -15px 0px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  /* Chrome/Safari */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE10+ */
+}
+.cal1 .clndr .clndr-controls .clndr-control-button .clndr-next-button.inactive:hover {
+  cursor: default;
+}
+.cal1 .clndr .clndr-controls .clndr-control-button .clndr-previous-button { 
+  position: absolute;
+  left: 0px;
+  top: -10px;
+  width: 15px;
+  height: 22px;
+  text-indent: -4000px;
+  background: url(../img/arrows.png) no-repeat -1px 0px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+.cal1 .clndr .clndr-controls .clndr-control-button .clndr-previous-button.inactive:hover {
+  cursor: default;
+}
+.cal1 .clndr .clndr-table {
+  table-layout: fixed;
+  width:100%;
+  height: 300px;
+  margin:0 auto;
+  background: #e84e40;
+}
+.cal1 .clndr .clndr-table .header-days {
+  font-size: 0.85em;
+  font-weight: 600;
+}
+.cal1 .clndr .clndr-table .header-days .header-day {
+   vertical-align: middle;
+   text-align: center;
+	color:#fff;
+	font-size:16px;
+}
+.cal1 .clndr .clndr-table tr {
+    height:45px;
+}
+.cal1 .clndr .clndr-table tr td {
+  vertical-align: top;
+}
+.cal1 .clndr .clndr-table tr .day {
+  width: 100%;
+  height: inherit;
+  color:#fff;
+  vertical-align:middle;
+}
+
+.cal1 .clndr .clndr-table tr .day.today {
+      color: #fff!important;
+    text-decoration: none;
+    border: 1px solid #fff;
+ }
+  
+.cal1 .clndr .clndr-table tr .day.today:hover {
+  	color:#000;
+}
+.cal1 .clndr .clndr-table tr .day.today.event {
+     background: #3e3e3e;
+	 color: #FFF;
+	 padding:0;
+}
+.day.today.event:hover{
+	color:#FFF;
+}
+.cal1 .clndr .clndr-table tr .day .day-contents {
+  box-sizing: border-box;
+	font-size: 15px;
+	text-align: center;
+	cursor: pointer;
+	  padding: 10px;
+}
+.cal1:hover .clndr:hover .clndr-table tr:hover .day:hover .day-contents:hover {
+	
+}
+.cal1 .clndr .clndr-table tr .empty,
+.cal1 .clndr .clndr-table tr .adjacent-month {
+  width: 100%;
+  height: inherit;
+  color:#ccc;
+}
+@media all and (max-width:1024px) {
+.cal1 .clndr .clndr-controls .clndr-control-button .clndr-previous-button {
+  left: 24px;
+}
+.cal1 .clndr .clndr-controls .month {
+  font-size: 22px;
+  padding: 3px 0 0 0;
+  }
+.cal1 .clndr .clndr-controls .clndr-control-button .clndr-next-button {
+  right:24px;
+}
+.cal1 .clndr .clndr-controls {
+  padding: 1.5em 0 0 0;
+  min-height: 85px;
+}
+.cal1 .clndr .clndr-controls {
+  min-height: 70px;
+}
+.cal1 .clndr .clndr-controls .clndr-control-button .clndr-previous-button {
+  top: 24px;
+}
+.cal1 .clndr .clndr-controls .clndr-control-button .clndr-next-button {
+  top: 24px;
+}
+}
+@media all and (max-width:7680px) {
+	.cal1 .clndr .clndr-controls {
+	  min-height: 92px;
+	}
+}
+@media all and (max-width:640px) {
+.cal1 .clndr .clndr-controls {
+  padding: 1em 0 0 0;
+  min-height: 70px;
+}
+.cal1 .clndr .clndr-controls .clndr-control-button .clndr-previous-button {
+  top: 14px;
+}
+.cal1 .clndr .clndr-controls .clndr-control-button .clndr-next-button {
+  top: 14px;
+}
+}
+@media all and (max-width:480px) {
+	.cal1 .clndr .clndr-controls .month {
+		font-size: 1.2em;
+	}
+	.cal1 .clndr .clndr-controls .clndr-control-button .clndr-previous-button {
+		top: 9px;
+	}
+	.cal1 .clndr .clndr-controls .clndr-control-button .clndr-next-button {
+		top: 9px;
+	}
+	.cal1 .clndr .clndr-controls {
+		min-height: 60px;
+	}
+	.cal1 .clndr .clndr-table .header-days .header-day {
+		font-size: 1.4em;
+	}
+	.cal1 .clndr .clndr-table tr .day .day-contents {
+		font-size: 0.875em;
+	}
+}
+@media screen and (max-width: 320px) {
+.cal1 .clndr .clndr-controls .clndr-control-button .clndr-previous-button {
+  left: 7px;
+}
+.cal1 .clndr .clndr-controls .clndr-control-button .clndr-next-button {
+  right: 7px;
+}
+	.cal1 .clndr .clndr-table{
+		width:100%;
+	}
+	.cal1 .clndr .clndr-table tr {
+		height: 35px;
+	}
+	.cal1 .clndr .clndr-controls .clndr-control-button .clndr-previous-button {
+		top: 9px;
+	}
+	.cal1 .clndr .clndr-controls .clndr-control-button .clndr-next-button {
+		top: 9px;
+	}
+	.cal1 .clndr .clndr-table .header-days .header-day {
+		font-size: 1.2em;
+	}
+	.cal1 .clndr .clndr-controls .month {
+	  padding: 9px 0 0 0;
+	}	
+	.cal1 .clndr .clndr-controls .month {
+	  font-size: 18px;
+	  }
+	.cal1 .clndr .clndr-table tr .day .day-contents {
+		font-size: 0.875em;
+	}
+	.cal1 .clndr .clndr-controls {
+		min-height: 50px;
+		padding: 0.6em 0 0 0;
+	}
+	.cal1 .clndr .clndr-table {
+	  height: 230px;
+	  }
+}
+</style>	
+</head>
+<body style="font-family: 'Maven Pro', sans-serif;overflow:hidden;background-color:#e84e40;margin:0;">
+        
+            <div class="mini-cal">
+			<div class="calender">
+					<div class="column_right_grid calender">
+                      <div class="cal1"><div class="clndr"><div class="clndr-controls"><div class="clndr-control-button"><p class="clndr-previous-button">previous</p></div><div class="month">September 2015</div><div class="clndr-control-button rightalign"><p class="clndr-next-button">next</p></div></div><table class="clndr-table" border="0" cellspacing="0" cellpadding="0"><thead><tr class="header-days"><td class="header-day">S</td><td class="header-day">M</td><td class="header-day">T</td><td class="header-day">W</td><td class="header-day">T</td><td class="header-day">F</td><td class="header-day">S</td></tr></thead><tbody><tr><td class="day past adjacent-month last-month calendar-day-2015-08-30"><div class="day-contents">30</div></td><td class="day past adjacent-month last-month calendar-day-2015-08-31"><div class="day-contents">31</div></td><td class="day past calendar-day-2015-09-01"><div class="day-contents">1</div></td><td class="day past calendar-day-2015-09-02"><div class="day-contents">2</div></td><td class="day past calendar-day-2015-09-03"><div class="day-contents">3</div></td><td class="day past calendar-day-2015-09-04"><div class="day-contents">4</div></td><td class="day past calendar-day-2015-09-05"><div class="day-contents">5</div></td></tr><tr><td class="day past calendar-day-2015-09-06"><div class="day-contents">6</div></td><td class="day past calendar-day-2015-09-07"><div class="day-contents">7</div></td><td class="day past calendar-day-2015-09-08"><div class="day-contents">8</div></td><td class="day past calendar-day-2015-09-09"><div class="day-contents">9</div></td><td class="day past event calendar-day-2015-09-10"><div class="day-contents">10</div></td><td class="day past event calendar-day-2015-09-11"><div class="day-contents">11</div></td><td class="day past event calendar-day-2015-09-12"><div class="day-contents">12</div></td></tr><tr><td class="day past event calendar-day-2015-09-13"><div class="day-contents">13</div></td><td class="day past event calendar-day-2015-09-14"><div class="day-contents">14</div></td><td class="day past calendar-day-2015-09-15"><div class="day-contents">15</div></td><td class="day past calendar-day-2015-09-16"><div class="day-contents">16</div></td><td class="day past calendar-day-2015-09-17"><div class="day-contents">17</div></td><td class="day past calendar-day-2015-09-18"><div class="day-contents">18</div></td><td class="day past calendar-day-2015-09-19"><div class="day-contents">19</div></td></tr><tr><td class="day past calendar-day-2015-09-20"><div class="day-contents">20</div></td><td class="day past event calendar-day-2015-09-21"><div class="day-contents">21</div></td><td class="day past event calendar-day-2015-09-22"><div class="day-contents">22</div></td><td class="day past event calendar-day-2015-09-23"><div class="day-contents">23</div></td><td class="day past calendar-day-2015-09-24"><div class="day-contents">24</div></td><td class="day past calendar-day-2015-09-25"><div class="day-contents">25</div></td><td class="day today calendar-day-2015-09-26"><div class="day-contents">26</div></td></tr><tr><td class="day calendar-day-2015-09-27"><div class="day-contents">27</div></td><td class="day calendar-day-2015-09-28"><div class="day-contents">28</div></td><td class="day calendar-day-2015-09-29"><div class="day-contents">29</div></td><td class="day calendar-day-2015-09-30"><div class="day-contents">30</div></td><td class="day adjacent-month next-month calendar-day-2015-10-01"><div class="day-contents">1</div></td><td class="day adjacent-month next-month calendar-day-2015-10-02"><div class="day-contents">2</div></td><td class="day adjacent-month next-month calendar-day-2015-10-03"><div class="day-contents">3</div></td></tr></tbody></table></div></div>
+				    </div>
+					<div class="cal-pos a">
+						<ul>
+							<li></li>
+							<li></li>
+						</ul>
+					</div>
+					<div class="cal-pos">
+						<ul>
+							<li></li>
+							<li></li>
+						</ul>
+					</div>
+			</div>
+		</div>
+	
+</body>
+</html>
