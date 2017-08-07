@@ -26,12 +26,13 @@ require( 'includes/vars.php');
         <link rel="manifest" href="favicon/manifest.json">
         <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
         <link rel="shortcut icon" href="favicon/favicon.ico">
-        
+
         <link rel="stylesheet" href="css/normalize.min.css">
         <link rel="stylesheet" href="css/home.css">
         <link id="style1" rel="stylesheet" href="css/<?php require( 'includes/grab/light3.php'); ?>.css">
-    
+
         <style>
+
             body {
             <?php
 
@@ -56,6 +57,28 @@ require( 'includes/vars.php');
             } ?>
             background-size: cover;
             }
+   .calendar iframe {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        width: 200%;
+        height: 200%;
+        border: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        z-index: 999999;
+
+        -ms-zoom: 0.5;
+        -moz-transform: scale(0.5);
+        -moz-transform-origin: 0 0;
+        -o-transform: scale(0.5);
+        -o-transform-origin: 0 0;
+        -webkit-transform: scale(0.5);
+        -webkit-transform-origin: 0 0;
+    }
         </style>
         
         <script src="js/modernizr.js" type="text/javascript"></script>
@@ -189,9 +212,13 @@ require( 'includes/vars.php');
                 </span>
             </a>
 
-            <a class="tile tile-lg tile-sqr tile-amber ripple-effect" href="#">
-                <span class="content-wrapper">
-                    <span class="tile-content">
+            <a class="tile tile-lg tile-sqr tile-amber filter ripple-effect" href="#">
+                <span>
+                    <span>
+                        <center>
+                            <iframe class="calendar" src="includes/calendar.html" frameborder="0" style="margin:5px;" height="240" width="240" allowtransparency="true"></iframe>
+                        </center>
+
                         <span class="tile-holder tile-holder-sm">
                             <span class="title"></span>
                         </span>
@@ -217,7 +244,7 @@ require( 'includes/vars.php');
                 </span>
             </span>
 
-            <a class="tile tile-lg tile-sqr tile-red ripple-effect" href="#">
+            <a class="tile tile-lg tile-sqr tile-red filter ripple-effect" href="#">
                 <span>
                     <span>
                         <center>
