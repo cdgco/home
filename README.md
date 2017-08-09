@@ -34,7 +34,7 @@
 5. Rename config-example.php to config.php.
 
 Note 1: Timezone must be set correctly in config.php for gmail to function.<br>
-Note 2: SSL will make stock ticker fail as MacroAxis SSL requires a paid license.<br>
+Note 2: Custom SSL settings will make stock ticker fail as MacroAxis SSL requires a paid license.<br>
 
 ## How-To: Setup Gmail API
 
