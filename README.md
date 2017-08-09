@@ -1,6 +1,8 @@
 # CDG Home: Custom Home / New Tab Page Featuring:
 • Stock Ticker<br>
 • Clock & Date<br>
+• Notepad*<br>
+• Calendar<br>
 • Current Weather & Location<br>
 • Gmail Inbox Integration<br>
 • Spotify Integration / Controller<br>
@@ -9,6 +11,8 @@
 • Custom Background Images<br>
 • Extensive Settings With Changeable Units, Formats & Options<br>
 • Beautiful Scaleable UI<br><br>
+
+*Notepad saving is currently unstable.
 
 ![Day](https://raw.githubusercontent.com/cdgco/home/master/img/day.png)<br><br>
 ![Custom](https://raw.githubusercontent.com/cdgco/home/master/img/custom.png)<br><br>
