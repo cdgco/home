@@ -7,7 +7,9 @@ function generateRandomString($length = 5)
 }
 
 $eventname = generateRandomString();
-$sql = "CREATE EVENT expiration_$eventname ON SCHEDULE AT CURRENT_TIMESTAMP + INTERVAL 1 HOUR ON COMPLETION NOT PRESERVE ENABLE DO UPDATE members SET token = NULL, tstat = 'n' WHERE memberID = '$memid'";
+
+$sql = sprintf("CREATE EVENT expiration_$eventname ON SCHEDULE AT CURRENT_TIMESTAMP + INTERVAL 1 HOUR ON COMPLETION NOT PRESERVE ENABLE DO UPDATE members SET token = NULL, tstat = 'n' WHERE memberID = '%s'",
+            mysql_real_escape_string($memid));
 
 if (!mysql_query($sql)) {
     $merror = mysql_errno($link);

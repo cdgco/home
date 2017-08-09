@@ -6,14 +6,23 @@ if (!$user->is_logged_in()) {
 else {
 	require ('includes/dbconnect.php');
 
-	$res = mysql_query("SELECT CustomLocation FROM members WHERE memberID = '$memid'");
+        $sql = sprintf("SELECT CustomLocation FROM members WHERE memberID = '%s'",
+                  mysql_real_escape_string($memid));
+        $res=mysql_query($sql);
+
 	$userRow = mysql_fetch_row($res);
 	$result1 = $userRow[0];
 	if ($result1 == "Y") {
-		$res = mysql_query("SELECT state FROM members WHERE memberID = '$memid'");
+                $sql = sprintf("SELECT state FROM members WHERE memberID = '%s'",
+                          mysql_real_escape_string($memid));
+                 $res=mysql_query($sql);
+
 		$userRow = mysql_fetch_row($res);
 		$state2 = $userRow[0];
-		$res = mysql_query("SELECT city FROM members WHERE memberID = '$memid'");
+                $sql = sprintf("SELECT city FROM members WHERE memberID = '%s'",
+                          mysql_real_escape_string($memid));
+                $res=mysql_query($sql);
+
 		$userRow = mysql_fetch_row($res);
 		$city2 = $userRow[0];
 		print_r($state2 . "/" . $city2);

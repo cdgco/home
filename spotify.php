@@ -3,8 +3,10 @@
 $spotify = $_POST['spotify'];
 $spotname = $_POST['spotname'];
 
-$sql = "UPDATE `members` SET `spotify` = '$spotify', `spotname` = '$spotname' WHERE `memberID` = '$memid'";
-
+$sql = sprintf("UPDATE `members` SET `spotify` = '%s', `spotname` = '%s' WHERE `memberID` = '%s'",
+            mysql_real_escape_string($spotify),
+            mysql_real_escape_string($spotname),
+            mysql_real_escape_string($memid));
 
 if (!mysql_query($sql)) {
     $merror = mysql_errno($link);

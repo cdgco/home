@@ -76,21 +76,27 @@ require('includes/dbconnect.php');
                 <!--/.row-->
                 <div class="alert bg-success" role="alert">Current News Source: <b><?php 
 
-$res=mysql_query("SELECT sourcename FROM members WHERE memberID = '$memid'");
+$sql = sprintf("SELECT sourcename FROM members WHERE memberID = '%s'",
+          mysql_real_escape_string($memid));
+$res=mysql_query($sql);
 $userRow=mysql_fetch_row($res);
 
 print_r($userRow[0]);
 ?></b> <a href="accontent.php#news" class="pull-right"><em class="fa fa-lg fa-arrow-right"></em></a></div>
                 <div class="alert bg-success" role="alert">Current Spotify Playlist: <b><?php 
 
-$res=mysql_query("SELECT spotname FROM members WHERE memberID = '$memid'");
+$sql = sprintf("SELECT spotname FROM members WHERE memberID = '%s'",
+          mysql_real_escape_string($memid));
+$res=mysql_query($sql);
 $userRow=mysql_fetch_row($res);
 
 print_r($userRow[0]);
 ?></b> <a href="accontent.php#spotify" class="pull-right"><em class="fa fa-lg fa-arrow-right"></em></a></div>
                 <div class="alert bg-success" role="alert">Custom Stock Ticker: <b><?php 
 
-$res=mysql_query("SELECT stocks FROM members WHERE memberID = '$memid'");
+$sql = sprintf("SELECT stocks FROM members WHERE memberID = '%s'",
+          mysql_real_escape_string($memid));
+$res=mysql_query($sql);
 $userRow=mysql_fetch_row($res);
 $stock1 = $userRow[0];
 
@@ -99,7 +105,9 @@ else { echo "Enabled"; }
 ?></b> <a href="accontent.php#stock" class="pull-right"><em class="fa fa-lg fa-arrow-right"></em></a></div>
                 <div class="alert bg-info" role="alert">Custom Background: <b><?php 
 
-$res=mysql_query("SELECT bg FROM members WHERE memberID = '$memid'");
+$sql = sprintf("SELECT bg FROM members WHERE memberID = '%s'",
+          mysql_real_escape_string($memid));
+$res=mysql_query($sql);
 $userRow=mysql_fetch_row($res);
 $bgstat = $userRow[0];
 
@@ -108,18 +116,24 @@ elseif ($bgstat == "n") { echo "Disabled"; }
 ?></b> <a href="acbg.php" class="pull-right"><em class="fa fa-lg fa-arrow-right"></em></a></div>
                 <div class="alert bg-info" role="alert">Current Location: <b><?php 
 
-$res=mysql_query("SELECT CustomLocation FROM members WHERE memberID = '$memid'");
+$sql = sprintf("SELECT CustomLocation FROM members WHERE memberID = '%s'",
+          mysql_real_escape_string($memid));
+$res=mysql_query($sql);
 $userRow=mysql_fetch_row($res);
 $result1 = $userRow[0];
 
 if ($result1 == "N") {echo "Disabled";}
 else {echo "Enabled";
-$res=mysql_query("SELECT city FROM members WHERE memberID = '$memid'");
+$sql = sprintf("SELECT city FROM members WHERE memberID = '%s'",
+          mysql_real_escape_string($memid));
+$res=mysql_query($sql);
 $userRow=mysql_fetch_row($res);
 
 print_r('&nbsp;-&nbsp;'.$userRow[0]);
 
-$res=mysql_query("SELECT state FROM members WHERE memberID = '$memid'");
+$sql = sprintf("SELECT state FROM members WHERE memberID = '%s'",
+          mysql_real_escape_string($memid));
+$res=mysql_query($sql);
 $userRow=mysql_fetch_row($res);
 
 print_r(',&nbsp;'.$userRow[0]);}
@@ -127,14 +141,18 @@ print_r(',&nbsp;'.$userRow[0]);}
 ?></b> <a href="aclocation.php" class="pull-right"><em class="fa fa-lg fa-arrow-right"></em></a></div>
                 <div class="alert bg-teal" role="alert">Page Refresh Rate: <b><?php 
 
-$res=mysql_query("SELECT refreshname FROM members WHERE memberID = '$memid'");
+$sql = sprintf("SELECT refreshname FROM members WHERE memberID = '%s'",
+          mysql_real_escape_string($memid));
+$res=mysql_query($sql);
 $userRow=mysql_fetch_row($res);
 
 print_r($userRow[0]);
 ?></b> <a href="acpref.php#refresh" class="pull-right"><em class="fa fa-lg fa-arrow-right"></em></a></div>
                 <div class="alert bg-teal" role="alert">Current Style: <b><?php 
 
-$res=mysql_query("SELECT style FROM members WHERE memberID = '$memid'");
+$sql = sprintf("SELECT style FROM members WHERE memberID = '%s'",
+          mysql_real_escape_string($memid));
+$res=mysql_query($sql);
 $userRow=mysql_fetch_row($res);
 $style1 = $userRow[0];
 
@@ -144,14 +162,18 @@ else { echo "Dark Theme"; }
 ?></b> <a href="acpref.php#theme" class="pull-right"><em class="fa fa-lg fa-arrow-right"></em></a></div>
                 <div class="alert bg-teal" role="alert">Time Format: <b><?php 
 
-$res=mysql_query("SELECT clockname FROM members WHERE memberID = '$memid'");
+$sql = sprintf("SELECT clockname FROM members WHERE memberID = '%s'",
+          mysql_real_escape_string($memid));
+$res=mysql_query($sql);
 $userRow=mysql_fetch_row($res);
 
 print_r($userRow[0]);
 ?></b> <a href="acpref.php#clock" class="pull-right"><em class="fa fa-lg fa-arrow-right"></em></a></div>
                 <div class="alert bg-teal" role="alert">Temperature Format: <b><?php 
 
-$res=mysql_query("SELECT temp FROM members WHERE memberID = '$memid'");
+$sql = sprintf("SELECT temp FROM members WHERE memberID = '%s'",
+          mysql_real_escape_string($memid));
+$res=mysql_query($sql);
 $userRow=mysql_fetch_row($res);
 $temp1 = $userRow[0];
 
@@ -160,36 +182,21 @@ elseif ($temp1 == "c") { echo "Celsius"; }
 ?></b> <a href="acpref.php#temp" class="pull-right"><em class="fa fa-lg fa-arrow-right"></em></a></div>
                 <div class="alert bg-teal" role="alert">Gmail Integration: <b><?php 
 
-$res=mysql_query("SELECT gmail FROM members WHERE memberID = '$memid'");
+$sql = sprintf("SELECT gmail FROM members WHERE memberID = '%s'",
+          mysql_real_escape_string($memid));
+$res=mysql_query($sql);
 $userRow=mysql_fetch_row($res);
 $gstat = $userRow[0];
 
 if ($gstat == "no") { echo "Disabled"; }
 if ($gstat == "yes") { echo "Enabled"; }
 ?></b> <a href="acpref.php#gmail" class="pull-right"><em class="fa fa-lg fa-arrow-right"></em></a></div>
-                <div class="alert bg-teal" role="alert">Account Email: <b><?php 
-
-$res=mysql_query("SELECT email FROM members WHERE memberID = '$memid'");
-$userRow=mysql_fetch_row($res);
-
-print_r($userRow[0]);
-?></b> <a href="acpref.php#email" class="pull-right"><em class="fa fa-lg fa-arrow-right"></em></a></div>
+               
             </div>
             <!--/.main-->
             <script src="js/jquery-1.11.1.min.js"></script>
             <script src="js/bootstrap.min.js"></script>
             <script src="js/custom.js"></script>
-            <script>
-                window.onload = function () {
-                    var chart1 = document.getElementById("line-chart").getContext("2d");
-                    window.myLine = new Chart(chart1).Line(lineChartData, {
-                        responsive: true
-                        , scaleLineColor: "rgba(0,0,0,.2)"
-                        , scaleGridLineColor: "rgba(0,0,0,.05)"
-                        , scaleFontColor: "#c5c7cc"
-                    });
-                };
-            </script>
     </body>
 
     </html>

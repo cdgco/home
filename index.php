@@ -40,13 +40,17 @@ require( 'includes/vars.php');
 
             else {
 
-                $res=mysql_query("SELECT bg FROM members WHERE memberID = '$memid'");
+                $sql = sprintf("SELECT bg FROM members WHERE memberID ='%s'",
+                          mysql_real_escape_string($memid));
+                $res=mysql_query($sql);
                 $userRow=mysql_fetch_row($res);
                 $bgresult = $userRow[0];
 
                     if ($bgresult == y) { 
 
-                    $res=mysql_query("SELECT bgurl FROM members WHERE memberID = '$memid'");
+                    $sql = sprintf("SELECT bgurl FROM members WHERE memberID ='%s'",
+                              mysql_real_escape_string($memid));
+                    $res=mysql_query($sql);
                     $userRow=mysql_fetch_row($res);
                     $bgurl1 = $userRow[0];
 
@@ -165,13 +169,17 @@ require( 'includes/vars.php');
 
             else {
 
-                $res=mysql_query("SELECT gmail FROM members WHERE memberID = '$memid'");
+                $sql = sprintf("SELECT gmail FROM members WHERE memberID ='%s'",
+                          mysql_real_escape_string($memid));
+                $res=mysql_query($sql);
                 $userRow=mysql_fetch_row($res);
                 $gmresult = $userRow[0];
 
                 if ($gmresult == yes) { 
 
-                    $res=mysql_query("SELECT tstat FROM members WHERE memberID = '$memid'");
+                    $sql = sprintf("SELECT tsat FROM members WHERE memberID ='%s'",
+                              mysql_real_escape_string($memid));
+                    $res=mysql_query($sql);
                     $userRow=mysql_fetch_row($res);
                     $tsresult = $userRow[0];
 
@@ -201,16 +209,44 @@ require( 'includes/vars.php');
                     <span id="gmaildiv" class="tile-content"><center><?php require( 'includes/grab/email.php'); ?></center></span>
                 </span>      
             </a>
+            
+            <form id="notes" target="transFrame" method="post" action="notesave.php">
+            <span class="tile tile-lg tile-sqr tile-cyan lightfilter">
+                <span>
+                    <span>
+                            <div class=notepad>
+	                        <h1>Notes</h1>
+	                            <textarea maxlength="1000" name="notes" placeholder="Enter your notes here!"><?php
 
-            <a class="tile tile-lg tile-sqr tile-cyan ripple-effect" href="#">
-                <span class="content-wrapper">
-                    <span class="tile-content">
-                        <span class="tile-holder tile-holder-sm">
-                            <span class="title"></span>
-                        </span>
+            if(!$user->is_logged_in()){} 
+
+            else {
+                $sql = sprintf("SELECT notes FROM members WHERE memberID ='%s'",
+                          mysql_real_escape_string($memid));
+                $res=mysql_query($sql);
+                $userRow=mysql_fetch_row($res);
+                $notes = $userRow[0];
+
+                if ($notes != NULL) {
+                    echo $notes;
+                } 
+            }
+            ?></textarea>
+                            </div>
+
                     </span>      
                 </span>
-            </a>
+            </span>
+            <?php
+
+            if(!$user->is_logged_in()){} 
+
+            else {
+                echo '<img class="hover" id="notesimg" style="cursor:pointer;display:inline;position: fixed;bottom: 5%;right: 5%; height:40px;" src="img/save.png"/>';
+            }
+            ?>
+            <iframe style="display:none;" name="transFrame" id="transFrame"></iframe>
+            </form>
 
             <a class="tile tile-lg tile-sqr tile-amber filter ripple-effect" href="#">
                 <span>
@@ -303,7 +339,12 @@ require( 'includes/vars.php');
         </div>
 
         <script>
-            
+        var form = document.getElementById("notes");
+
+        document.getElementById("notesimg").addEventListener("click", function () {
+          form.submit();
+        });
+
         $.get("https://ipinfo.io", function (response) {
           var state = response.region;
           getStateAbbr(state);
@@ -385,7 +426,9 @@ require( 'includes/vars.php');
                   $("#weather").html(response.current_observation.temp_<?php 
                 if(!$user->is_logged_in()){ echo "f"; } else {
 
-                $res=mysql_query("SELECT temp FROM members WHERE memberID = '$memid'");
+                $sql = sprintf("SELECT temp FROM members WHERE memberID ='%s'",
+                          mysql_real_escape_string($memid));
+                $res=mysql_query($sql);
                 $userRow=mysql_fetch_row($res);
                 $resulttemp = $userRow[0];
 
@@ -430,7 +473,9 @@ require( 'includes/vars.php');
         xhr.open("GET", "https://www.googleapis.com/gmail/v1/users/me/labels/INBOX");
         xhr.setRequestHeader("authorization", "Bearer <?php
 
-            $res=mysql_query("SELECT token FROM members WHERE memberID = '$memid'");
+            $sql = sprintf("SELECT token FROM members WHERE memberID ='%s'",
+                      mysql_real_escape_string($memid));
+            $res=mysql_query($sql);
             $userRow=mysql_fetch_row($res);
             $gtoken = $userRow[0];
 
@@ -451,7 +496,9 @@ require( 'includes/vars.php');
 
             if(!$user->is_logged_in()){ echo "300000"; } else {
 
-            $res=mysql_query("SELECT refresh FROM members WHERE memberID = '$memid'");
+            $sql = sprintf("SELECT refresh FROM members WHERE memberID ='%s'",
+                      mysql_real_escape_string($memid));
+            $res=mysql_query($sql);
             $userRow=mysql_fetch_row($res);
             $refresh = $userRow[0];
 

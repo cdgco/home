@@ -81,19 +81,26 @@ require('includes/dbconnect.php');
                                 <div class="col-md-6">
                                     <h3>Custom Location: 
                                         <?php 
-
-                                        $res=mysql_query("SELECT CustomLocation FROM members WHERE memberID = '$memid'");
+ 
+                                        $sql = sprintf("SELECT CustomLocation FROM members WHERE memberID = '%s'",
+                                                  mysql_real_escape_string($memid));
+                                        $res=mysql_query($sql);
                                         $userRow=mysql_fetch_row($res);
                                         $result1 = $userRow[0];
 
                                         if ($result1 == "N") {echo "Disabled";}
                                         else {echo "Enabled";
-                                              $res=mysql_query("SELECT city FROM members WHERE memberID = '$memid'");
+
+                                              $sql = sprintf("SELECT city FROM members WHERE memberID = '%s'",
+                                                        mysql_real_escape_string($memid));
+                                              $res=mysql_query($sql);
                                               $userRow=mysql_fetch_row($res);
 
                                               print_r('&nbsp;-&nbsp;'.$userRow[0]);
 
-                                              $res=mysql_query("SELECT state FROM members WHERE memberID = '$memid'");
+                                              $sql = sprintf("SELECT state FROM members WHERE memberID = '%s'",
+                                                        mysql_real_escape_string($memid));
+                                              $res=mysql_query($sql);
                                               $userRow=mysql_fetch_row($res);
 
                                               print_r(',&nbsp;'.$userRow[0]);}
@@ -121,17 +128,6 @@ require('includes/dbconnect.php');
             <script src="js/jquery-1.11.1.min.js"></script>
             <script src="js/bootstrap.min.js"></script>
             <script src="js/custom.js"></script>
-            <script>
-                window.onload = function () {
-                    var chart1 = document.getElementById("line-chart").getContext("2d");
-                    window.myLine = new Chart(chart1).Line(lineChartData, {
-                        responsive: true
-                        , scaleLineColor: "rgba(0,0,0,.2)"
-                        , scaleGridLineColor: "rgba(0,0,0,.05)"
-                        , scaleFontColor: "#c5c7cc"
-                    });
-                };
-            </script>
     </body>
 
     </html>

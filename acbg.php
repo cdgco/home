@@ -101,7 +101,9 @@ require('includes/dbconnect.php');
                             <h3>Custom Background:
                                 <?php 
 
-                                $res=mysql_query("SELECT bg FROM members WHERE memberID = '$memid'");
+                                $sql = sprintf("SELECT bg FROM members WHERE memberID = '%s'",
+                                         mysql_real_escape_string($memid));
+                                $res=mysql_query($sql);
                                 $userRow=mysql_fetch_row($res);
                                 $bgstat = $userRow[0];
 
@@ -127,7 +129,10 @@ require('includes/dbconnect.php');
             </div>
             <!-- /.panel-->
             <?php 
-                $res=mysql_query("SELECT bgurl FROM members WHERE memberID = '$memid'");
+
+                $sql = sprintf("SELECT bgurl FROM members WHERE memberID = '%s'",
+                          mysql_real_escape_string($memid));
+                $res=mysql_query($sql);
                 $userRow=mysql_fetch_row($res);
                 $bg = $userRow[0];
 
@@ -151,18 +156,6 @@ require('includes/dbconnect.php');
     <script src="js/jquery-1.11.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/custom.js"></script>
-    <script>
-        window.onload = function() {
-            var chart1 = document.getElementById("line-chart").getContext("2d");
-            window.myLine = new Chart(chart1).Line(lineChartData, {
-                responsive: true,
-                scaleLineColor: "rgba(0,0,0,.2)",
-                scaleGridLineColor: "rgba(0,0,0,.05)",
-                scaleFontColor: "#c5c7cc"
-            });
-        };
-
-    </script>
 
 </body>
 

@@ -2,7 +2,9 @@
 
 $customlocation = $_POST['customlocation'];
 
-$sql = "UPDATE `members` SET `customlocation` = '$customlocation', `state` = 'N/A', `city` = 'N/A' WHERE `memberID` = '$memid'";
+$sql = sprintf("UPDATE `members` SET `customlocation` = '%s', `state` = 'N/A', `city` = 'N/A' WHERE `memberID` = '%s'",
+            mysql_real_escape_string($customlocation),
+            mysql_real_escape_string($memid));
 
 if (!mysql_query($sql)) {
     $merror = mysql_errno($link);

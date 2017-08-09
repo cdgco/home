@@ -5,8 +5,10 @@ $result = $_POST['rtime'];
             $refresh = $result_explode[0];
             $refreshname = $result_explode[1];
 
-$sql = "UPDATE `members` SET `refresh` = '$refresh', `refreshname` = '$refreshname' WHERE `memberID` = '$memid'";
-
+$sql = sprintf("UPDATE `members` SET `refresh` = '%s', `refreshname` = '%s' WHERE `memberID` = '%s'",
+            mysql_real_escape_string($refresh),
+            mysql_real_escape_string($refreshname),
+            mysql_real_escape_string($memid));
 
 if (!mysql_query($sql)) {
     $merror = mysql_errno($link);

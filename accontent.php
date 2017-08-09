@@ -82,7 +82,9 @@ require('includes/dbconnect.php');
                                     <h3>Current News Source:
                                     <?php 
 
-                                        $res=mysql_query("SELECT sourcename FROM members WHERE memberID = '$memid'");
+                                        $sql = sprintf("SELECT sourcename FROM members WHERE memberID = '%s'",
+                                                  mysql_real_escape_string($memid));
+                                        $res=mysql_query($sql);
                                         $userRow=mysql_fetch_row($res);
 
                                         print_r($userRow[0]);
@@ -145,7 +147,9 @@ require('includes/dbconnect.php');
                                     <form action="<?php echo DIR ?>spotify.php" method="post">
                                         <input class="form-control" type="text" value="<?php 
 
-                                            $res=mysql_query(" SELECT spotify FROM members WHERE memberID='$memid' ");
+                                            $sql = sprintf("SELECT spotify FROM members WHERE memberID='%s'",
+                                                      mysql_real_escape_string($memid));
+                                            $res=mysql_query($sql);
                                             $userRow=mysql_fetch_row($res);
 
                                             print_r($userRow[0]);
@@ -154,7 +158,9 @@ require('includes/dbconnect.php');
                                         <h4>Change Playlist Name:</h4>
                                         <input value="<?php 
 
-                                                      $res=mysql_query(" SELECT spotname FROM members WHERE memberID='$memid' ");
+                                                      $sql = sprintf("SELECT spotname FROM members WHERE memberID='%s'",
+                                                                mysql_real_escape_string($memid));
+                                                      $res=mysql_query($sql);
                                                       $userRow=mysql_fetch_row($res);
 
                                                       print_r($userRow[0]);
@@ -168,7 +174,9 @@ require('includes/dbconnect.php');
                                     <h3>Custom Stock Ticker:
                                         <?php 
 
-                                        $res=mysql_query("SELECT stocks FROM members WHERE memberID = '$memid'");
+                                        $sql = sprintf("SELECT stocks FROM members WHERE memberID = '%s'",
+                                                  mysql_real_escape_string($memid));
+                                        $res=mysql_query($sql);
                                         $userRow=mysql_fetch_row($res);
                                         $stock1 = $userRow[0];
 
@@ -181,7 +189,9 @@ require('includes/dbconnect.php');
                                     <form action="<?php echo DIR ?>ticker.php" name="stocks3" method="post">
                                         <input class="form-control" type="text" pattern="^[a-zA-Z,]*$" title="Letters & Commas Only!" maxlength="500" name="stocks" style="width:570px" placeholder="Enter valid comma-seperated symbols to create new ticker. Ex:&nbsp;aapl,fb,vti,unh,ulta,amzn,googl" value="<?php 
 
-                                        $res=mysql_query(" SELECT stocks FROM members WHERE memberID='$memid' ");
+                                        $sql = sprintf("SELECT stocks FROM members WHERE memberID= '%s'",
+                                                  mysql_real_escape_string($memid));
+                                        $res=mysql_query($sql);
                                         $userRow=mysql_fetch_row($res);
                                         $stock2 = $userRow[0];
 
@@ -207,17 +217,6 @@ require('includes/dbconnect.php');
             <script src="js/jquery-1.11.1.min.js"></script>
             <script src="js/bootstrap.min.js"></script>
             <script src="js/custom.js"></script>
-            <script>
-                window.onload = function () {
-                    var chart1 = document.getElementById("line-chart").getContext("2d");
-                    window.myLine = new Chart(chart1).Line(lineChartData, {
-                        responsive: true
-                        , scaleLineColor: "rgba(0,0,0,.2)"
-                        , scaleGridLineColor: "rgba(0,0,0,.05)"
-                        , scaleFontColor: "#c5c7cc"
-                    });
-                };
-            </script>
     </body>
 
     </html>

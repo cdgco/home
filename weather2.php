@@ -3,8 +3,10 @@
 $city = $_POST['city'];
 $state = $_POST['state'];
 
-$sql = "UPDATE `members` SET `city` = '$city', `CustomLocation` = 'Y', `state` = '$state' WHERE `memberID` = '$memid'";
-
+$sql = sprintf("UPDATE `members` SET `city` = '%s', `CustomLocation` = 'Y', `state` = '%s' WHERE `memberID` = '%s'",
+            mysql_real_escape_string($city),
+            mysql_real_escape_string($state),
+            mysql_real_escape_string($memid));
 
 if (!mysql_query($sql)) {
     $merror = mysql_errno($link);

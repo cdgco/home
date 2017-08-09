@@ -1,6 +1,7 @@
 <?php require('includes/dbchange.php'); 
 
-$sql = "UPDATE `members` SET `bgurl` = NULL, `bg` = 'n' WHERE memberID = '$memid'"; 
+$sql = sprintf("UPDATE `members` SET `bgurl` = NULL, `bg` = 'n' WHERE memberID = '%s'",
+            mysql_real_escape_string($memid));
 
 if (!mysql_query($sql)) {
     header("Location: acbg.php?s=e");

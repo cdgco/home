@@ -1,9 +1,7 @@
 <?php require('includes/dbchange.php'); 
 
-$token = $_POST['token'];
-
-$sql = "UPDATE `members` SET `token` = '', `tstat` = 'n', `gmail` = 'no' WHERE `memberID` = '$memid'";
-
+$sql = sprintf("UPDATE `members` SET `token` = '', `tstat` = 'n', `gmail` = 'no' WHERE `memberID` = '%s'",
+            mysql_real_escape_string($memid));
 
 if (!mysql_query($sql)) {
     $merror = mysql_errno($link);

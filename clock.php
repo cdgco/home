@@ -5,9 +5,10 @@ $result = $_POST['newclock'];
             $clock = $result_explode[0];
             $clockname = $result_explode[1];
 
-
-
-$sql = "UPDATE `members` SET `clock` = '$clock', `clockname` = '$clockname' WHERE `memberID` = '$memid'";
+$sql = sprintf("UPDATE `members` SET `clock` = '%s', `clockname` = '%s' WHERE `memberID` = '%s'",
+            mysql_real_escape_string($clock),
+            mysql_real_escape_string($clockname),
+            mysql_real_escape_string($memid));
 
 if (!mysql_query($sql)) {
     $merror = mysql_errno($link);

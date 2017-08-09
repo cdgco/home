@@ -6,7 +6,9 @@ $token2 = explode('=', $token);
 
 $token3 = $token2[0];
 
-$sql = "UPDATE members SET token = '$token3', tstat = 'y' WHERE memberID = '$memid'";
+$sql = sprintf("UPDATE members SET token = '%s', tstat = 'y' WHERE memberID = '%s'",
+            mysql_real_escape_string($token3),
+            mysql_real_escape_string($memid));
 
 if (!mysql_query($sql)) {
 $merror = mysql_errno($link);

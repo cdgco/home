@@ -39,6 +39,8 @@ img {
 }
 .filter {
     -webkit-filter: brightness(80%);}
+.lightfilter {
+    -webkit-filter: brightness(90%);}
 .spotify {
     -ms-zoom: 0.96;
     -moz-transform: scale(0.96);

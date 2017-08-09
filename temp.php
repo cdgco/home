@@ -2,7 +2,9 @@
 
 $temp = $_POST['temp'];
 
-$sql = "UPDATE `members` SET `temp` = '$temp' WHERE `memberID` = '$memid'";
+$sql = sprintf("UPDATE `members` SET `temp` = '%s' WHERE `memberID` = '%s'",
+            mysql_real_escape_string($temp),
+            mysql_real_escape_string($memid));
 
 if (!mysql_query($sql)) {
     $merror = mysql_errno($link);

@@ -82,7 +82,9 @@ require('includes/dbconnect.php');
                                     <h3>Page Refresh Rate: 
                                         <?php 
 
-                                        $res=mysql_query("SELECT refreshname FROM members WHERE memberID = '$memid'");
+                                        $sql = sprintf("SELECT refreshname FROM members WHERE memberID = '%s'",
+                                                    mysql_real_escape_string($memid));
+                                        $res=mysql_query($sql);
                                         $userRow=mysql_fetch_row($res);
 
                                         print_r($userRow[0]);
@@ -107,7 +109,9 @@ require('includes/dbconnect.php');
                                     <h3>Current Style: 
                                         <?php 
 
-                                          $res=mysql_query("SELECT style FROM members WHERE memberID = '$memid'");
+                                          $sql = sprintf("SELECT style FROM members WHERE memberID = '%s'",
+                                                    mysql_real_escape_string($memid));
+                                          $res=mysql_query($sql);
                                           $userRow=mysql_fetch_row($res);
                                           $style1 = $userRow[0];
 
@@ -130,7 +134,9 @@ require('includes/dbconnect.php');
                                     <h3>Current Clock Format: 
                                         <?php 
 
-                                          $res=mysql_query("SELECT clockname FROM members WHERE memberID = '$memid'");
+                                          $sql = sprintf("SELECT clockname FROM members WHERE memberID = '%s'",
+                                                    mysql_real_escape_string($memid));
+                                          $res=mysql_query($sql);
                                           $userRow=mysql_fetch_row($res);
 
                                           print_r($userRow[0]);
@@ -150,7 +156,9 @@ require('includes/dbconnect.php');
                                     <h3>Current Temperature Format: 
                                         <?php 
 
-                                            $res=mysql_query("SELECT temp FROM members WHERE memberID = '$memid'");
+                                            $sql = sprintf("SELECT temp FROM members WHERE memberID = '%s'",
+                                                    mysql_real_escape_string($memid));
+                                            $res=mysql_query($sql);
                                             $userRow=mysql_fetch_row($res);
                                             $temp1 = $userRow[0];
 
@@ -171,7 +179,9 @@ require('includes/dbconnect.php');
                                     <hr>
                                     <h3>Gmail Integration: <?php 
 
-                                          $res=mysql_query("SELECT gmail FROM members WHERE memberID = '$memid'");
+                                          $sql = sprintf("SELECT gmail FROM members WHERE memberID ='%s'",
+                                                  mysql_real_escape_string($memid));
+                                          $res=mysql_query($sql);
                                           $userRow=mysql_fetch_row($res);
                                           $gstat = $userRow[0];
 
@@ -181,33 +191,16 @@ require('includes/dbconnect.php');
                                     <hr>
                                     <h4 id="email">Connect Gmail Account (Authorize Here Once, Quick-Login From Front Page):</h4>
                                     <?php 
-
-                                        $res=mysql_query("SELECT tstat FROM members WHERE memberID = '$memid'");
+                                        $sql = sprintf("SELECT tstat FROM members WHERE memberID = '%s'",
+                                                  mysql_real_escape_string($memid));
+                                        $res=mysql_query($sql);
                                         $userRow=mysql_fetch_row($res);
                                         $tstat = $userRow[0];
 
                                         if ($gstat == "no") { echo '<form action="' . DIR . 'includes/gmail.php"><input id="red" style="color:white;width: 100%;padding: 14px 20px;margin: 8px 0;border: none;border-radius: 4px;cursor: pointer;color:#ffffff; font-weight:bold; background-color:#4285F4;" type="submit" value="Login with Google" /></form>'; }
                                         if ($gstat == "yes") { echo '<form action="' . DIR . 'disconnect.php"><input id="red" style="width: 100%;color:white;padding: 14px 20px;margin: 8px 0;border: none;border-radius: 4px;cursor: pointer;background-color: #e74c3c;" type="submit" value="Disconnect" /></form>'; }
                                     ?>
-                                        <hr>
-                                        <h3>Account Email Address: 
-                                            <?php 
-
-                                                $res=mysql_query("SELECT email FROM members WHERE memberID = '$memid'");
-                                                $userRow=mysql_fetch_row($res);
-
-                                                print_r($userRow[0]);
-                                            ?>
-                                        </h3>
-                                        <hr>
-                                        <h4>Change Account Email:</h4>
-                                        <form action="<?php echo DIR ?>email.php" method="post">
-                                            <input type="email" class="form-control" name="changeemail"></input>
-                                            <br>
-                                            <br>
-                                            <button type="submit" class="btn btn-primary">Change</button>
-                                        </form>
-                                        <br>
+<br>
                                         <br> </div>
                             </div>
                         </div>
@@ -219,17 +212,6 @@ require('includes/dbconnect.php');
             <script src="js/jquery-1.11.1.min.js"></script>
             <script src="js/bootstrap.min.js"></script>
             <script src="js/custom.js"></script>
-            <script>
-                window.onload = function () {
-                    var chart1 = document.getElementById("line-chart").getContext("2d");
-                    window.myLine = new Chart(chart1).Line(lineChartData, {
-                        responsive: true
-                        , scaleLineColor: "rgba(0,0,0,.2)"
-                        , scaleGridLineColor: "rgba(0,0,0,.05)"
-                        , scaleFontColor: "#c5c7cc"
-                    });
-                };
-            </script>
     </body>
 
     </html>

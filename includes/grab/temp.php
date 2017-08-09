@@ -1,5 +1,3 @@
-	
-
 <?php
 
 if (!$user->is_logged_in()) {
@@ -8,7 +6,10 @@ if (!$user->is_logged_in()) {
 else {
 	require ('includes/dbconnect.php');
 
-	$res = mysql_query("SELECT temp FROM members WHERE memberID = '$memid'");
+        $sql = sprintf("SELECT temp FROM members WHERE memberID = '%s'",
+                  mysql_real_escape_string($memid));
+        $res=mysql_query($sql);
+
 	$userRow = mysql_fetch_row($res);
 	$resulttemp = $userRow[0];
 	if ($resulttemp == "f") {
