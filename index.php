@@ -210,8 +210,7 @@ require( 'includes/vars.php');
                 </span>      
             </a>
             
-            <form id="notes" target="transFrame" method="post" action="notesave.php">
-            <span class="tile tile-lg tile-sqr tile-cyan lightfilter">
+            <form class="tile tile-lg tile-sqr tile-cyan lightfilter" id="notes" target="transFrame" method="post" action="notesave.php">
                 <span>
                     <span>
                             <div class=notepad>
@@ -236,7 +235,6 @@ require( 'includes/vars.php');
 
                     </span>      
                 </span>
-            </span>
             <?php
 
             if(!$user->is_logged_in()){} 
