@@ -1369,7 +1369,7 @@ img {
     color: #eceff1;
 }
 .switch input:checked~.toggle {
-    left: 4px;
+    left: 2px;
 }
 .switch input~:checked~.toggle {
     left: 50px;
