@@ -1362,7 +1362,7 @@ body {
     color: #4c4c4c;
 }
 .switch input:checked~.toggle {
-    left: 4px;
+    left: 2px;
 }
 .switch input~:checked~.toggle {
     left: 50px;
