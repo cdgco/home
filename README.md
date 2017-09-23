@@ -6,7 +6,7 @@
 • Custom Timer<sup>1</sup><br>
 • Current Weather & Location<br>
 • Gmail Inbox Integration<br>
-• Spotify Integration / Controller<br>
+• Spotify Integration / Controller<br> 
 • Live Customizable News<br>
 • Day & Night Modes<br>
 • Custom Background Images<br>
