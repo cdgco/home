@@ -2,7 +2,7 @@
 • Stock Ticker<br>
 • Clock & Date<br>
 • Notepad<br>
-• Calendar<br>
+• Calendar<br> 
 • Custom Timer<sup>1</sup><br>
 • Current Weather & Location<br>
 • Gmail Inbox Integration<br>
