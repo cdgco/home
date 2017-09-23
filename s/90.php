@@ -37,23 +37,26 @@
 </style>
     <script>
     function checkScale() {
-            if (window.outerWidth > 1650) {
-                window.location = "../index.php";
-            }
-            if (window.outerWidth > 1350 && window.outerWidth <= 1550) {
+            if (window.innerHeight > 750 && window.innerHeight <= 840) {
                 window.location = "80.php";
             }
-            if (window.outerWidth > 1250 && window.outerWidth <= 1350) {
+            if (window.innerHeight > 700 && window.innerHeight <= 750) {
                 window.location = "75.php";
             }
-            if (window.outerWidth > 1140 && window.outerWidth <= 1250) {
+            if (window.innerHeight > 620 && window.innerHeight <= 700) {
                 window.location = "67.php";
             }
-            if (window.outerWidth > 1000 && window.outerWidth <= 1140) {
+            if (window.innerHeight > 560 && window.innerHeight <= 620) {
                 window.location = "60.php";
             }
-            if (window.outerWidth <= 1000) {
+            if (window.innerHeight > 920 || window.outerWidth > 1650) {
+                window.location = "../index.php";
+            }
+            if (window.innerHeight <= 560) {
                 window.location = "../mobile";
+            }
+            if (window.outerWidth <= 1550) {
+                document.getElementById('filtertoggle').style.display = 'none';
             }
     }
     window.onload = checkScale;

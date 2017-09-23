@@ -1,70 +1,121 @@
-<!DOCTYPE HTML>
 <html>
+    <head>
+	<meta charset="utf-8">
+        <meta name="description" content="The description should optimally be between 150-160 characters.">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Madeon08">
+        <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
+        <link rel="manifest" href="../favicon/manifest.json">
+        <link rel="mask-icon" href="../favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="../favicon/favicon.ico">
+        <meta name="msapplication-config" content="../favicon/browserconfig.xml">
+        <meta name="theme-color" content="#f5f5f5">
+        <title>CDG Home</title>
+        
+        <!-- ============== Resources style ============== -->
+        <link rel="stylesheet" href="../css/mobile.css" />
 
-<head>
-    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
-    <link rel="manifest" href="../favicon/manifest.json">
-    <link rel="mask-icon" href="../favicon/safari-pinned-tab.svg" color="#5bbad5">
-    <link rel="shortcut icon" href="../favicon/favicon.ico">
-    <meta name="msapplication-config" content="../favicon/browserconfig.xml">
-    <meta name="theme-color" content="#f5f5f5">
-    <title>CDG Home</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <script>
-    function checkScale() {
-        if (self == top) {
-            if (window.outerWidth > 1650) {
-                window.location = "../index.php";
-            }
-            if (window.outerWidth > 1550 && window.outerWidth <= 1650) {
+		<!-- Modernizr runs quickly on page load to detect features -->
+		<script src="../js/modernizr.js"></script>
+        <script>
+        function checkScale() {
+            if (self == top) {
+            if (window.innerHeight > 840 && window.innerHeight <= 920) {
                 window.location = "../s/90.php";
             }
-            if (window.outerWidth > 1350 && window.outerWidth <= 1550) {
+            if (window.innerHeight > 750 && window.innerHeight <= 840) {
                 window.location = "../s/80.php";
             }
-            if (window.outerWidth > 1250 && window.outerWidth <= 1350) {
+            if (window.innerHeight > 700 && window.innerHeight <= 750) {
                 window.location = "../s/75.php";
             }
-            if (window.outerWidth > 1140 && window.outerWidth <= 1250) {
+            if (window.innerHeight > 620 && window.innerHeight <= 700) {
                 window.location = "../s/67.php";
             }
-            if (window.outerWidth > 1000 && window.outerWidth <= 1140) {
+            if (window.innerHeight > 560 && window.innerHeight <= 620) {
                 window.location = "../s/60.php";
             }
+            if (window.innerHeight > 920 || window.outerWidth > 1650) {
+                window.location = "../index.php";
+            }
+            }
         }
-    }
-    window.onload = checkScale;
-    window.onresize = checkScale;
+        window.onload = checkScale;
+        window.onresize = checkScale;
         
-    </script>
-</head>
+        </script>
+	</head>
+	
+	<body id="top">
 
-<body id="top">
+		<!-- Page preloader -->
+		<div id="loading">
+			<div id="preloader">
+				<span></span>
+				<span></span>
+                <br>
+			</div>
+		</div>
 
-    <!-- Header -->
-    <header id="header" style="height:100vh;">
-        <div class="content">
-            <h1><a href="#">CDG Home</a></h1>
-            <p>Please forgive the inconvenience:<br />Your screen size is not yet supported.</p>
+		<!-- Overlay and Star effect -->
+		<div class="global-overlay">
+			<div class="overlay skew-part">
 
-        </div>
+				<div id='stars'></div>
+				<div id='stars2'></div>
+				<div id='stars3'></div>
 
-    </header>
+			</div>
+		</div>
 
-    <footer id="footer">
-        <p class="copyright">&copy; 2017 Complex Design Groups, Co.</p>
-    </footer>
+		<!-- START - Home/Left Part -->
+		<section id="left-side">
 
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.scrolly.min.js"></script>
-    <script src="assets/js/skel.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
+			<div class="content">
 
-</body>
+				<h1 class="text-intro opacity-0">Oops...<br>
+					Unsupported Device!</h1>
+
+				<h2 class="text-intro opacity-0">We're working to develop our system for more compatibility, but your screen size is currently unsupported by CDG Home.</h2>
+
+				<nav>
+					<ul>
+						<li>
+							<a href="http://support.cdg.x10host.com/" class="light-btn text-intro opacity-0">Support</a>
+						</li>
+						<li>
+							<a href="https://github.com/cdgco/home" class="action-btn trigger text-intro opacity-0">Github Project</a>
+						</li>
+					</ul>
+				</nav>
+
+			</div>
+
+		</section>
+		<!-- END - Home/Left Part -->
+
+
+	<!-- ///////////////////\\\\\\\\\\\\\\\\\\\ -->
+    <!-- ********** Resources jQuery ********** -->
+    <!-- \\\\\\\\\\\\\\\\\\\/////////////////// -->
+	
+	<!-- * Libraries jQuery, Easing and Bootstrap - Be careful to not remove them * -->
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+	
+        <script src="../js/bootstrap.min.js"></script>
+
+	<!-- Accelerated JavaScript animation JS file -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.min.js" integrity="sha256-XOkvENCTDgs9zjRnsRHbQijsQp45RKAbb8wsMR3VcsQ=" crossorigin="anonymous"></script>
+
+	<!-- Accelerated JavaScript animation UI JS file -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.ui.min.js" integrity="sha256-wDASuom6tG2Y97FEJuZU8GWLOpLqeR4WgyOt42cCX9g=" crossorigin="anonymous"></script>
+
+	<!-- Main JS File -->
+	<script src="../js/mobile.js"></script>
+	
+
+	</body>
 
 </html>

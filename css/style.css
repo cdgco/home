@@ -43,6 +43,15 @@ body {
     -webkit-transform: scale(0.96);
     -webkit-transform-origin: 0 0;
 }
+.calendar {
+    -ms-zoom: 0.806;
+    -moz-transform: scale(0.806);
+    -moz-transform-origin: 0 0;
+    -o-transform: scale(0.806);
+    -o-transform-origin: 0 0;
+    -webkit-transform: scale(0.806);
+    -webkit-transform-origin: 0 0;
+}
 /* -- Google typography ------------------------------- */
 
 .title {
@@ -1362,7 +1371,7 @@ body {
     color: #4c4c4c;
 }
 .switch input:checked~.toggle {
-    left: 2px;
+    left: 4px;
 }
 .switch input~:checked~.toggle {
     left: 50px;

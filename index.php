@@ -8,7 +8,6 @@ require( 'includes/vars.php');
 ?>
 <!DOCTYPE html>
 <html>
-
     <head>
     
         <meta charset="UTF-8">
@@ -67,22 +66,27 @@ require( 'includes/vars.php');
         left: 0px;
         bottom: 0px;
         right: 0px;
-        width: 200%;
-        height: 200%;
+        width: 250%;
+        height: 250%;
         border: none;
         margin: 0;
         padding: 0;
         overflow: hidden;
         z-index: 999999;
 
-        -ms-zoom: 0.5;
-        -moz-transform: scale(0.5);
+        -ms-zoom: 0.4;
+        -moz-transform: scale(0.4);
         -moz-transform-origin: 0 0;
-        -o-transform: scale(0.5);
+        -o-transform: scale(0.4);
         -o-transform-origin: 0 0;
-        -webkit-transform: scale(0.5);
+        -webkit-transform: scale(0.4);
         -webkit-transform-origin: 0 0;
     }
+@media screen and (max-width: 1650px) {
+    .container {
+        display: none !important;
+    }
+}
         </style>
         
         <script src="js/modernizr.js" type="text/javascript"></script>
@@ -92,50 +96,54 @@ require( 'includes/vars.php');
         <script src="js/jquery.rss.min.js"></script>
         
         <script>
-        if (self == top) {
-            if (window.outerWidth > 1550 && window.outerWidth <= 1650) {
+setTimeout(console.log.bind(console, '%cSTOP!', 'color: RED;font-size: 70px;font-weight:bold;text-shadow: 1px 1px 5px grey;'), 0);
+setTimeout(console.log.bind(console, '%cThis is a browser feature intended for developers. If you do not know what you are doing, do not continue.', 'color: dimgrey;font-size: 35px;font-weight:bold;'), 0);
+        
+
+ if (self == top) {
+            if (window.innerHeight > 840 && window.innerHeight <= 920) {
                 window.location = "s/90.php";
             }
-            if (window.outerWidth > 1350 && window.outerWidth <= 1550) {
+            if (window.innerHeight > 750 && window.innerHeight <= 840) {
                 window.location = "s/80.php";
             }
-            if (window.outerWidth > 1250 && window.outerWidth <= 1350) {
+            if (window.innerHeight > 700 && window.innerHeight <= 750) {
                 window.location = "s/75.php";
             }
-            if (window.outerWidth > 1140 && window.outerWidth <= 1250) {
+            if (window.innerHeight > 620 && window.innerHeight <= 700) {
                 window.location = "s/67.php";
             }
-            if (window.outerWidth > 1000 && window.outerWidth <= 1140) {
+            if (window.innerHeight > 560 && window.innerHeight <= 620) {
                 window.location = "s/60.php";
             }
-            if (window.outerWidth <= 1000) {
+            if (window.innerHeight <= 560) {
                 window.location = "mobile";
             }
         }
 
-        function checkScale() {
+    function checkScale() {
         if (self == top) {
-            if (window.outerWidth > 1550 && window.outerWidth <= 1650) {
+            if (window.innerHeight > 840 && window.innerHeight <= 920) {
                 window.location = "s/90.php";
             }
-            if (window.outerWidth > 1350 && window.outerWidth <= 1550) {
+            if (window.innerHeight > 750 && window.innerHeight <= 840) {
                 window.location = "s/80.php";
             }
-            if (window.outerWidth > 1250 && window.outerWidth <= 1350) {
+            if (window.innerHeight > 700 && window.innerHeight <= 750) {
                 window.location = "s/75.php";
             }
-            if (window.outerWidth > 1140 && window.outerWidth <= 1250) {
+            if (window.innerHeight > 620 && window.innerHeight <= 700) {
                 window.location = "s/67.php";
             }
-            if (window.outerWidth > 1000 && window.outerWidth <= 1140) {
+            if (window.innerHeight > 560 && window.innerHeight <= 620) {
                 window.location = "s/60.php";
             }
-            if (window.outerWidth <= 1000) {
+            if (window.innerHeight <= 560) {
                 window.location = "mobile";
             }
         }
-        }
-        window.onresize = checkScale;
+    }
+    window.onresize = checkScale;
 
         jQuery(function($) {
             $("#rss-feeds").rss("<?php require( 'includes/grab/rss.php'); ?>", {
@@ -154,7 +162,7 @@ require( 'includes/vars.php');
             <script  src="http://widgets.macroaxis.com/widgets/url.jsp?t=42<?php require( 'includes/grab/stock.php'); ?>" style="overflow:hidden"></script>
         </div><br><br><br><br>
 
-        <div class="container">
+        <div id="filtertoggle" class="container">
             <div class="switch white">
                 <?php require( 'includes/grab/light.php'); ?>
                 <label>Day</label>
@@ -196,7 +204,7 @@ require( 'includes/vars.php');
                         <span class="tile-content">
                             <center><br><br>
                                 <span class="title" style="font-size:80px;"><div id="time"></div></span>
-                                <span class="title"><?php echo date("l F j Y") . "<br>"; ?></span>
+                                <span class="title" style="font-size:35px;"><?php echo date("l F j Y") . "<br>"; ?></span>
                             </center>
                             <span class="tile-holder tile-holder-sm"></span>
                         </span>      
@@ -250,7 +258,7 @@ require( 'includes/vars.php');
                 <span>
                     <span>
                         <center>
-                            <iframe class="calendar" src="includes/calendar.html" frameborder="0" style="margin:5px;" height="240" width="240" allowtransparency="true"></iframe>
+                            <iframe class="calendar" src="includes/calendar.html" frameborder="0" style="margin:7px;" height="320" width="320" allowtransparency="true"></iframe>
                         </center>
 
                         <span class="tile-holder tile-holder-sm">
@@ -338,14 +346,13 @@ require( 'includes/vars.php');
 
         <script>
         var form = document.getElementById("notes");
-
-        document.getElementById("notesimg").addEventListener("click", function () {
-          form.submit();
-        });
+        var notesimg = document.getElementById("notesimg");
+        notesimg.onclick = function(){form.submit();}
 
         $.get("https://ipinfo.io", function (response) {
           var state = response.region;
           getStateAbbr(state);
+
         }, "jsonp");
 
         var states = {
