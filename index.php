@@ -116,7 +116,7 @@ setTimeout(console.log.bind(console, '%cThis is a browser feature intended for d
             if (window.innerHeight > 560 && window.innerHeight <= 620) {
                 window.location = "s/60.php";
             }
-            if (window.innerHeight <= 560) {
+            if (window.innerHeight <= 560 || window.outerWidth <= 1000) {
                 window.location = "mobile";
             }
         }
@@ -138,7 +138,7 @@ setTimeout(console.log.bind(console, '%cThis is a browser feature intended for d
             if (window.innerHeight > 560 && window.innerHeight <= 620) {
                 window.location = "s/60.php";
             }
-            if (window.innerHeight <= 560) {
+            if (window.innerHeight <= 560 || window.outerWidth <= 1000) {
                 window.location = "mobile";
             }
         }

@@ -22,24 +22,26 @@
         <script>
         function checkScale() {
             if (self == top) {
-            if (window.innerHeight > 840 && window.innerHeight <= 920) {
-                window.location = "../s/90.php";
-            }
-            if (window.innerHeight > 750 && window.innerHeight <= 840) {
-                window.location = "../s/80.php";
-            }
-            if (window.innerHeight > 700 && window.innerHeight <= 750) {
-                window.location = "../s/75.php";
-            }
-            if (window.innerHeight > 620 && window.innerHeight <= 700) {
-                window.location = "../s/67.php";
-            }
-            if (window.innerHeight > 560 && window.innerHeight <= 620) {
-                window.location = "../s/60.php";
-            }
-            if (window.innerHeight > 920 || window.outerWidth > 1650) {
-                window.location = "../index.php";
-            }
+                if (window.outerWidth > 1000) {
+                    if (window.innerHeight > 840 && window.innerHeight <= 920) {
+                        window.location = "../s/90.php";
+                    }
+                    if (window.innerHeight > 750 && window.innerHeight <= 840) {
+                        window.location = "../s/80.php";
+                    }
+                    if (window.innerHeight > 700 && window.innerHeight <= 750) {
+                        window.location = "../s/75.php";
+                    }
+                    if (window.innerHeight > 620 && window.innerHeight <= 700) {
+                        window.location = "../s/67.php";
+                    }
+                    if (window.innerHeight > 560 && window.innerHeight <= 620) {
+                        window.location = "../s/60.php";
+                    }
+                    if (window.innerHeight > 920 || window.outerWidth > 1650) {
+                         window.location = "../index.php";
+                    }
+                }
             }
         }
         window.onload = checkScale;

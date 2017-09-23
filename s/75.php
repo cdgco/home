@@ -38,6 +38,7 @@
     <script>
 
     function checkScale() {
+if (window.outerWidth < 1000){ 
             if (window.innerHeight > 840 && window.innerHeight <= 920) {
                 window.location = "90.php";
             }
@@ -53,10 +54,12 @@
             if (window.innerHeight > 920 || window.outerWidth > 1650) {
                 window.location = "../index.php";
             }
-            if (window.innerHeight <= 560) {
+            }
+            if (window.innerHeight <= 560 || window.outerWidth < 1000) {
                 window.location = "../mobile";
             }
         }
+
     window.onload = checkScale;
     window.onresize = checkScale;
        
