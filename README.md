@@ -3,7 +3,7 @@
 • Clock & Date<br>
 • Notepad<br>
 • Calendar<br> 
-• Custom Timer<sup>1</sup><br>
+• Custom Timer (Coming Soon)<br>
 • Current Weather & Location<br>
 • Gmail Inbox Integration<br>
 • Spotify Integration / Controller<br> 
@@ -13,7 +13,6 @@
 • Extensive Settings With Changeable Units, Formats & Options<br>
 • Beautiful Scaleable UI<br><br>
 
-<sup>1</sup> Timer Coming Soon<br><br>
 ![Day](https://raw.githubusercontent.com/cdgco/home/master/img/day.png)<br><br>
 ![Custom](https://raw.githubusercontent.com/cdgco/home/master/img/custom.png)<br><br>
 ![Night](https://raw.githubusercontent.com/cdgco/home/master/img/night.png)
