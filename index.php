@@ -27,7 +27,6 @@ require( 'includes/vars.php');
         <link rel="shortcut icon" href="favicon/favicon.ico">
 
         <link rel="stylesheet" href="css/normalize.min.css">
-        <link rel="stylesheet" href="css/home.css">
         <link id="style1" rel="stylesheet" href="css/<?php require( 'includes/grab/light3.php'); ?>.css">
 
         <style>
@@ -60,91 +59,15 @@ require( 'includes/vars.php');
             } ?>
             background-size: cover;
             }
-   .calendar iframe {
-        position: fixed;
-        top: 0px;
-        left: 0px;
-        bottom: 0px;
-        right: 0px;
-        width: 250%;
-        height: 250%;
-        border: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        z-index: 999999;
-
-        -ms-zoom: 0.4;
-        -moz-transform: scale(0.4);
-        -moz-transform-origin: 0 0;
-        -o-transform: scale(0.4);
-        -o-transform-origin: 0 0;
-        -webkit-transform: scale(0.4);
-        -webkit-transform-origin: 0 0;
-    }
-@media screen and (max-width: 1650px) {
-    .container {
-        display: none !important;
-    }
-}
         </style>
         
+        <script src="js/first.js"></script>
         <script src="js/modernizr.js" type="text/javascript"></script>
         <script src="js/jquery.min.js"></script>
         <script src="js/jquery-1.6.4.min.js"></script>
         <script src="js/moment.min.js"></script>
         <script src="js/jquery.rss.min.js"></script>
-        
         <script>
-setTimeout(console.log.bind(console, '%cSTOP!', 'color: RED;font-size: 70px;font-weight:bold;text-shadow: 1px 1px 5px grey;'), 0);
-setTimeout(console.log.bind(console, '%cThis is a browser feature intended for developers. If you do not know what you are doing, do not continue.', 'color: dimgrey;font-size: 35px;font-weight:bold;'), 0);
-        
-
- if (self == top) {
-            if (window.innerHeight > 840 && window.innerHeight <= 920) {
-                window.location = "s/90.php";
-            }
-            if (window.innerHeight > 750 && window.innerHeight <= 840) {
-                window.location = "s/80.php";
-            }
-            if (window.innerHeight > 700 && window.innerHeight <= 750) {
-                window.location = "s/75.php";
-            }
-            if (window.innerHeight > 620 && window.innerHeight <= 700) {
-                window.location = "s/67.php";
-            }
-            if (window.innerHeight > 560 && window.innerHeight <= 620) {
-                window.location = "s/60.php";
-            }
-            if (window.innerHeight <= 560 || window.outerWidth <= 1000) {
-                window.location = "mobile";
-            }
-        }
-
-    function checkScale() {
-        if (self == top) {
-            if (window.innerHeight > 840 && window.innerHeight <= 920) {
-                window.location = "s/90.php";
-            }
-            if (window.innerHeight > 750 && window.innerHeight <= 840) {
-                window.location = "s/80.php";
-            }
-            if (window.innerHeight > 700 && window.innerHeight <= 750) {
-                window.location = "s/75.php";
-            }
-            if (window.innerHeight > 620 && window.innerHeight <= 700) {
-                window.location = "s/67.php";
-            }
-            if (window.innerHeight > 560 && window.innerHeight <= 620) {
-                window.location = "s/60.php";
-            }
-            if (window.innerHeight <= 560 || window.outerWidth <= 1000) {
-                window.location = "mobile";
-            }
-        }
-    }
-    window.onresize = checkScale;
-
         jQuery(function($) {
             $("#rss-feeds").rss("<?php require( 'includes/grab/rss.php'); ?>", {
                 entryTemplate: '<a style="text-decoration: none; color:white;" href="{url}">{title}</a><br><br><br><br>',
@@ -269,17 +192,18 @@ setTimeout(console.log.bind(console, '%cThis is a browser feature intended for d
             </a>
 
             <span class="tile tile-lg tile-light-blue ripple-effect" >
+            <section class="loaders"><span class="loader loader-quart"> </span> Loading...</section>
                 <span  class="content-wrapper">
                     <span class="tile-content">
                         <span class="tile-holder tile-holder-sm">
                             <span style="font-size:40px">
                                 <div style="text-align:center;">
-                                    <marquee behavior="scroll" direction="up" scrollamount="6.5" height="230" width="500">
+                                    <marquee class="scrollingtext" style="opacity:0;" behavior="scroll" direction="up" scrollamount="6.5" height="230" width="500">
                                         <p id="rss-feeds"></p>
                                     </marquee>
                                 </div>
                             </span>
-                            <span class="title">Recent News</span>
+                            <span style="display:none;" class="title marqueetitle">Recent News</span>
 
                         </span>
                     </span>      
@@ -345,77 +269,37 @@ setTimeout(console.log.bind(console, '%cThis is a browser feature intended for d
         </div>
 
         <script>
-        var form = document.getElementById("notes");
-        var notesimg = document.getElementById("notesimg");
-        notesimg.onclick = function(){form.submit();}
+$('.scrollingtext')
+  .delay(3600)
+  .queue(function (next) { 
+    $(this).css("opacity", "1"); 
+    next(); 
+  });
+$(function() {
+  $(".marqueetitle").delay(3250).fadeIn(500);
+});
+$(function() {
+  $(".loaders").delay(3200).fadeOut(500);
+});
+        <?php 
+            if (!$user->is_logged_in()) { 
+                echo ""; 
+            } 
+            else {
+                echo '        var form = document.getElementById("notes");'; 
+                echo "\n"; 
+                echo '        var notesimg = document.getElementById("notesimg");'; 
+                echo "\n"; 
+                echo '        notesimg.onclick = function(){form.submit();};'; 
+                echo "\n";
+            } 
+        ?>
 
         $.get("https://ipinfo.io", function (response) {
           var state = response.region;
           getStateAbbr(state);
 
         }, "jsonp");
-
-        var states = {
-          'Alabama': 'AL',
-          'Alaska': 'AK',
-          'American Samoa': 'AS',
-          'Arizona': 'AZ',
-          'Arkansas': 'AR',
-          'California': 'CA',
-          'Colorado': 'CO',
-          'Connecticut': 'CT',
-          'Delaware': 'DE',
-          'District Of Columbia': 'DC',
-          'Federated States Of Micronesia': 'FM',
-          'Florida': 'FL',
-          'Georgia': 'GA',
-          'Guam': 'GU',
-          'Hawaii': 'HI',
-          'Idaho': 'ID',
-          'Illinois': 'IL',
-          'Indiana': 'IN',
-          'Iowa': 'IA',
-          'Kansas': 'KS',
-          'Kentucky': 'KY',
-          'Louisiana': 'LA',
-          'Maine': 'ME',
-          'Marshall Islands': 'MH',
-          'Maryland': 'MD',
-          'Massachusetts': 'MA',
-          'Michigan': 'MI',
-          'Minnesota': 'MN',
-          'Mississippi': 'MS',
-          'Missouri': 'MO',
-          'Montana': 'MT',
-          'Nebraska': 'NE',
-          'Nevada': 'NV',
-          'New Hampshire': 'NH',
-          'New Jersey': 'NJ',
-          'New Mexico': 'NM',
-          'New York': 'NY',
-          'North Carolina': 'NC',
-          'North Dakota': 'ND',
-          'Northern Mariana Islands': 'MP',
-          'Ohio': 'OH',
-          'Oklahoma': 'OK',
-          'Oregon': 'OR',
-          'Palau': 'PW',
-          'Pennsylvania': 'PA',
-          'Puerto Rico': 'PR',
-          'Rhode Island': 'RI',
-          'South Carolina': 'SC',
-          'South Dakota': 'SD',
-          'Tennessee': 'TN',
-          'Texas': 'TX',
-          'Utah': 'UT',
-          'Vermont': 'VT',
-          'Virgin Islands': 'VI',
-          'Virginia': 'VA',
-          'Washington': 'WA',
-          'West Virginia': 'WV',
-          'Wisconsin': 'WI',
-          'Wyoming': 'WY'
-        }
 
         function getStateAbbr(name) {
           $("#state").html(states[name]);

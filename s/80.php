@@ -55,7 +55,7 @@
             }
             }
             if (window.innerHeight <= 560 || window.outerWidth < 1000) {
-                window.location = "../mobile";
+                window.location = "../mobile/";
             
             }
         }

@@ -63,7 +63,7 @@ $title = 'CDG Home - Reset Account';
 //include header template
 require('layout/header.php'); 
 ?>
-<link rel="stylesheet" href="css/main1.css">
+<link rel="stylesheet" href="css/login.css">
 <div class="container">
 
 	<div class="row">

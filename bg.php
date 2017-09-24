@@ -13,7 +13,7 @@ require('includes/dbconnect.php');
         <title>CDG Home - Custom Background</title>
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-        <link href="css/styles.css" rel="stylesheet">
+        <link href="css/cpanel.css" rel="stylesheet">
         <!--Custom Font-->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
         <!--[if lt IE 9]>
