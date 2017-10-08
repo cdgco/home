@@ -18,7 +18,7 @@
 ![Night](https://raw.githubusercontent.com/cdgco/home/master/img/night.png)
 
 ## Requirements
-• Web Server with PHP 5.5.X or above.<br>
+• Web Server with PHP 5.5.X (PHP 7 Not Yet Supported)<br>
 • MySQL Database with MySQL Event Scheduler enabled.<br>
 • Weather Underground API Key.<br>
 • Google reCAPTCHA Invisible API Key.<br>
@@ -68,4 +68,5 @@ Note 2: SSL will make stock ticker fail as MacroAxis SSL requires a paid license
 <s>6. Setup custom backgrounds in setting</s><br>
 <s>7. Change scaling system from screen width to window width</s><br>
 <s>8. Extensive SSL Support</s><br>
-9. Add new features to blank tiles<br>
+9. Add support for PHP 7<br>
+10. Add new features to blank tiles<br>
