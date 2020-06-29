@@ -1,6 +1,6 @@
 <?php
-if (!mysql_query($sql)) {
-    $merror = mysql_errno($link);
+if (!mysqli_query($link, $sql)) {
+    $merror = mysqli_errno($link);
     header("Location: account.php?s=e&e=$merror");
     die();
 } else {

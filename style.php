@@ -3,11 +3,11 @@
 $style = $_POST['style'];
 
 $sql = sprintf("UPDATE members SET style = '%s' WHERE memberID = '%s'",
-            mysql_real_escape_string($style),
-            mysql_real_escape_string($memid));
+            mysqli_real_escape_string($link, $style),
+            mysqli_real_escape_string($link, $memid));
 
-if (!mysql_query($sql)) {
-    $merror = mysql_errno($link);
+if (!mysqli_query($link, $sql)) {
+    $merror = mysqli_errno($link);
     header("Location: acpref.php?s=e&e=$merror#theme");
     die();
 } else {

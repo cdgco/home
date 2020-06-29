@@ -5,10 +5,10 @@ $stocks = $_POST['stocks'];
 if (isset($stocks)) {
 
 $sql = sprintf("UPDATE `members` SET `stocks` = '%s' WHERE `memberID` = '%s'",
-            mysql_real_escape_string($stocks),
-            mysql_real_escape_string($memid));
+            mysqli_real_escape_string($link, $stocks),
+            mysqli_real_escape_string($link, $memid));
 
-if (!mysql_query($sql)) {
+if (!mysqli_query($link, $sql)) {
     header("Location: accontent.php?s=e#stock");
 die(); 
 }
@@ -19,9 +19,9 @@ die(); }
 if (empty($stocks)) {
 
 $sql = sprintf("UPDATE `members` SET  `stocks` = NULL WHERE `memberID` = '%s'",
-            mysql_real_escape_string($memid));
+            mysqli_real_escape_string($link, $memid));
 
-if (!mysql_query($sql)) {
+if (!mysqli_query($link, $sql)) {
     header("Location: accontent.php?s=e#stock");
 die(); 
 }

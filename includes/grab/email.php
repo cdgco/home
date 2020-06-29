@@ -6,9 +6,9 @@ if (!$user->is_logged_in()) { echo '<br /><br /><img src="img/gmail.png" height=
 	require ('includes/dbconnect.php');
 
         $sql = sprintf("SELECT tstat FROM members WHERE memberID = '%s'",
-                  mysql_real_escape_string($memid));
-        $res=mysql_query($sql);
-	$userRow = mysql_fetch_row($res);
+                  mysqli_real_escape_string($link, $memid));
+        $res=mysqli_query($link, $sql);
+	$userRow = mysqli_fetch_row($res);
 	$resultstat = $userRow[0];
 	if ($resultstat == "y"){ echo '<br /><br /><br /><span class="title" id="unreademails" style="font-size:80px;"></span>'; }
 	else { echo '<br /><br /><img src="img/gmail.png" height="120">'; }
@@ -25,9 +25,9 @@ if (!$user->is_logged_in()) { echo '<span class="title">Email</span>'; }
 	require ('includes/dbconnect.php');
 
         $sql = sprintf("SELECT tstat FROM members WHERE memberID = '%s'",
-                  mysql_real_escape_string($memid));
-        $res=mysql_query($sql);
-	$userRow = mysql_fetch_row($res);
+                  mysqli_real_escape_string($link, $memid));
+        $res=mysqli_query($link, $sql);
+	$userRow = mysqli_fetch_row($res);
 	$resultstat = $userRow[0];
 
 	if ($resultstat == "y") { echo '<span style="font-size:35px;" class="title">Unread Emails</span>'; }

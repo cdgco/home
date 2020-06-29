@@ -83,25 +83,25 @@ require('includes/dbconnect.php');
                                         <?php 
  
                                         $sql = sprintf("SELECT CustomLocation FROM members WHERE memberID = '%s'",
-                                                  mysql_real_escape_string($memid));
-                                        $res=mysql_query($sql);
-                                        $userRow=mysql_fetch_row($res);
+                                                  mysqli_real_escape_string($link, $memid));
+                                        $res=mysqli_query($link, $sql);
+                                        $userRow=mysqli_fetch_row($res);
                                         $result1 = $userRow[0];
 
                                         if ($result1 == "N") {echo "Disabled";}
                                         else {echo "Enabled";
 
                                               $sql = sprintf("SELECT city FROM members WHERE memberID = '%s'",
-                                                        mysql_real_escape_string($memid));
-                                              $res=mysql_query($sql);
-                                              $userRow=mysql_fetch_row($res);
+                                                        mysqli_real_escape_string($link, $memid));
+                                              $res=mysqli_query($link, $sql);
+                                              $userRow=mysqli_fetch_row($res);
 
                                               print_r('&nbsp;-&nbsp;'.$userRow[0]);
 
                                               $sql = sprintf("SELECT state FROM members WHERE memberID = '%s'",
-                                                        mysql_real_escape_string($memid));
-                                              $res=mysql_query($sql);
-                                              $userRow=mysql_fetch_row($res);
+                                                        mysqli_real_escape_string($link, $memid));
+                                              $res=mysqli_query($link, $sql);
+                                              $userRow=mysqli_fetch_row($res);
 
                                               print_r(',&nbsp;'.$userRow[0]);}
 

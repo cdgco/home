@@ -83,9 +83,9 @@ require('includes/dbconnect.php');
                                         <?php 
 
                                         $sql = sprintf("SELECT refreshname FROM members WHERE memberID = '%s'",
-                                                    mysql_real_escape_string($memid));
-                                        $res=mysql_query($sql);
-                                        $userRow=mysql_fetch_row($res);
+                                                    mysqli_real_escape_string($link, $memid));
+                                        $res=mysqli_query($link, $sql);
+                                        $userRow=mysqli_fetch_row($res);
 
                                         print_r($userRow[0]);
                                         ?>
@@ -110,12 +110,12 @@ require('includes/dbconnect.php');
                                         <?php 
 
                                           $sql = sprintf("SELECT style FROM members WHERE memberID = '%s'",
-                                                    mysql_real_escape_string($memid));
-                                          $res=mysql_query($sql);
-                                          $userRow=mysql_fetch_row($res);
+                                                    mysqli_real_escape_string($link, $memid));
+                                          $res=mysqli_query($link, $sql);
+                                          $userRow=mysqli_fetch_row($res);
                                           $style1 = $userRow[0];
 
-                                          if ($style1 == l) { echo "Light Theme";}
+                                          if ($style1 == 'l') { echo "Light Theme";}
                                           else { echo "Dark Theme"; } 
 
                                         ?>
@@ -135,9 +135,9 @@ require('includes/dbconnect.php');
                                         <?php 
 
                                           $sql = sprintf("SELECT clockname FROM members WHERE memberID = '%s'",
-                                                    mysql_real_escape_string($memid));
-                                          $res=mysql_query($sql);
-                                          $userRow=mysql_fetch_row($res);
+                                                    mysqli_real_escape_string($link, $memid));
+                                          $res=mysqli_query($link, $sql);
+                                          $userRow=mysqli_fetch_row($res);
 
                                           print_r($userRow[0]);
                                         ?>
@@ -157,9 +157,9 @@ require('includes/dbconnect.php');
                                         <?php 
 
                                             $sql = sprintf("SELECT temp FROM members WHERE memberID = '%s'",
-                                                    mysql_real_escape_string($memid));
-                                            $res=mysql_query($sql);
-                                            $userRow=mysql_fetch_row($res);
+                                                    mysqli_real_escape_string($link, $memid));
+                                            $res=mysqli_query($link, $sql);
+                                            $userRow=mysqli_fetch_row($res);
                                             $temp1 = $userRow[0];
 
                                             if ($temp1 == "f") { echo "Fahrenheit"; }
@@ -180,9 +180,9 @@ require('includes/dbconnect.php');
                                     <h3>Gmail Integration: <?php 
 
                                           $sql = sprintf("SELECT gmail FROM members WHERE memberID ='%s'",
-                                                  mysql_real_escape_string($memid));
-                                          $res=mysql_query($sql);
-                                          $userRow=mysql_fetch_row($res);
+                                                  mysqli_real_escape_string($link, $memid));
+                                          $res=mysqli_query($link, $sql);
+                                          $userRow=mysqli_fetch_row($res);
                                           $gstat = $userRow[0];
 
                                           if ($gstat == "no") { echo "Disabled"; }
@@ -192,13 +192,13 @@ require('includes/dbconnect.php');
                                     <h4 id="email">Connect Gmail Account (Authorize Here Once, Quick-Login From Front Page):</h4>
                                     <?php 
                                         $sql = sprintf("SELECT tstat FROM members WHERE memberID = '%s'",
-                                                  mysql_real_escape_string($memid));
-                                        $res=mysql_query($sql);
-                                        $userRow=mysql_fetch_row($res);
+                                                  mysqli_real_escape_string($link, $memid));
+                                        $res=mysqli_query($link, $sql);
+                                        $userRow=mysqli_fetch_row($res);
                                         $tstat = $userRow[0];
 
-                                        if ($gstat == "no") { echo '<form action="' . DIR . 'includes/gmail.php"><input id="red" style="color:white;width: 100%;padding: 14px 20px;margin: 8px 0;border: none;border-radius: 4px;cursor: pointer;color:#ffffff; font-weight:bold; background-color:#4285F4;" type="submit" value="Login with Google" /></form>'; }
-                                        if ($gstat == "yes") { echo '<form action="' . DIR . 'disconnect.php"><input id="red" style="width: 100%;color:white;padding: 14px 20px;margin: 8px 0;border: none;border-radius: 4px;cursor: pointer;background-color: #e74c3c;" type="submit" value="Disconnect" /></form>'; }
+                                        if ($gstat == "no") { echo '<form action="includes/gmail.php"><input id="red" style="color:white;width: 100%;padding: 14px 20px;margin: 8px 0;border: none;border-radius: 4px;cursor: pointer;color:#ffffff; font-weight:bold; background-color:#4285F4;" type="submit" value="Login with Google" /></form>'; }
+                                        if ($gstat == "yes") { echo '<form action="disconnect.php"><input id="red" style="width: 100%;color:white;padding: 14px 20px;margin: 8px 0;border: none;border-radius: 4px;cursor: pointer;background-color: #e74c3c;" type="submit" value="Disconnect" /></form>'; }
                                     ?>
 <br>
                                         <br> </div>

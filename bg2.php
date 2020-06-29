@@ -3,10 +3,10 @@
 $bgurl = $_POST['bgurl'];
 
 $sql = sprintf("UPDATE `members` SET `bgurl` = '%s', `bg` = 'y' WHERE memberID = '%s'",
-            mysql_real_escape_string($bgurl),
-            mysql_real_escape_string($memid));
+            mysqli_real_escape_string($link, $bgurl),
+            mysqli_real_escape_string($link, $memid));
 
-if (!mysql_query($sql)) {
+if (!mysqli_query($link, $sql)) {
     header("Location: acbg.php?s=e");
 die(); 
 }

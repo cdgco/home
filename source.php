@@ -8,8 +8,8 @@ $result = $_POST['newsource'];
 $sql = "UPDATE `members` SET `newsource` = '$source', `sourcename` = '$sourcename' WHERE `memberID` = '$memid'";
 
 
-if (!mysql_query($sql)) {
-    $merror = mysql_errno($link);
+if (!mysqli_query($link, $sql)) {
+    $merror = mysqli_errno($link);
     header("Location: accontent.php?s=e&e=$merror#news");
     die();
 } else {

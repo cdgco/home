@@ -83,9 +83,9 @@ require('includes/dbconnect.php');
                                     <?php 
 
                                         $sql = sprintf("SELECT sourcename FROM members WHERE memberID = '%s'",
-                                                  mysql_real_escape_string($memid));
-                                        $res=mysql_query($sql);
-                                        $userRow=mysql_fetch_row($res);
+                                                  mysqli_real_escape_string($link, $memid));
+                                        $res=mysqli_query($link, $sql);
+                                        $userRow=mysqli_fetch_row($res);
 
                                         print_r($userRow[0]);
                                         ?>
@@ -148,9 +148,9 @@ require('includes/dbconnect.php');
                                         <input class="form-control" type="text" value="<?php 
 
                                             $sql = sprintf("SELECT spotify FROM members WHERE memberID='%s'",
-                                                      mysql_real_escape_string($memid));
-                                            $res=mysql_query($sql);
-                                            $userRow=mysql_fetch_row($res);
+                                                      mysqli_real_escape_string($link, $memid));
+                                            $res=mysqli_query($link, $sql);
+                                            $userRow=mysqli_fetch_row($res);
 
                                             print_r($userRow[0]);
                                         ?>" required name="spotify"></input>
@@ -159,9 +159,9 @@ require('includes/dbconnect.php');
                                         <input value="<?php 
 
                                                       $sql = sprintf("SELECT spotname FROM members WHERE memberID='%s'",
-                                                                mysql_real_escape_string($memid));
-                                                      $res=mysql_query($sql);
-                                                      $userRow=mysql_fetch_row($res);
+                                                                mysqli_real_escape_string($link, $memid));
+                                                      $res=mysqli_query($link, $sql);
+                                                      $userRow=mysqli_fetch_row($res);
 
                                                       print_r($userRow[0]);
                                                       ?>" class="form-control" type="text" required name="spotname"></input>
@@ -175,9 +175,9 @@ require('includes/dbconnect.php');
                                         <?php 
 
                                         $sql = sprintf("SELECT stocks FROM members WHERE memberID = '%s'",
-                                                  mysql_real_escape_string($memid));
-                                        $res=mysql_query($sql);
-                                        $userRow=mysql_fetch_row($res);
+                                                  mysqli_real_escape_string($link, $memid));
+                                        $res=mysqli_query($link, $sql);
+                                        $userRow=mysqli_fetch_row($res);
                                         $stock1 = $userRow[0];
 
                                         if (empty($stock1)) { echo "Disabled"; }
@@ -190,9 +190,9 @@ require('includes/dbconnect.php');
                                         <input class="form-control" type="text" pattern="^[a-zA-Z,]*$" title="Letters & Commas Only!" maxlength="500" name="stocks" style="width:570px" placeholder="Enter valid comma-seperated symbols to create new ticker. Ex:&nbsp;aapl,fb,vti,unh,ulta,amzn,googl" value="<?php 
 
                                         $sql = sprintf("SELECT stocks FROM members WHERE memberID= '%s'",
-                                                  mysql_real_escape_string($memid));
-                                        $res=mysql_query($sql);
-                                        $userRow=mysql_fetch_row($res);
+                                                  mysqli_real_escape_string($link, $memid));
+                                        $res=mysqli_query($link, $sql);
+                                        $userRow=mysqli_fetch_row($res);
                                         $stock2 = $userRow[0];
 
                                         if (empty($stock2))  { }

@@ -102,9 +102,9 @@ require('includes/dbconnect.php');
                                 <?php 
 
                                 $sql = sprintf("SELECT bg FROM members WHERE memberID = '%s'",
-                                         mysql_real_escape_string($memid));
-                                $res=mysql_query($sql);
-                                $userRow=mysql_fetch_row($res);
+                                         mysqli_real_escape_string($link, $memid));
+                                $res=mysqli_query($link, $sql);
+                                $userRow=mysqli_fetch_row($res);
                                 $bgstat = $userRow[0];
 
                                 if ($bgstat == "y") { 
@@ -131,9 +131,9 @@ require('includes/dbconnect.php');
             <?php 
 
                 $sql = sprintf("SELECT bgurl FROM members WHERE memberID = '%s'",
-                          mysql_real_escape_string($memid));
-                $res=mysql_query($sql);
-                $userRow=mysql_fetch_row($res);
+                          mysqli_real_escape_string($link, $memid));
+                $res=mysqli_query($link, $sql);
+                $userRow=mysqli_fetch_row($res);
                 $bg = $userRow[0];
 
                 if ($bgstat == "y") { 

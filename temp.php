@@ -3,11 +3,11 @@
 $temp = $_POST['temp'];
 
 $sql = sprintf("UPDATE `members` SET `temp` = '%s' WHERE `memberID` = '%s'",
-            mysql_real_escape_string($temp),
-            mysql_real_escape_string($memid));
+            mysqli_real_escape_string($link, $temp),
+            mysqli_real_escape_string($link, $memid));
 
-if (!mysql_query($sql)) {
-    $merror = mysql_errno($link);
+if (!mysqli_query($link, $sql)) {
+    $merror = mysqli_errno($link);
     header("Location: acpref.php?s=e&e=$merror#temp");
     die();
 } else {

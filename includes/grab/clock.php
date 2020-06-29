@@ -6,9 +6,9 @@ if (!$user->is_logged_in()) { echo "12"; }
 	require ('includes/dbconnect.php');
 
         $sql = sprintf("SELECT clock FROM members WHERE memberID = '%s'",
-                  mysql_real_escape_string($memid));
-        $res=mysql_query($sql);
-	$userRow = mysql_fetch_row($res);
+                  mysqli_real_escape_string($link, $memid));
+        $res=mysqli_query($link, $sql);
+	$userRow = mysqli_fetch_row($res);
 	print_r($userRow[0]);
 	};
 ?>

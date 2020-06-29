@@ -6,12 +6,12 @@ $result = $_POST['rtime'];
             $refreshname = $result_explode[1];
 
 $sql = sprintf("UPDATE `members` SET `refresh` = '%s', `refreshname` = '%s' WHERE `memberID` = '%s'",
-            mysql_real_escape_string($refresh),
-            mysql_real_escape_string($refreshname),
-            mysql_real_escape_string($memid));
+            mysqli_real_escape_string($link, $refresh),
+            mysqli_real_escape_string($link, $refreshname),
+            mysqli_real_escape_string($link, $memid));
 
-if (!mysql_query($sql)) {
-    $merror = mysql_errno($link);
+if (!mysqli_query($link, $sql)) {
+    $merror = mysqli_errno($link);
     header("Location: acpref.php?s=e&e=$merror#refresh");
     die();
 } else {

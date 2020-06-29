@@ -7,9 +7,9 @@ if (!$user->is_logged_in()) { echo "style"; }
 	require ('includes/dbconnect.php');
 
         $sql = sprintf("SELECT style FROM members WHERE memberID = '%s'",
-                  mysql_real_escape_string($memid));
-        $res=mysql_query($sql);
-	$userRow = mysql_fetch_row($res);
+                  mysqli_real_escape_string($link, $memid));
+        $res=mysqli_query($link, $sql);
+	$userRow = mysqli_fetch_row($res);
 	$resulttemp = $userRow[0];
 
 	if ($resulttemp == "l") { echo "style"; }

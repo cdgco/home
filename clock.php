@@ -6,11 +6,11 @@ $result = $_POST['newclock'];
             $clockname = $result_explode[1];
 
 $sql = sprintf("UPDATE `members` SET `clock` = '%s', `clockname` = '%s' WHERE `memberID` = '%s'",
-            mysql_real_escape_string($clock),
-            mysql_real_escape_string($clockname),
-            mysql_real_escape_string($memid));
+            mysqli_real_escape_string($link, $clock),
+            mysqli_real_escape_string($link, $clockname),
+            mysqli_real_escape_string($link, $memid));
 
-if (!mysql_query($sql)) {
+if (!mysqli_query($link, $sql)) {
     $merror = mysql_errno($link);
     header("Location: acpref.php?s=e&e=$merror#clock");
     die();

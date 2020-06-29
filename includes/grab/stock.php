@@ -6,10 +6,10 @@ else  {
 	require ('includes/dbconnect.php');
 
         $sql = sprintf("SELECT stocks FROM members WHERE memberID = '%s'",
-                  mysql_real_escape_string($memid));
-        $res=mysql_query($sql);
+                  mysqli_real_escape_string($link, $memid));
+        $res=mysqli_query($link, $sql);
 
-	$userRow = mysql_fetch_row($res);
+	$userRow = mysqli_fetch_row($res);
 	$stocks = $userRow[0];
 
 	if (empty($stocks)) {}

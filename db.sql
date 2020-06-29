@@ -29,7 +29,8 @@ CREATE TABLE IF NOT EXISTS `members` (
   `bgurl` varchar(255) DEFAULT NULL,
   `refresh` int(7) NOT NULL DEFAULT '300000',
   `refreshname` varchar(10) NOT NULL DEFAULT '5 Minutes',
+  `notes` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`memberID`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=37 ;
 
--- (C) 2017 Complex Design Groups, Co.
+-- (C) Copyright 2020 Carter Roeser -- 

@@ -3,16 +3,10 @@
 require('config.php');
 require('grab/cookies.php');
 
-$link = mysql_connect(DBHOST, DBUSER, DBPASS);
+$link = mysqli_connect(DBHOST, DBUSER, DBPASS, DBNAME);
 
 if (!$link) {
-    dir('There was a problem when trying to connect to the host. Please contact Tech Support. Error: ' . mysql_error());    
-}
-
-$db_selected = mysql_select_db(DBNAME, $link);
-
-if (!$link) {
-    dir('There was a problem when trying to connect to the database. Please contact Tech Support. Error: ' . mysql_error());    
+    dir('There was a problem when trying to connect to the MySQL Database. Please contact Tech Support. Error: ' . mysqli_error($link));    
 }
 
 ?>

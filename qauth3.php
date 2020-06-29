@@ -7,10 +7,10 @@ function generateRandomString($length = 5) {
 $eventname = generateRandomString();
 
 $sql = sprintf("CREATE EVENT expiration_$eventname ON SCHEDULE AT CURRENT_TIMESTAMP + INTERVAL 1 HOUR ON COMPLETION NOT PRESERVE ENABLE DO UPDATE members SET token = NULL, tstat = 'n' WHERE memberID = '%s'",
-            mysql_real_escape_string($memid));
+            mysqli_real_escape_string($link, $memid));
 
-if (!mysql_query($sql)) {
-$merror = mysql_errno($link);
+if (!mysqli_query($link, $sql)) {
+$merror = mysqli_errno($link);
     header("Location: acpref.php?s=e&e=$merror#gmail");
 die(); 
 }
