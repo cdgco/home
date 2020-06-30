@@ -92,7 +92,6 @@ function locationInfo() {
         jQuery(".cities option:gt(0)").remove();
         //get additional fields
         var stateClasses = jQuery('#stateId').attr('class');
-        console.log(stateClasses);
         var cC = stateClasses.split(" ");
         cC.shift();
         var addClasses = '';
